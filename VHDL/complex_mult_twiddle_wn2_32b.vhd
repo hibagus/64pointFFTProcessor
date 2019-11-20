@@ -1,0 +1,40 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY complex_mult_twiddle_wn2_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+			);
+END complex_mult_twiddle_wn2_32b;
+
+ARCHITECTURE structural OF complex_mult_twiddle_wn2_32b IS
+COMPONENT sgninv_16b IS
+	PORT	(
+				A16		:	IN	STD_LOGIC_VECTOR (15 DOWNTO 0);
+				R16		:	OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+				C_OUT16 :	OUT STD_LOGIC
+			);
+END COMPONENT;
+SIGNAL REAL_A32 : STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL REAL_R32 : STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL IMAG_A32 : STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL IMAG_R32 : STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL sgninvout: STD_LOGIC_VECTOR (15 DOWNTO 0);
+
+BEGIN
+	REAL_A32			<= A32(31 DOWNTO 16);
+	IMAG_A32			<= A32(15 DOWNTO 0);
+	REAL_R32			<= IMAG_A32;
+	IMAG_R32			<= sgninvout;
+	R32(31 DOWNTO 16) 	<= REAL_R32;
+	R32(15 DOWNTO 0)	<= IMAG_R32;
+	-- Port Map
+	sgninv :
+		sgninv_16b
+			PORT MAP (
+						A16	=>REAL_A32,
+						R16	=>sgninvout
+					);
+END structural;
+

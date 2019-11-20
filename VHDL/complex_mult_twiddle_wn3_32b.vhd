@@ -1,0 +1,102 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY complex_mult_twiddle_wn3_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+			);
+END complex_mult_twiddle_wn3_32b;
+
+ARCHITECTURE structural OF complex_mult_twiddle_wn3_32b IS
+COMPONENT const_mult_cla_16b_sqrtof2 IS
+	PORT	(
+				Data_In	:	IN	STD_LOGIC_VECTOR(15 DOWNTO 0);
+				Data_Out:	OUT	STD_LOGIC_VECTOR(15 DOWNTO 0)
+			);
+END COMPONENT;
+COMPONENT const_mult_cla_16b_halfsqrtof2 IS
+	PORT	(
+				Data_In	:	IN	STD_LOGIC_VECTOR(15 DOWNTO 0);
+				Data_Out:	OUT	STD_LOGIC_VECTOR(15 DOWNTO 0)
+			);
+END COMPONENT;
+COMPONENT subst_cla_16b IS
+	PORT	(
+				A16		:	IN	STD_LOGIC_VECTOR (15 DOWNTO 0);
+				B16		:	IN	STD_LOGIC_VECTOR (15 DOWNTO 0);
+				R16		:	OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+				C_OUT16	:	OUT STD_LOGIC
+			);
+END COMPONENT;
+COMPONENT sgninv_16b IS
+	PORT	(
+				A16		:	IN	STD_LOGIC_VECTOR (15 DOWNTO 0);
+				R16		:	OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+				C_OUT16 :	OUT STD_LOGIC
+			);
+END COMPONENT;
+SIGNAL REAL_A32 		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL REAL_R32 		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL IMAG_A32 		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL IMAG_R32 		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL MULT_0_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL HALFMULT_0_OUT	: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL SUBSTR_0_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL SUBSTR_1_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL SGNINV_0_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL SGNINV_1_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+BEGIN
+	REAL_A32			<= A32(31 DOWNTO 16);
+	IMAG_A32			<= A32(15 DOWNTO 0);
+	REAL_R32			<= SGNINV_1_OUT;
+	IMAG_R32			<= SUBSTR_1_OUT;
+	R32(31 DOWNTO 16) 	<= REAL_R32;
+	R32(15 DOWNTO 0)	<= IMAG_R32;
+	-- Port Mapping
+	MULT_0 :
+		const_mult_cla_16b_sqrtof2
+			PORT MAP
+				(
+					Data_In		=> REAL_A32,
+					Data_Out	=> MULT_0_OUT
+				);
+	SUBSTR_0 :
+		subst_cla_16b
+			PORT MAP
+				(
+					A16	=> REAL_A32,
+					B16	=> IMAG_A32,
+					R16	=> SUBSTR_0_OUT
+				);
+	HALFMULT_0 :
+		const_mult_cla_16b_halfsqrtof2
+			PORT MAP
+				(
+					Data_In		=> SUBSTR_0_OUT,
+					Data_Out	=> HALFMULT_0_OUT
+				);
+	SGNINV_0 :
+		sgninv_16b
+			PORT MAP
+				(
+					A16	=> MULT_0_OUT,
+					R16	=> SGNINV_0_OUT
+				);
+	SGNINV_1 :
+		sgninv_16b
+			PORT MAP
+				(
+					A16	=> HALFMULT_0_OUT,
+					R16	=> SGNINV_1_OUT
+				);
+	SUBSTR_1 :
+		subst_cla_16b
+			PORT MAP
+				(
+					A16	=> SGNINV_0_OUT,
+					B16	=> SGNINV_1_OUT,
+					R16	=> SUBSTR_1_OUT
+				);
+END structural;
+

@@ -1,0 +1,103 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY bypass_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				TYPESEL :	IN	STD_LOGIC_VECTOR (2 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+			);
+END bypass_32b;
+
+ARCHITECTURE structural OF bypass_32b IS
+COMPONENT mux_2to1_16b IS
+	PORT 	(
+				D1	:	IN	std_logic_vector (15 DOWNTO 0);
+				D2	:	IN	std_logic_vector (15 DOWNTO 0);
+				Y	:	OUT	std_logic_vector (15 DOWNTO 0);
+				S	:	IN	std_logic
+			);
+END COMPONENT;
+COMPONENT sgninv_16b IS
+	PORT	(
+				A16		:	IN	STD_LOGIC_VECTOR (15 DOWNTO 0);
+				R16		:	OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+				C_OUT16 :	OUT STD_LOGIC
+			);
+END COMPONENT;
+
+
+SIGNAL REAL_A32 		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL IMAG_A32 		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL REAL_R32 		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL IMAG_R32 		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL MUX_0_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL MUX_1_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL MUX_2_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL MUX_3_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL SGNINV_0_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+SIGNAL SGNINV_1_OUT		: STD_LOGIC_VECTOR (15 DOWNTO 0);
+
+BEGIN
+	REAL_A32			<= A32(31 DOWNTO 16);
+	IMAG_A32			<= A32(15 DOWNTO 0);
+	REAL_R32			<= MUX_2_OUT;
+	IMAG_R32			<= MUX_3_OUT;
+	R32(31 DOWNTO 16) 	<= REAL_R32;
+	R32(15 DOWNTO 0)	<= IMAG_R32;
+	
+	
+	-- Port Mapping
+	MUX_0	:
+		mux_2to1_16b
+			PORT MAP
+				(
+					D1	=>REAL_A32,
+					D2	=>IMAG_A32,
+					Y	=>MUX_0_OUT,
+					S	=>TYPESEL(2)
+				);
+	MUX_1	:
+		mux_2to1_16b
+			PORT MAP
+				(
+					D1	=>IMAG_A32,
+					D2	=>REAL_A32,
+					Y	=>MUX_1_OUT,
+					S	=>TYPESEL(2)
+				);	
+	-- Sign Inversion Circuit
+	SGNINV_0 :
+		sgninv_16b
+			PORT MAP
+				(
+					A16	=>MUX_0_OUT,
+					R16 =>SGNINV_0_OUT
+				);
+	SGNINV_1 :
+		sgninv_16b
+			PORT MAP
+				(
+					A16	=>MUX_1_OUT,
+					R16 =>SGNINV_1_OUT
+				);		
+	MUX_2	:
+		mux_2to1_16b
+			PORT MAP
+				(
+					D1	=>MUX_0_OUT,
+					D2	=>SGNINV_0_OUT,
+					Y	=>MUX_2_OUT,
+					S	=>TYPESEL(1)
+				);
+	MUX_3	:
+		mux_2to1_16b
+			PORT MAP
+				(
+					D1	=>MUX_1_OUT,
+					D2	=>SGNINV_1_OUT,
+					Y	=>MUX_3_OUT,
+					S	=>TYPESEL(0)
+				);	
+END structural;
+

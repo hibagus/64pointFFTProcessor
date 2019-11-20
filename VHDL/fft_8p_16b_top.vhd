@@ -1,0 +1,351 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY fft_8p_16b_top IS
+	PORT	(
+				xt0		:	IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xt1		:	IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xt2		:	IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xt3		:	IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xt4		:	IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xt5		:	IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xt6		:	IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xt7		:	IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xf0		:	OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xf1		:	OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xf2		:	OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xf3		:	OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xf4		:	OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xf5		:	OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xf6		:	OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+				xf7		:	OUT	STD_LOGIC_VECTOR(31 DOWNTO 0)
+			);
+END fft_8p_16b_top;
+
+ARCHITECTURE structural of fft_8p_16b_top IS
+COMPONENT complex_mult_twiddle_wn0_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+			);
+END COMPONENT;
+COMPONENT complex_mult_twiddle_wn1_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+			);
+END COMPONENT;
+COMPONENT complex_mult_twiddle_wn2_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+			);
+END COMPONENT;
+COMPONENT complex_mult_twiddle_wn3_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+			);
+END COMPONENT;
+COMPONENT complex_adder_cla_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				B32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+				C_OUT32	:	OUT STD_LOGIC_VECTOR (1 DOWNTO 0)
+			);
+END COMPONENT;
+COMPONENT complex_subst_cla_32b IS
+	PORT	(
+				A32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				B32		:	IN	STD_LOGIC_VECTOR (31 DOWNTO 0);
+				R32		:	OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+				C_OUT32	:	OUT STD_LOGIC_VECTOR (1 DOWNTO 0)
+			);
+END COMPONENT;
+SIGNAL CMULT_WN0_0_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN0_1_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN0_2_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN0_3_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN0_4_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN0_5_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN0_6_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN1_0_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN2_0_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN2_1_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN2_2_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CMULT_WN3_0_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_0_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_1_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_2_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_3_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_4_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_5_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_6_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_7_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_8_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_9_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_10_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CADDER_11_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_0_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_1_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_2_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_3_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_4_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_5_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_6_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_7_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_8_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_9_OUT		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_10_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL CSUBTR_11_OUT	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+BEGIN
+	xf0	<=	CADDER_8_OUT;
+	xf1	<=	CADDER_9_OUT;
+	xf2	<=	CADDER_10_OUT;
+	xf3	<=	CADDER_11_OUT;
+	xf4	<=	CSUBTR_8_OUT;
+	xf5	<=	CSUBTR_9_OUT;
+	xf6	<=	CSUBTR_10_OUT;
+	xf7	<=	CSUBTR_11_OUT;
+CMULT_WN0_0 :
+	complex_mult_twiddle_wn0_32b
+		PORT MAP (
+					A32	=>	xt4,
+					R32	=>	CMULT_WN0_0_OUT
+				);
+CMULT_WN0_1 :
+	complex_mult_twiddle_wn0_32b
+		PORT MAP (
+					A32	=> xt6,
+					R32	=> CMULT_WN0_1_OUT
+				);
+CMULT_WN0_2 :
+	complex_mult_twiddle_wn0_32b
+		PORT MAP (
+					A32	=> xt5,
+					R32	=> CMULT_WN0_2_OUT
+				);
+CMULT_WN0_3 :
+	complex_mult_twiddle_wn0_32b
+		PORT MAP (
+					A32	=> xt7,
+					R32	=> CMULT_WN0_3_OUT
+				);
+CADDER_0 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> xt0,
+					B32	=> CMULT_WN0_0_OUT,
+					R32 => CADDER_0_OUT
+				);
+CSUBTR_0 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> xt0,
+					B32	=> CMULT_WN0_0_OUT,
+					R32 => CSUBTR_0_OUT
+				);
+CADDER_1 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> xt2,
+					B32	=> CMULT_WN0_1_OUT,
+					R32 => CADDER_1_OUT
+				);
+CSUBTR_1 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> xt2,
+					B32	=> CMULT_WN0_1_OUT,
+					R32 => CSUBTR_1_OUT
+				);
+CADDER_2 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> xt1,
+					B32	=> CMULT_WN0_2_OUT,
+					R32 => CADDER_2_OUT
+				);
+CSUBTR_2 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> xt1,
+					B32	=> CMULT_WN0_2_OUT,
+					R32 => CSUBTR_2_OUT
+				);
+CADDER_3 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> xt3,
+					B32	=> CMULT_WN0_3_OUT,
+					R32 => CADDER_3_OUT
+				);
+CSUBTR_3 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> xt3,
+					B32	=> CMULT_WN0_3_OUT,
+					R32 => CSUBTR_3_OUT
+				);
+CMULT_WN0_4 :
+	complex_mult_twiddle_wn0_32b
+		PORT MAP (
+					A32	=> CADDER_1_OUT,
+					R32	=> CMULT_WN0_4_OUT
+				);
+CMULT_WN2_0 :
+	complex_mult_twiddle_wn2_32b
+		PORT MAP (
+					A32	=> CSUBTR_1_OUT,
+					R32	=> CMULT_WN2_0_OUT
+				);
+CMULT_WN0_5 :
+	complex_mult_twiddle_wn0_32b
+		PORT MAP (
+					A32	=> CADDER_3_OUT,
+					R32	=> CMULT_WN0_5_OUT
+				);
+CMULT_WN2_1 :
+	complex_mult_twiddle_wn2_32b
+		PORT MAP (
+					A32	=> CSUBTR_3_OUT,
+					R32	=> CMULT_WN2_1_OUT
+				);
+CADDER_4 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> CADDER_0_OUT,
+					B32	=> CMULT_WN0_4_OUT,
+					R32 => CADDER_4_OUT
+				);
+CADDER_5 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> CSUBTR_0_OUT,
+					B32	=> CMULT_WN2_0_OUT,
+					R32 => CADDER_5_OUT
+				);
+CSUBTR_4 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> CADDER_0_OUT,
+					B32	=> CMULT_WN0_4_OUT,
+					R32 => CSUBTR_4_OUT
+				);
+CSUBTR_5 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> CSUBTR_0_OUT,
+					B32	=> CMULT_WN2_0_OUT,
+					R32 => CSUBTR_5_OUT
+				);
+CADDER_6 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> CADDER_2_OUT,
+					B32	=> CMULT_WN0_5_OUT,
+					R32 => CADDER_6_OUT
+				);
+CADDER_7 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> CSUBTR_2_OUT,
+					B32	=> CMULT_WN2_1_OUT,
+					R32 => CADDER_7_OUT
+				);
+CSUBTR_6 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> CADDER_2_OUT,
+					B32	=> CMULT_WN0_5_OUT,
+					R32 => CSUBTR_6_OUT
+				);
+CSUBTR_7 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> CSUBTR_2_OUT,
+					B32	=> CMULT_WN2_1_OUT,
+					R32 => CSUBTR_7_OUT
+				);
+CMULT_WN0_6 :
+	complex_mult_twiddle_wn0_32b
+		PORT MAP (
+					A32	=> CADDER_6_OUT,
+					R32	=> CMULT_WN0_6_OUT
+				);
+CMULT_WN1_0 :
+	complex_mult_twiddle_wn1_32b
+		PORT MAP (
+					A32	=> CADDER_7_OUT,
+					R32	=> CMULT_WN1_0_OUT
+				);				
+CMULT_WN2_2 :
+	complex_mult_twiddle_wn2_32b
+		PORT MAP (
+					A32	=> CSUBTR_6_OUT,
+					R32	=> CMULT_WN2_2_OUT
+				);
+CMULT_WN3_0 :
+	complex_mult_twiddle_wn3_32b
+		PORT MAP (
+					A32	=> CSUBTR_7_OUT,
+					R32	=> CMULT_WN3_0_OUT
+				);	
+CADDER_8 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> CADDER_4_OUT,
+					B32	=> CMULT_WN0_6_OUT,
+					R32 => CADDER_8_OUT
+				);
+CADDER_9 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> CADDER_5_OUT,
+					B32	=> CMULT_WN1_0_OUT,
+					R32 => CADDER_9_OUT
+				);
+CADDER_10 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> CSUBTR_4_OUT,
+					B32	=> CMULT_WN2_2_OUT,
+					R32 => CADDER_10_OUT
+				);
+CADDER_11 :
+	complex_adder_cla_32b
+		PORT MAP (
+					A32	=> CSUBTR_5_OUT,
+					B32	=> CMULT_WN3_0_OUT,
+					R32 => CADDER_11_OUT
+				);
+CSUBTR_8 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> CADDER_4_OUT,
+					B32	=> CMULT_WN0_6_OUT,
+					R32 => CSUBTR_8_OUT
+				);
+CSUBTR_9 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> CADDER_5_OUT,
+					B32	=> CMULT_WN1_0_OUT,
+					R32 => CSUBTR_9_OUT
+				);
+CSUBTR_10 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> CSUBTR_4_OUT,
+					B32	=> CMULT_WN2_2_OUT,
+					R32 => CSUBTR_10_OUT
+				);
+CSUBTR_11 :
+	complex_subst_cla_32b
+		PORT MAP (
+					A32	=> CSUBTR_5_OUT,
+					B32	=> CMULT_WN3_0_OUT,
+					R32 => CSUBTR_11_OUT
+				);
+END structural;
