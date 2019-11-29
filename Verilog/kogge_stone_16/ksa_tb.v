@@ -13,7 +13,7 @@ integer num_correct; // counter to keep track of the number correct
 integer num_wrong;   // counter to keep track of the number wrong
 
 // instantiate the 32-bit Kogge-Stone adder
-ksa_top ks32(c0, a, b, s, c32);
+ksa_top_16b ks32(c0, a, b, s, c32);
 
 // exhaustive checking
 initial begin
