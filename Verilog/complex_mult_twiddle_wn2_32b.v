@@ -14,14 +14,17 @@ module complex_mult_twiddle_wn2_32b(
   wire [15:0] real_r32;
   wire [15:0] imag_r32;
 
+  wire [15:0] siginvout;
+
 
 assign real_a32 = A32[31:16];
 assign imag_a32 = A32[15:0];
 
 assign real_r32 = imag_a32;
-assign imag_r32 = ~real_a32;
+assign imag_r32 = siginvout;
 
 
+  sgninv_16b(.A16(real_a32) , .R16(siginvout));
 assign R32 = {real_r32,imag_r32};
 
 
