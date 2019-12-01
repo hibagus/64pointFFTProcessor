@@ -55,7 +55,7 @@ module generic_mult_16b(
 assign D_out = mux_1_out;
   
 
-  sgninv_16b(.A16(D_in) , .R16(siginv_0_out));
+  sgninv_16b sgninv0(.A16(D_in) , .R16(siginv_0_out));
   mux_2_to_1 #(16) mux0 (.D0(Data_in), .D1(siginv_0_out) , .S(Data_in[15]), .Y(mux_0_out));
 
 
@@ -150,7 +150,7 @@ assign D_out = mux_1_out;
   endgenerate
 
   bit_adj_32b_to_16b bit_adj(.Data_in(adder_14_out) , .Data_out(bit_adj_out));
-  sgninv_16b(.A16(bit_adj_out) , .R16(siginv_1_out));
+  sgninv_16b sgninv1(.A16(bit_adj_out) , .R16(siginv_1_out));
   mux_2_to_1 #(16) mux1 (.D0(bit_adj_out), .D1(siginv_1_out) , .S(Data_in[15]), .Y(mux_1_out));
 
 

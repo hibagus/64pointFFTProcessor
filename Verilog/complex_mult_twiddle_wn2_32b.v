@@ -24,7 +24,7 @@ assign real_r32 = imag_a32;
 assign imag_r32 = siginvout;
 
 
-  sgninv_16b(.A16(real_a32) , .R16(siginvout));
+  sgninv_16b sgninv0(.A16(real_a32) , .R16(siginvout));
 assign R32 = {real_r32,imag_r32};
 
 

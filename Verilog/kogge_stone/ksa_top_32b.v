@@ -1,6 +1,6 @@
 `default_nettype none
 
-module ksa_top_32b_32(
+module ksa_top_32b(
   input  wire        c0,
   input  wire [31:0] i_a,
   input  wire [31:0] i_b,

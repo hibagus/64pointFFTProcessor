@@ -29,7 +29,7 @@ module complex_mult_ksa_16b_sqrt2 (
 
   assign Data_out = mux_1_out;
   
-  sgninv_16b(.A16(Data_in) , .R16(siginv_0_out));
+  sgninv_16b sgninv0(.A16(Data_in) , .R16(siginv_0_out));
   mux_2_to_1 #(16) mux0 (.D0(Data_in), .D1(siginv_0_out) , .S(Data_in[15]), .Y(mux_0_out));
   l_shifter #(16,0) lshift_0 (.D_in(mux_0_out), .D_out(lshift_0_out));
   l_shifter #(16,5) lshift_5 (.D_in(mux_0_out), .D_out(lshift_5_out));
@@ -46,7 +46,7 @@ module complex_mult_ksa_16b_sqrt2 (
  
   bit_adj_32b_to_16b bit_adj (.Data_in(adder_4_out), .Data_out(bit_adj_out));
   
-  sgninv_16b(.A16(bit_adj_out) , .R16(siginv_1_out));
+  sgninv_16b sgninv1(.A16(bit_adj_out) , .R16(siginv_1_out));
   mux_2_to_1 #(16) mux0 (.D0(bit_adj_out), .D1(siginv_1_out) , .S(Data_in[15]), .Y(mux_1_out));
 
 endmodule

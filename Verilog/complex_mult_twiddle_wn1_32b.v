@@ -25,7 +25,7 @@ assign imag_a32 = A32[15:0];
 assign R32 = {siginv_0_out, adder_0_out};
 
 
-  sgninv_16b(.A16(halfmult_0_out) , .R16(siginv_0_out));
+  sgninv_16b sgninv0 (.A16(halfmult_0_out) , .R16(siginv_0_out));
   const_mult_ksa_16b_sqrt2 mult0 (.Data_in(imag_a32), .Data_out(mult_0_out));
   subt_ksa_16b subt0 (.A16(real_a32), .B16(imag_a32), .R16(subt_0_out));
   const_mult_ksa_16b_halfsqrt2 halfmult0 (.Data_in(subt_0_out), .Data_out(halfmult_0_out));
