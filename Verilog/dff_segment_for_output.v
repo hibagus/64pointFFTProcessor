@@ -23,10 +23,9 @@ module dff_segment_for_output (
   wire                    sel;
   wire   [DATA_WIDTH-1:0] D7;
   wire   [DATA_WIDTH-1:0] D1;
-  reg    [DATA_WIDTH-1:0] Q;
+  wire   [DATA_WIDTH-1:0] Q;
   
   
-  //wire   [DATA_WIDTH-1:0] DFF_0_OUT;
   wire   [DATA_WIDTH-1:0] DFF_1_OUT;
   wire   [DATA_WIDTH-1:0] DFF_2_OUT;
   wire   [DATA_WIDTH-1:0] DFF_3_OUT;
@@ -105,7 +104,7 @@ module dff_segment_for_output (
     .Q(DFF_1_OUT)
   );
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst0 (
     .clk(clk),
