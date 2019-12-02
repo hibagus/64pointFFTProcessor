@@ -3,6 +3,10 @@ A32,
 Swap,
 R32);
 
+input [31:0] A32;
+input Swap;
+output [31:0] R32;
+
 wire [15:0] real_a32;
 wire [15:0] imag_a32;
 wire [15:0] real_r32;

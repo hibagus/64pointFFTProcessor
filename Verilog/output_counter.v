@@ -8,8 +8,8 @@ datavalid);
 input clk;
 input rst;
 input dataind;
-output [5:0] counter_o;
-output datavalid;
+output reg [5:0] counter_o;
+output reg datavalid;
 
 reg currentstate;
 reg idle = 1'b0;
@@ -35,6 +35,7 @@ always@(posedge clk)begin
 				counter <= 6'b0;
 				datavalid <= 1'b0;
 			end
+		end
 		1:begin
 			if(counter == 6'b111110)begin
 				currentstate <= idle;
@@ -46,7 +47,9 @@ always@(posedge clk)begin
 				counter <= counter + 1;
 				datavalid <= 1;
 			end
+		end
 		endcase
 		currentstate <= currentstate;
 	end
+end
 endmodule

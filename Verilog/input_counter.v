@@ -8,8 +8,8 @@ mastertrig);
 input clk;
 input rst;
 input datastart;
-output [5:0] counter_o;
-output mastertrig;
+output reg [5:0] counter_o;
+output reg mastertrig;
 
 reg currentstate;
 reg idle = 1'b0;
@@ -35,6 +35,7 @@ always@(posedge clk)begin
 				counter <= 6'b0;
 				mastertrig <= 1'b0;
 			end
+ 		end
 		1:begin
 			if(counter == 6'b110101)begin
 				currentstate <= counting;
@@ -51,7 +52,9 @@ always@(posedge clk)begin
 				counter <= counter + 1;
 				mastertrig <= 0;
 			end
+		end
 		endcase
 		currentstate <= currentstate;
 	end
+end
 endmodule
