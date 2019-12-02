@@ -14,7 +14,7 @@ module bit_adj_32b_to_16b (
   assign truncate_temp  = Data_in[27:12];
   assign rounding_temp = {15'b0,Data_in[11]};
 
-  ksa_top_16b ks1(.c0(1'b0), .i_a(truncate_temp), .i_b(rounding_temp), o_s(Data_out), o_carry());
+  ksa_top_16b ks1(.c0(1'b0), .i_a(truncate_temp), .i_b(rounding_temp), .o_s(Data_out), .o_carry());
 
 
 endmodule

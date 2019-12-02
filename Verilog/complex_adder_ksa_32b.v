@@ -29,8 +29,8 @@ module complex_adder_ksa_32b (
   assign R32 = {sum_real,sum_imag};
 
 
-  ksa_top_16b ks_real(.c0(1'b0), .i_a(real_a32), .i_b(real_b32), o_s(sum_real), o_carry(cout_real));
-  ksa_top_16b ks_imag(.c0(1'b0), .i_a(imag_a32), .i_b(imag_b32), o_s(sum_imag), o_carry(cout_imag));
+  ksa_top_16b ks_real(.c0(1'b0), .i_a(real_a32), .i_b(real_b32), .o_s(sum_real), .o_carry(cout_real));
+  ksa_top_16b ks_imag(.c0(1'b0), .i_a(imag_a32), .i_b(imag_b32), .o_s(sum_imag), .o_carry(cout_imag));
 
 
 
