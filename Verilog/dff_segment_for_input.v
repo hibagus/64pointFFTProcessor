@@ -15,9 +15,9 @@ module dff_segment_for_input (
   
   wire                    clk;
   wire                    rst;
-  wire                    hold
+  wire                    hold;
   wire   [DATA_WIDTH-1:0] D;
-  reg    [DATA_WIDTH-1:0] Q;
+  wire   [DATA_WIDTH-1:0] Q;
   
   
   wire   [DATA_WIDTH-1:0] DFF_0_OUT;
