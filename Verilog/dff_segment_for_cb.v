@@ -19,6 +19,7 @@ module dff_segment_for_cb (
   input                   clk;
   input                   rst;
   input                   hold;
+  input                   sel;
   input  [DATA_WIDTH-1:0] D0;
   input  [DATA_WIDTH-1:0] D1;
   input  [DATA_WIDTH-1:0] D2;
@@ -33,7 +34,8 @@ module dff_segment_for_cb (
   
   wire                    clk;
   wire                    rst;
-  wire                    hold
+  wire                    hold;
+  wire                    sel;
   wire   [DATA_WIDTH-1:0] D0;
   wire   [DATA_WIDTH-1:0] D1;
   wire   [DATA_WIDTH-1:0] D2;
@@ -44,7 +46,7 @@ module dff_segment_for_cb (
   wire   [DATA_WIDTH-1:0] D7;
   wire   [DATA_WIDTH-1:0] D8;
   
-  reg    [DATA_WIDTH-1:0] Q;
+  wire    [DATA_WIDTH-1:0] Q;
   
   
   wire   [DATA_WIDTH-1:0] DFF_0_OUT;
@@ -57,7 +59,7 @@ module dff_segment_for_cb (
   wire   [DATA_WIDTH-1:0] DFF_7_OUT;
   
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst7 (
     .clk(clk),
@@ -69,7 +71,7 @@ module dff_segment_for_cb (
     .Q(DFF_7_OUT)
   );
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst6 (
     .clk(clk),
@@ -81,7 +83,7 @@ module dff_segment_for_cb (
     .Q(DFF_6_OUT)
   );
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst5 (
     .clk(clk),
@@ -93,7 +95,7 @@ module dff_segment_for_cb (
     .Q(DFF_5_OUT)
   );
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst4 (
     .clk(clk),
@@ -105,7 +107,7 @@ module dff_segment_for_cb (
     .Q(DFF_4_OUT)
   );
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst3 (
     .clk(clk),
@@ -117,7 +119,7 @@ module dff_segment_for_cb (
     .Q(DFF_3_OUT)
   );
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst2 (
     .clk(clk),
@@ -129,7 +131,7 @@ module dff_segment_for_cb (
     .Q(DFF_2_OUT)
   );
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst1 (
     .clk(clk),
@@ -141,7 +143,7 @@ module dff_segment_for_cb (
     .Q(DFF_1_OUT)
   );
   
-  dff_inputsel_hold_sync_low_reset # (
+  dff_inputsel_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_inputsel_hold_sync_high_reset_inst0 (
     .clk(clk),

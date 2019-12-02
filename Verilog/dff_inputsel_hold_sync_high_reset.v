@@ -1,4 +1,4 @@
-module dff_inputsel_hold_sync_low_reset (
+module dff_inputsel_hold_sync_high_reset (
   clk,
   rst,
   hold,
@@ -12,7 +12,7 @@ module dff_inputsel_hold_sync_low_reset (
   input                   clk;
   input                   rst;
   input                   hold;
-  input                   sel
+  input                   sel;
   input  [DATA_WIDTH-1:0] D0;
   input  [DATA_WIDTH-1:0] D1;
   output [DATA_WIDTH-1:0] Q;
@@ -36,7 +36,7 @@ module dff_inputsel_hold_sync_low_reset (
     .Y(MUX_OUT)
   ); 
   
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(DATA_WIDTH)
   ) dff_hold_sync_high_reset_inst0 (
     .clk(clk),
