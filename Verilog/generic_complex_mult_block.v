@@ -1,4 +1,4 @@
-module generic_complex_mult_16b (
+module generic_complex_mult_block (
   A32,
   TYPESEL,
   R32,
