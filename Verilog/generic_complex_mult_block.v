@@ -53,7 +53,7 @@ module generic_complex_mult_block (
   sgninv_16b sgninv_1 (.A16(MUX_1_OUT) , .R16(SIGINV_1_OUT));
   mux_2_to_1 #(16) mux2 (.D0(MUX_0_OUT), .D1(SIGINV_0_OUT) , .S(TYPESEL[1]), .Y(MUX_2_OUT));
   mux_2_to_1 #(16) mux3 (.D0(MUX_1_OUT), .D1(SIGINV_1_OUT) , .S(TYPESEL[0]), .Y(MUX_3_OUT));
-  generic_complex_mult_16b #(C_PLUS_S, C_ONLY, C_MIN_S) (.REAL_A32(MUX_2_OUT), .IMAG_A32(MUX_3_OUT), .REAL_R32(REAL_MULT_OUT), .IMAG_R32(IMAG_MULT_OUT));
+  generic_complex_mult_16b #(C_PLUS_S, C_ONLY, C_MIN_S) mult0 (.REAL_A32(MUX_2_OUT), .IMAG_A32(MUX_3_OUT), .REAL_R32(REAL_MULT_OUT), .IMAG_R32(IMAG_MULT_OUT));
   sgninv_16b sgninv_2 (.A16(REAL_MULT_OUT) , .R16(SIGINV_2_OUT));
   sgninv_16b sgninv_3 (.A16(IMAG_MULT_OUT) , .R16(SIGINV_3_OUT));
   mux_2_to_1 #(16) mux4 (.D0(REAL_MULT_OUT), .D1(SIGINV_2_OUT) , .S(MUX_4_SELECTOR), .Y(MUX_4_OUT));
