@@ -4,7 +4,7 @@ input [15:0] B16,
 output COUT_16,
 output [15:0] OUT16); 
 
-  ksa_top_16b ks0(.c0(1'b1), .i_a(A16), .i_b(~B16), o_s(OUT16), o_carry(COUT_16));
+  ksa_top_16b ks0(.c0(1'b1), .i_a(A16), .i_b(~B16), .o_s(OUT16), .o_carry(COUT_16));
 
 
 endmodule
