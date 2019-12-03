@@ -47,8 +47,15 @@ module bypass_32b (
     .Y(mux1out)
   ); 
   
-  sgninv_16b sgninv0(.A16(mux0out), .R16(sgninv_0_out));
-  sgninv_16b sgninv1(.A16(mux1out), .R16(sgninv_1_out));
+  sgninv_16b sgninv_16b_inst0 (
+    .A16(mux0out), 
+    .R16(sgninv_0_out)
+  );
+  
+  sgninv_16b sgninv_16b_inst1 (
+    .A16(mux1out), 
+    .R16(sgninv_1_out)
+  );
   
   mux_2_to_1 # (
     .DATA_WIDTH(16)
