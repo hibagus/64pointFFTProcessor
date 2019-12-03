@@ -40,7 +40,7 @@ module bypass_32b (
   
   mux_2_to_1 # (
     .DATA_WIDTH(16)
-  ) mux_2_to_1_inst0 (
+  ) mux_2_to_1_inst1 (
     .D0(imag_a32),
     .D1(real_a32),
     .S(TYPESEL[2]),
@@ -59,7 +59,7 @@ module bypass_32b (
   
   mux_2_to_1 # (
     .DATA_WIDTH(16)
-  ) mux_2_to_1_inst0 (
+  ) mux_2_to_1_inst2 (
     .D0(mux0out),
     .D1(sgninv_0_out),
     .S(TYPESEL[1]),
@@ -68,7 +68,7 @@ module bypass_32b (
   
   mux_2_to_1 # (
     .DATA_WIDTH(16)
-  ) mux_2_to_1_inst0 (
+  ) mux_2_to_1_inst3 (
     .D0(mux1out),
     .D1(sgninv_1_out),
     .S(TYPESEL[0]),

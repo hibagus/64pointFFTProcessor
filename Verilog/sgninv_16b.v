@@ -1,6 +1,6 @@
 module sgninv_16b(
   A16,
-  R16
+  R16,
   COUT);
   
   input  [15:0] A16;
