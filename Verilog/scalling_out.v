@@ -19,7 +19,7 @@ module scalling_out(
   wire    [15:0] mux0out;
   wire    [15:0] real_scale;
   wire    [15:0] imag_scale;
-  wire    [15:0] temp_scale;
+  wire    [31:0] temp_scale;
   
   assign real_a32          = A32[31:16];
   assign imag_a32          = A32[15:0];
@@ -39,7 +39,7 @@ module scalling_out(
   );
   
   mux_2_to_1 # (
-    .DATA_WIDTH(16)
+    .DATA_WIDTH(32)
   ) mux_2_to_1_inst0 (
     .D0(A32),
     .D1(temp_scale),

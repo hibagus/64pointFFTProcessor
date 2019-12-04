@@ -56,13 +56,13 @@ module output_counter(
                 if(counter == 6'b111110)
                   begin
                     currentstate <= idle;
-                    counter      <= counter + 1;
+                    counter      <= counter + 1'b1;
                     datavalid    <= 1;
                   end
                 else 
                   begin
                     currentstate <= counting;
-                    counter <= counter + 1;
+                    counter <= counter + 1'b1;
                     datavalid <= 1;
                   end
               end

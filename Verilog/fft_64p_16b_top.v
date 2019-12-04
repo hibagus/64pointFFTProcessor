@@ -10,13 +10,17 @@ module fft_64p_16b_top(
   
   input  [31:0] In_Stream;
   input         Mode;
-  input         Data_Start,clk,rst;
+  input         Data_Start;
+  input         clk;
+  input         rst;
   output        Data_Out;
   output [31:0] Out_Stream;
 
   wire   [31:0] In_Stream;
   wire          Mode;
-  wire          Data_Start,clk,rst;
+  wire          Data_Start;
+  wire          clk;
+  wire          rst;
   wire          Data_Out;
   wire   [31:0] Out_Stream;
   
@@ -170,7 +174,7 @@ module fft_64p_16b_top(
   input_counter in_count(
   .clk(clk), 
   .rst(rst), 
-  .datastart(Data_start), 
+  .datastart(Data_Start), 
   .mastertrig(input_counter_mtrig_out)
   );
   
@@ -291,14 +295,14 @@ module fft_64p_16b_top(
   .hold_seg_7(master_out_hold_seg_7),
   .in_ctrl_all_seg(master_out_in_ctrl_all_cb),
   .rst(rst),
-  .Q1(cb_circuit_data_0_out),
-  .Q2(cb_circuit_data_1_out),
-  .Q3(cb_circuit_data_2_out),
-  .Q4(cb_circuit_data_3_out),
-  .Q5(cb_circuit_data_4_out),
-  .Q6(cb_circuit_data_5_out),
-  .Q7(cb_circuit_data_6_out),
-  .Q8(cb_circuit_data_7_out)
+  .Q0(cb_circuit_data_0_out),
+  .Q1(cb_circuit_data_1_out),
+  .Q2(cb_circuit_data_2_out),
+  .Q3(cb_circuit_data_3_out),
+  .Q4(cb_circuit_data_4_out),
+  .Q5(cb_circuit_data_5_out),
+  .Q6(cb_circuit_data_6_out),
+  .Q7(cb_circuit_data_7_out)
   );
   
   
@@ -323,20 +327,20 @@ module fft_64p_16b_top(
   
   
   output_circuit output_block(
-  .D1(fft_8p_second_data_0_out),
-  .D2(fft_8p_second_data_1_out),
-  .D3(fft_8p_second_data_2_out),
-  .D4(fft_8p_second_data_3_out),
-  .D5(fft_8p_second_data_4_out),
-  .D6(fft_8p_second_data_5_out),
-  .D7(fft_8p_second_data_6_out),
-  .D8(fft_8p_second_data_7_out),
+  .D0(fft_8p_second_data_0_out),
+  .D1(fft_8p_second_data_1_out),
+  .D2(fft_8p_second_data_2_out),
+  .D3(fft_8p_second_data_3_out),
+  .D4(fft_8p_second_data_4_out),
+  .D5(fft_8p_second_data_5_out),
+  .D6(fft_8p_second_data_6_out),
+  .D7(fft_8p_second_data_7_out),
   .clk(clk),
   .hold_all_seg(master_out_hold_all_out),
   .in_ctrl_all_seg(master_out_in_ctrl_all_out),
   .mode(Mode),
   .rst(rst),
-  .Q(output_circuit_data_out),
+  .Q(output_circuit_data_out)
    );
   
   output_counter out_count(

@@ -33,7 +33,7 @@ module complex_mult_twiddle_wn1_32b(
     .Data_out(mult_0_out)
   );
   
-  subt_ksa_16b subt_ksa_16b_inst0 (
+  sub_ksa_16b sub_ksa_16b_inst0 (
     .A16(real_a32), 
     .B16(imag_a32), 
     .R16(subt_0_out)

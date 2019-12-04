@@ -9,3 +9,17 @@ dff_inputsel_hold_sync_high_reset.v | Passed        | 2019-12-02     |
 dff_segment_for_input.v             | Passed        | 2019-12-02     |
 dff_segment_for_output.v            | Passed        | 2019-12-02     |
 dff_segment_for_cb.v                | Passed        | 2019-12-02     |
+bypass_32b.v                        | Passed        | 2019-12-02     |
+notgate.v                           | Passed        | 2019-12-02     |
+sgninv_16b.v                        | Passed        | 2019-12-02     |
+ksa_top_16b.v                       | Passed        | 2019-12-02     |
+ks_1_16b.v                          | Passed        | 2019-12-02     |
+ks_2_16b.v                          | Passed        | 2019-12-02     |
+ks_3_16b.v                          | Passed        | 2019-12-02     |
+ks_4_16b.v                          | Passed        | 2019-12-02     |
+ks_5_16b.v                          | Passed        | 2019-12-02     |
+ks_6_16b.v                          | Passed        | 2019-12-02     |
+ks_7_16b.v                          | Passed        | 2019-12-02     |
+black_cell.v                        | Passed        | 2019-12-02     |
+grey_cell.v                         | Passed        | 2019-12-02     |
+pg.v                                | Passed        | 2019-12-02     |

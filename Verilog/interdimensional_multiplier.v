@@ -233,6 +233,7 @@ module interdimensional_multiplier(
   wire   [31:0] MUX_SHUFFLE_5_OUT;
   wire   [31:0] MUX_SHUFFLE_6_OUT;
   wire   [31:0] MUX_SHUFFLE_7_OUT;
+  wire   [31:0] BLOCK_MULT_0_OUT;
   wire   [31:0] BLOCK_MULT_1_OUT;
   wire   [31:0] BLOCK_MULT_2_OUT;
   wire   [31:0] BLOCK_MULT_3_OUT;
@@ -240,7 +241,6 @@ module interdimensional_multiplier(
   wire   [31:0] BLOCK_MULT_5_OUT;
   wire   [31:0] BLOCK_MULT_6_OUT;
   wire   [31:0] BLOCK_MULT_7_OUT;
-  wire   [31:0] BLOCK_MULT_8_OUT;
   wire   [31:0] BLOCK_BYPASS_0_OUT;
   wire   [31:0] BLOCK_BYPASS_1_OUT;
   wire   [31:0] BLOCK_BYPASS_2_OUT;
@@ -412,9 +412,9 @@ module interdimensional_multiplier(
   );
     
   generic_complex_mult_block # (
-    .C_PLUS_S1(16'b0001000101111110), 
-    .C_ONLY1(16'b0000111111101100), 
-    .C_MIN_S1(16'b0000111001011011)
+    .C_PLUS_S(16'b0001000101111110), 
+    .C_ONLY(16'b0000111111101100), 
+    .C_MIN_S(16'b0000111001011011)
   ) generic_complex_mult_block_inst0 (
     .A32(MUX_SHUFFLE_0_OUT),
     .TYPESEL(Type_Sel_0), 
@@ -422,9 +422,9 @@ module interdimensional_multiplier(
   );
   						  
   generic_complex_mult_block # (
-    .C_PLUS_S1(16'b0001001011010000), 
-    .C_ONLY1(16'b0000111110110001), 
-    .C_MIN_S1(16'b0000110010010010)
+    .C_PLUS_S(16'b0001001011010000), 
+    .C_ONLY(16'b0000111110110001), 
+    .C_MIN_S(16'b0000110010010010)
   ) generic_complex_mult_block_inst1 (
     .A32(MUX_SHUFFLE_1_OUT),
     .TYPESEL(Type_Sel_1), 
@@ -432,9 +432,9 @@ module interdimensional_multiplier(
   );
     
   generic_complex_mult_block # (
-    .C_PLUS_S1(16'b0001001111110101), 
-    .C_ONLY1(16'b0000111101010000), 
-    .C_MIN_S1(16'b0000101010101011)
+    .C_PLUS_S(16'b0001001111110101), 
+    .C_ONLY(16'b0000111101010000), 
+    .C_MIN_S(16'b0000101010101011)
   ) generic_complex_mult_block_inst2 (
     .A32(MUX_SHUFFLE_2_OUT),
     .TYPESEL(Type_Sel_2), 
@@ -442,9 +442,9 @@ module interdimensional_multiplier(
   );
     		  
   generic_complex_mult_block # (
-    .C_PLUS_S1(16'b0001010011101000), 
-    .C_ONLY1(16'b0000111011001000), 
-    .C_MIN_S1(16'b0000100010101001)
+    .C_PLUS_S(16'b0001010011101000), 
+    .C_ONLY(16'b0000111011001000), 
+    .C_MIN_S(16'b0000100010101001)
   ) generic_complex_mult_block_inst3 (
     .A32(MUX_SHUFFLE_3_OUT),
     .TYPESEL(Type_Sel_3), 
@@ -452,9 +452,9 @@ module interdimensional_multiplier(
   );
   
   generic_complex_mult_block # (
-    .C_PLUS_S1(16'b0001010110100111), 
-    .C_ONLY1(16'b0000111000011100), 
-    .C_MIN_S1(16'b0000011010010010)
+    .C_PLUS_S(16'b0001010110100111), 
+    .C_ONLY(16'b0000111000011100), 
+    .C_MIN_S(16'b0000011010010010)
   ) generic_complex_mult_block_inst4 (
     .A32(MUX_SHUFFLE_4_OUT),
     .TYPESEL(Type_Sel_4), 
@@ -462,9 +462,9 @@ module interdimensional_multiplier(
   );
     				 
   generic_complex_mult_block # (
-    .C_PLUS_S1(16'b0001011000110001), 
-    .C_ONLY1(16'b0000110101001110), 
-    .C_MIN_S1(16'b0000010001101010)
+    .C_PLUS_S(16'b0001011000110001), 
+    .C_ONLY(16'b0000110101001110), 
+    .C_MIN_S(16'b0000010001101010)
   ) generic_complex_mult_block_inst5 (
     .A32(MUX_SHUFFLE_5_OUT),
     .TYPESEL(Type_Sel_5), 
@@ -472,9 +472,9 @@ module interdimensional_multiplier(
   );
   
   generic_complex_mult_block # (
-    .C_PLUS_S1(16'b0001011010000101), 
-    .C_ONLY1(16'b0000110001011110), 
-    .C_MIN_S1(16'b0000001000111000)
+    .C_PLUS_S(16'b0001011010000101), 
+    .C_ONLY(16'b0000110001011110), 
+    .C_MIN_S(16'b0000001000111000)
   ) generic_complex_mult_block_inst6 (
     .A32(MUX_SHUFFLE_6_OUT),
     .TYPESEL(Type_Sel_6), 
@@ -482,9 +482,9 @@ module interdimensional_multiplier(
   );
      
   generic_complex_mult_block # (
-    .C_PLUS_S1(16'b0001011010100001), 
-    .C_ONLY1(16'b0000101101010000), 
-    .C_MIN_S1(16'b0000000000000000)
+    .C_PLUS_S(16'b0001011010100001), 
+    .C_ONLY(16'b0000101101010000), 
+    .C_MIN_S(16'b0000000000000000)
   ) generic_complex_mult_block_inst7 (
     .A32(MUX_SHUFFLE_7_OUT),
     .TYPESEL(Type_Sel_7), 
@@ -715,7 +715,7 @@ module interdimensional_multiplier(
   
   mux_2_to_1 # (
     .DATA_WIDTH(32)
-  ) mux_2_to_1_instbypass1 (
+  ) mux_2_to_1_instbypass6 (
     .D0(MUX_DESHUFFLE_6_OUT),
     .D1(BLOCK_BYPASS_6_OUT),
     .S(Bypass_EN_6),

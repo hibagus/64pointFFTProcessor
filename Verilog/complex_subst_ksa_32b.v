@@ -29,14 +29,14 @@ module complex_subst_ksa_32b(
   assign R32[31:16] = REAL_R32;
   assign R32[15:0]  = IMAG_R32;
 
-  subt_ksa_16b subt_ksa_16b_instreal (
+  sub_ksa_16b subt_ksa_16b_instreal (
     .A16(REAL_A32), 
     .B16(REAL_B32), 
     .R16(REAL_R32), 
     .COUT_16(C_OUT32[1])
   );
   
-  subt_ksa_16b subt_ksa_16b_instimag (
+  sub_ksa_16b subt_ksa_16b_instimag (
     .A16(IMAG_A32), 
     .B16(IMAG_B32), 
     .R16(IMAG_R32), 

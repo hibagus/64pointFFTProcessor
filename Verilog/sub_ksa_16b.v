@@ -26,7 +26,7 @@ module sub_ksa_16b (
   
   ksa_top_16b ksa_top_16b_inst0(
     .c0(1'b1),
-    .i_a(A16neg),
+    .i_a(A16),
     .i_b(B16neg),
     .o_s(R16),
     .o_carry(COUT_16)

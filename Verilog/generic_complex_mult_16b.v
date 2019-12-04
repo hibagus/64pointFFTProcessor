@@ -43,7 +43,7 @@ module generic_complex_mult_16b (
     .D_out(mult_c_min_s_out)
   );
   
-  subt_ksa_16b subt_ksa_16b_inst0 (
+  sub_ksa_16b sub_ksa_16b_inst0 (
     .A16(REAL_A32), 
     .B16(IMAG_A32), 
     .R16(subtr_0_out)
@@ -52,11 +52,11 @@ module generic_complex_mult_16b (
   generic_mult_16b # (
     .CONST(C_ONLY)
   ) generic_mult_16b_c_only (
-    .D_in(subtr_0_only), 
+    .D_in(subtr_0_out), 
     .D_out(mult_c_out)
   );
   
-  subt_ksa_16b subt_ksa_16b_inst1 (
+  sub_ksa_16b sub_ksa_16b_inst1 (
     .A16(mult_c_plus_s_out), 
     .B16(mult_c_out), 
     .R16(subtr_1_out)

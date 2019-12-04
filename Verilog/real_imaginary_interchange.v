@@ -33,7 +33,7 @@ module real_imaginary_interchange(
   
   mux_2_to_1 # (
     .DATA_WIDTH(16)
-  ) mux_2_to_1_inst0 (
+  ) mux_2_to_1_inst1 (
     .D0(imag_a32),
     .D1(real_a32),
     .S(Swap),

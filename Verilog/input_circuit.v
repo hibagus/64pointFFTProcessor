@@ -135,7 +135,7 @@ module input_circuit(
     .DATA_WIDTH(32)
   ) mux_2_to_1_inst0 (
     .D0(swap_out),
-    .D1(buf_1_out),
+    .D1(buf_0_out),
     .S(pos_hold_ctrl),
     .Y(mux_out)
   ); 

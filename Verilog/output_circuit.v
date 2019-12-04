@@ -17,6 +17,7 @@ module output_circuit(
   
   input         clk;
   input         rst;
+  input         mode;
   input         hold_all_seg;
   input         in_ctrl_all_seg;
   input  [31:0] D0;
@@ -31,6 +32,7 @@ module output_circuit(
   
   wire          clk;
   wire          rst;
+  wire          mode;
   wire          hold_all_seg;
   wire          in_ctrl_all_seg;
   wire   [31:0] D0;

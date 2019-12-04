@@ -1,7 +1,6 @@
 module cb_circuit(
   clk,
   rst,
-  mode,
   in_ctrl_all_seg,
   hold_seg_0,
   hold_seg_1,
@@ -31,7 +30,6 @@ module cb_circuit(
    
   input  clk;
   input  rst;
-  input  mode,
   input  in_ctrl_all_seg;
   input  hold_seg_0;
   input  hold_seg_1;
@@ -60,7 +58,6 @@ module cb_circuit(
   
   wire   clk;
   wire   rst;
-  wire   mode,
   wire   in_ctrl_all_seg;
   wire   hold_seg_0;
   wire   hold_seg_1;
@@ -111,7 +108,7 @@ module cb_circuit(
     .clk(clk), 
     .rst(rst), 
     .hold(hold_seg_7), 
-    .sel(in_ctrl_all_seg)
+    .sel(in_ctrl_all_seg),
     .D0(32'b0), 
     .D1(D0),
     .D2(D1),
@@ -130,7 +127,7 @@ module cb_circuit(
     .clk(clk), 
     .rst(rst), 
     .hold(hold_seg_6), 
-    .sel(in_ctrl_all_seg)
+    .sel(in_ctrl_all_seg),
     .D0(segment_7_out), 
     .D1(D0),
     .D2(D1),
@@ -149,7 +146,7 @@ module cb_circuit(
     .clk(clk), 
     .rst(rst), 
     .hold(hold_seg_5), 
-    .sel(in_ctrl_all_seg)
+    .sel(in_ctrl_all_seg),
     .D0(segment_6_out), 
     .D1(D0),
     .D2(D1),
@@ -168,7 +165,7 @@ module cb_circuit(
     .clk(clk), 
     .rst(rst), 
     .hold(hold_seg_4), 
-    .sel(in_ctrl_all_seg)
+    .sel(in_ctrl_all_seg),
     .D0(segment_5_out), 
     .D1(D0),
     .D2(D1),
@@ -187,7 +184,7 @@ module cb_circuit(
     .clk(clk), 
     .rst(rst), 
     .hold(hold_seg_3), 
-    .sel(in_ctrl_all_seg)
+    .sel(in_ctrl_all_seg),
     .D0(segment_4_out), 
     .D1(D0),
     .D2(D1),
@@ -205,7 +202,7 @@ module cb_circuit(
     .clk(clk), 
     .rst(rst), 
     .hold(hold_seg_2), 
-    .sel(in_ctrl_all_seg)
+    .sel(in_ctrl_all_seg),
     .D0(segment_3_out), 
     .D1(D0),
     .D2(D1),
@@ -224,7 +221,7 @@ module cb_circuit(
     .clk(clk), 
     .rst(rst), 
     .hold(hold_seg_1), 
-    .sel(in_ctrl_all_seg)
+    .sel(in_ctrl_all_seg),
     .D0(segment_2_out), 
     .D1(D0),
     .D2(D1),
@@ -242,7 +239,7 @@ module cb_circuit(
     .clk(clk), 
     .rst(rst), 
     .hold(hold_seg_0), 
-    .sel(in_ctrl_all_seg)
+    .sel(in_ctrl_all_seg),
     .D0(segment_1_out), 
     .D1(D0),
     .D2(D1),

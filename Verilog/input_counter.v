@@ -55,19 +55,19 @@ module input_counter(
                if(counter == 6'b110101)
                  begin
                    currentstate <= counting;
-                   counter      <= counter + 1;
+                   counter      <= counter + 1'b1;
                    mastertrig   <= 1;
                  end
                else if(counter == 6'b111110)
                  begin
                    currentstate <= idle;
-                   counter      <= counter + 1;
+                   counter      <= counter + 1'b1;
                    mastertrig   <= 0;
                  end
                else 
                  begin
                    currentstate <= counting;
-                   counter      <= counter + 1;
+                   counter      <= counter + 1'b1;
                    mastertrig   <= 0;
                  end
              end

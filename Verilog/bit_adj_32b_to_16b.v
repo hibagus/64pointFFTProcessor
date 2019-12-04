@@ -1,6 +1,6 @@
 module bit_adj_32b_to_16b (
   Data_in,
-  Data_out,
+  Data_out
   );
    
   input  [31:0] Data_in;

@@ -2,7 +2,7 @@ module complex_adder_ksa_32b (
   A32,
   B32,
   R32,
-  COUT_32,
+  COUT_32
   );
   
    

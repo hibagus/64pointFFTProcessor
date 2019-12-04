@@ -4,7 +4,7 @@ module generic_mult_16b(
   );
   
   // Block Parameter 
-  parameter  [15:0] CONST    = 16'b0;
+  parameter  [15:0] CONST    = 16'b1111111111111111;
   
   input      [15:0] D_in;
   output     [15:0] D_out;
@@ -49,8 +49,8 @@ module generic_mult_16b(
   wire       [31:0] adder_13_out;
   wire       [31:0] adder_14_out;
 
-  wire       [31:0] bit_adj_out;
-  wire       [31:0] siginv_1_out;
+  wire       [15:0] bit_adj_out;
+  wire       [15:0] siginv_1_out;
 
   assign D_out = mux_1_out;
   
@@ -62,15 +62,15 @@ module generic_mult_16b(
   mux_2_to_1 # (
     .DATA_WIDTH(16)
   ) mux_2_to_1_inst0 (
-    .D0(Data_in),
+    .D0(D_in),
     .D1(siginv_0_out),
-    .S(Data_in[15]),
+    .S(D_in[15]),
     .Y(mux_0_out)
   ); 
   
   generate 
   // Shifter Group
-  if(CONST[0] == 1) 
+  if(CONST[0] == 1'b1) 
     begin 
       lshifter # (
         .DATA_WIDTH(16),
@@ -81,7 +81,7 @@ module generic_mult_16b(
       );
     end
           
-  if(CONST[1] == 1) 
+  if(CONST[1] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -92,7 +92,7 @@ module generic_mult_16b(
       );
     end
     
-  if(CONST[2] == 1) 
+  if(CONST[2] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -103,7 +103,7 @@ module generic_mult_16b(
       );
     end
 
-  if(CONST[3] == 1) 
+  if(CONST[3] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -114,7 +114,7 @@ module generic_mult_16b(
       );
     end
     
-  if(CONST[4] == 1) 
+  if(CONST[4] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -125,7 +125,7 @@ module generic_mult_16b(
       );
     end
     
-  if(CONST[5] == 1) 
+  if(CONST[5] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -136,7 +136,7 @@ module generic_mult_16b(
       );
     end
     
-  if(CONST[6] == 1) 
+  if(CONST[6] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -147,7 +147,7 @@ module generic_mult_16b(
       );
     end  
     
-  if(CONST[7] == 1) 
+  if(CONST[7] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -158,7 +158,7 @@ module generic_mult_16b(
       );
     end
     
-  if(CONST[8] == 1) 
+  if(CONST[8] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -169,7 +169,7 @@ module generic_mult_16b(
       );
     end 
     
-  if(CONST[9] == 1)
+  if(CONST[9] == 1'b1)
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -180,7 +180,7 @@ module generic_mult_16b(
       );
     end
     
-  if(CONST[10] == 1) 
+  if(CONST[10] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -191,7 +191,7 @@ module generic_mult_16b(
       );
     end
     
-  if(CONST[11] == 1) 
+  if(CONST[11] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -202,7 +202,7 @@ module generic_mult_16b(
       );
     end 
     
-  if(CONST[12] == 1) 
+  if(CONST[12] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -213,7 +213,7 @@ module generic_mult_16b(
       );
     end
 
-  if(CONST[13] == 1) 
+  if(CONST[13] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -224,7 +224,7 @@ module generic_mult_16b(
       );
     end 
 
-  if(CONST[14] == 1) 
+  if(CONST[14] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -235,7 +235,7 @@ module generic_mult_16b(
       );
     end
 
-  if(CONST[15] == 1) 
+  if(CONST[15] == 1'b1) 
     begin
       lshifter # (
         .DATA_WIDTH(16),
@@ -247,7 +247,7 @@ module generic_mult_16b(
     end
   
   // First-level of Adder
-  if((CONST[0] == 1) && (CONST[1] == 1)) 
+  if((CONST[0] == 1'b1) && (CONST[1] == 1'b1)) 
     begin
       ksa_top_32b ksa_top_32b_inst0 (
         .c0(1'b0), 
@@ -256,20 +256,21 @@ module generic_mult_16b(
         .o_s(adder_0_out), 
         .o_carry()
       );
-  else if((CONST[0] == 1) && (CONST[1] == 0)) 
+    end
+  else if((CONST[0] == 1'b1) && (CONST[1] == 1'b0)) 
     begin
       assign adder_0_out = lshift_0_out;
     end
-  else if((CONST[0] == 0) && (CONST[1] == 1)) 
+  else if((CONST[0] == 1'b0) && (CONST[1] == 1'b1)) 
     begin
       assign adder_0_out = lshift_1_out;
     end
   else
     begin
-      assign adder_0_out = 32'b0;
+      //assign adder_0_out = 32'b0;
     end
   
-  if((CONST[2] == 1) && (CONST[3] == 1)) 
+  if((CONST[2] == 1'b1) && (CONST[3] == 1'b1)) 
     begin
       ksa_top_32b ksa_top_32b_inst1 (
         .c0(1'b0), 
@@ -279,20 +280,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end 
-  else if ((CONST[2] == 1) && (CONST[3] == 0)) 
+  else if ((CONST[2] == 1'b1) && (CONST[3] == 1'b0)) 
     begin 
       assign adder_1_out = lshift_2_out;
     end
-  else if((CONST[2] == 0) && (CONST[3] == 1)) 
+  else if((CONST[2] == 1'b0) && (CONST[3] == 1'b1)) 
     begin
       assign adder_1_out = lshift_3_out;
     end
   else
     begin
-      assign adder_1_out = 32'b0;
+      //assign adder_1_out = 32'b0;
     end
 
-  if((CONST[4] == 1) && (CONST[5] == 1)) 
+  if((CONST[4] == 1'b1) && (CONST[5] == 1'b1)) 
     begin
       ksa_top_32b ksa_top_32b_inst2 (
         .c0(1'b0), 
@@ -302,20 +303,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[4] == 1) && (CONST[5] == 0)) 
+  else if((CONST[4] == 1'b1) && (CONST[5] == 1'b0)) 
     begin
       assign adder_2_out = lshift_4_out;
     end
-  else if((CONST[4] == 0) && (CONST[5] == 1)) 
+  else if((CONST[4] == 1'b0) && (CONST[5] == 1'b1)) 
     begin
       assign adder_2_out = lshift_5_out;
     end
   else
     begin
-      assign adder_2_out = 32'b0;
+      //assign adder_2_out = 32'b0;
     end
 
-  if((CONST[6] == 1) && (CONST[7] == 1)) 
+  if((CONST[6] == 1'b1) && (CONST[7] == 1'b1)) 
     begin
       ksa_top_32b ksa_top_32b_inst3 (
         .c0(1'b0), 
@@ -325,20 +326,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[6] == 1) && (CONST[7] == 0)) 
+  else if((CONST[6] == 1'b1) && (CONST[7] == 1'b0)) 
     begin 
       assign adder_3_out = lshift_6_out;
     end
-  else if((CONST[6] == 0) && (CONST[7] == 1)) 
+  else if((CONST[6] == 1'b0) && (CONST[7] == 1'b1)) 
     begin
       assign adder_3_out = lshift_7_out;
     end
   else
     begin
-      adder_3_out = 32'b0;
+      //assign adder_3_out = 32'b0;
     end
 
-  if((CONST[8] == 1) && (CONST[9] == 1)) 
+  if((CONST[8] == 1'b1) && (CONST[9] == 1'b1)) 
     begin
       ksa_top_32b ksa_top_32b_inst4 (
         .c0(1'b0), 
@@ -348,20 +349,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[8] == 1) && (CONST[9] == 0)) 
+  else if((CONST[8] == 1'b1) && (CONST[9] == 1'b0)) 
     begin
       assign adder_4_out = lshift_8_out;
     end
-  else if((CONST[8] == 0) && (CONST[9] == 1)) 
+  else if((CONST[8] == 1'b0) && (CONST[9] == 1'b1)) 
     begin 
       assign adder_4_out = lshift_9_out;
     end
   else
     begin
-      assign adder_4_out = 32'b0;
+      //assign adder_4_out = 32'b0;
     end
 
-  if((CONST[10] == 1) && (CONST[11] == 1)) 
+  if((CONST[10] == 1'b1) && (CONST[11] == 1'b1)) 
     begin 
       ksa_top_32b ksa_top_32b_inst5 (
         .c0(1'b0), 
@@ -371,20 +372,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[10] == 1) && (CONST[11] == 0)) 
+  else if((CONST[10] == 1'b1) && (CONST[11] == 1'b0)) 
     begin
       assign adder_5_out = lshift_10_out;
     end
-  else if((CONST[10] == 0) && (CONST[11] == 1)) 
+  else if((CONST[10] == 1'b0) && (CONST[11] == 1'b1)) 
     begin
       assign adder_5_out = lshift_11_out;
     end
   else
     begin
-      assign adder_5_out = 32'b0;
+      //assign adder_5_out = 32'b0;
     end
 
-  if((CONST[12] == 1) && (CONST[13] == 1)) 
+  if((CONST[12] == 1'b1) && (CONST[13] == 1'b1)) 
     begin
       ksa_top_32b ksa_top_32b_inst6 (
         .c0(1'b0), 
@@ -394,20 +395,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[12] == 1) && (CONST[13] == 0)) 
+  else if((CONST[12] == 1'b1) && (CONST[13] == 1'b0)) 
     begin
       assign adder_6_out = lshift_12_out;
     end
-  else if((CONST[12] == 0) && (CONST[13] == 1)) 
+  else if((CONST[12] == 1'b0) && (CONST[13] == 1'b1)) 
     begin 
       assign adder_6_out = lshift_13_out;
     end
   else
     begin
-      assign adder_6_out = 32'b0;
+      //assign adder_6_out = 32'b0;
     end
 
-  if((CONST[14] == 1) && (CONST[15] == 1)) 
+  if((CONST[14] == 1'b1) && (CONST[15] == 1)) 
     begin
       ksa_top_32b ksa_top_32b_inst7 (
         .c0(1'b0), 
@@ -417,22 +418,22 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[14] == 1) && (CONST[15] == 0)) 
+  else if((CONST[14] == 1'b1) && (CONST[15] == 1'b0)) 
     begin
       assign adder_7_out = lshift_14_out;
     end
-  else if((CONST[14] == 0) && (CONST[15] == 1)) 
+  else if((CONST[14] == 1'b0) && (CONST[15] == 1'b1)) 
     begin
       assign adder_7_out = lshift_15_out;
     end
   else
     begin
-      assign adder_7_out = 32'b0;
+      //assign adder_7_out = 32'b0;
     end
 
 
   // Second-level of Adder
-  if((CONST[0] == 1) && (CONST[1] == 1) && (CONST[2] == 1) && (CONST[3] == 1)) 
+  if(((CONST[0] == 1'b1) || (CONST[1] == 1'b1)) && ((CONST[2] == 1'b1) || (CONST[3] == 1'b1))) 
     begin
       ksa_top_32b ksa_top_32b_inst8 (
         .c0(1'b0), 
@@ -442,20 +443,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[0] == 1) && (CONST[1] == 1) && (CONST[2] == 0) && (CONST[3] == 0)) 
+  else if(((CONST[0] == 1'b1) || (CONST[1] == 1'b1)) && ((CONST[2] == 1'b0) && (CONST[3] == 1'b0))) 
     begin
       assign adder_8_out = adder_0_out;
     end
-  else if((CONST[0] == 0) && (CONST[1] == 0) && (CONST[2] == 1) && (CONST[3] == 1)) 
+  else if(((CONST[0] == 1'b0) && (CONST[1] == 1'b0)) && ((CONST[2] == 1'b1) || (CONST[3] == 1'b1)))  
     begin
       assign adder_8_out = adder_1_out;
     end
   else
     begin
-      assign adder_8_out = 32'b0;
+      //assign adder_8_out = 32'b0;
     end
 
-  if((CONST[4] == 1) && (CONST[5] == 1) && (CONST[6] == 1) && (CONST[7] == 1)) 
+  if(((CONST[4] == 1'b1) || (CONST[5] == 1'b1)) && ((CONST[6] == 1'b1) || (CONST[7] == 1'b1))) 
     begin 
       ksa_top_32b ksa_top_32b_inst9 (
         .c0(1'b0), 
@@ -465,20 +466,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[4] == 1) && (CONST[5] == 1) && (CONST[6] == 0) && (CONST[7] == 0)) 
+  else if(((CONST[4] == 1'b1) || (CONST[5] == 1'b1)) && ((CONST[6] == 1'b0) && (CONST[7] == 1'b0))) 
     begin
       assign adder_9_out = adder_2_out;
     end
-  else if((CONST[4] == 0) && (CONST[5] == 0) && (CONST[6] == 1) && (CONST[7] == 1)) 
+  else if(((CONST[4] == 1'b0) && (CONST[5] == 1'b0)) && ((CONST[6] == 1'b1) || (CONST[7] == 1'b1)))  
     begin
       assign adder_9_out = adder_3_out;
     end
   else
     begin
-      assign adder_9_out = 32'b0;
+      //assign adder_9_out = 32'b0;
     end
 
-  if((CONST[8] == 1) && (CONST[9] == 1) && (CONST[10] == 1) && (CONST[11] == 1)) 
+  if(((CONST[8] == 1'b1) || (CONST[9] == 1'b1)) && ((CONST[10] == 1'b1) || (CONST[11] == 1'b1))) 
     begin
       ksa_top_32b ksa_top_32b_inst10 (
         .c0(1'b0), 
@@ -488,20 +489,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[8] == 1) && (CONST[9] == 1) && (CONST[10] == 0) && (CONST[11] == 0)) 
+  else if(((CONST[8] == 1'b1) || (CONST[9] == 1'b1)) && ((CONST[10] == 1'b0) && (CONST[11] == 1'b0)))  
     begin
       assign adder_10_out = adder_4_out;
     end
-  else if((CONST[8] == 0) && (CONST[9] == 0) && (CONST[10] == 1) && (CONST[11] == 1)) 
+  else if(((CONST[8] == 1'b0) && (CONST[9] == 1'b0)) && ((CONST[10] == 1'b1) || (CONST[11] == 1'b1))) 
     begin
       assign adder_10_out = adder_5_out;
     end
   else
     begin
-      assign adder_10_out = 32'b0;
+      //assign adder_10_out = 32'b0;
     end
 
-  if((CONST[12] == 1) && (CONST[13] == 1) && (CONST[14] == 1) && (CONST[15] == 1)) 
+  if(((CONST[12] == 1'b1) || (CONST[13] == 1'b1)) && ((CONST[14] == 1'b1) || (CONST[15] == 1'b1))) 
     begin
       ksa_top_32b ksa_top_32b_inst11 (
         .c0(1'b0), 
@@ -511,21 +512,21 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[12] == 1) && (CONST[13] == 1) && (CONST[14] == 0) && (CONST[15] == 0)) 
+  else if(((CONST[12] == 1'b1) || (CONST[13] == 1'b1)) && ((CONST[14] == 1'b0) && (CONST[15] == 1'b0)))  
     begin
       assign adder_11_out = adder_6_out;
     end
-  else if((CONST[12] == 0) && (CONST[13] == 0) && (CONST[14] == 1) && (CONST[15] == 1)) 
+  else if(((CONST[12] == 1'b0) && (CONST[13] == 1'b0)) && ((CONST[14] == 1'b1) || (CONST[15] == 1'b1))) 
     begin
       assign adder_11_out = adder_7_out;
     end
   else
     begin
-      assign adder_11_out = 32'b0;
+      //assign adder_11_out = 32'b0;
     end
 
   // Third-level of Adder
-  if((CONST[0] == 1) && (CONST[1] == 1) && (CONST[2] == 1) && (CONST[3] == 1) && (CONST[4] == 1) && (CONST[5] == 1) && (CONST[6] == 1) && (CONST[7] == 1)) 
+  if(((CONST[0] == 1'b1) || (CONST[1] == 1'b1) || (CONST[2] == 1'b1) || (CONST[3] == 1'b1)) && ((CONST[4] == 1'b1) || (CONST[5] == 1'b1) || (CONST[6] == 1'b1) || (CONST[7] == 1'b1))) 
     begin 
       ksa_top_32b ksa_top_32b_inst12 (
         .c0(1'b0), 
@@ -535,20 +536,20 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[0] == 1) && (CONST[1] == 1) && (CONST[2] == 1) && (CONST[3] == 1) && (CONST[4] == 0) && (CONST[5] == 0) && (CONST[6] == 0) && (CONST[7] == 0)) 
+  else if(((CONST[0] == 1'b1) || (CONST[1] == 1'b1) || (CONST[2] == 1'b1) || (CONST[3] == 1'b1)) && ((CONST[4] == 1'b0) && (CONST[5] == 1'b0) && (CONST[6] == 1'b0) && (CONST[7] == 1'b0))) 
     begin
       assign adder_12_out = adder_8_out;
     end
-  else if((CONST[0] == 0) && (CONST[1] == 0) && (CONST[2] == 0) && (CONST[3] == 0) && (CONST[4] == 1) && (CONST[5] == 1) && (CONST[6] == 1) && (CONST[7] == 1)) 
+  else if(((CONST[0] == 1'b0) && (CONST[1] == 1'b0) && (CONST[2] == 1'b0) && (CONST[3] == 1'b0)) && ((CONST[4] == 1'b1) || (CONST[5] == 1'b1) || (CONST[6] == 1'b1) || (CONST[7] == 1'b1))) 
     begin
       assign adder_12_out = adder_9_out;
     end
   else
     begin
-      assign adder_12_out = 32'b0;
+      //assign adder_12_out = 32'b0;
     end
 
-  if((CONST[8] == 1) && (CONST[9] == 1) && (CONST[10] == 1) && (CONST[11] == 1) && (CONST[12] == 1) && (CONST[13] == 1) && (CONST[14] == 1) && (CONST[15] == 1)) 
+  if(((CONST[8] == 1'b1) || (CONST[9] == 1'b1) || (CONST[10] == 1'b1) || (CONST[11] == 1'b1)) && ((CONST[12] == 1'b1) || (CONST[13] == 1'b1) || (CONST[14] == 1'b1) || (CONST[15] == 1'b1))) 
     begin
       ksa_top_32b ksa_top_32b_inst13 (
         .c0(1'b0), 
@@ -558,21 +559,21 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[8] == 1) && (CONST[9] == 1) && (CONST[10] == 1) && (CONST[11] == 1) && (CONST[12] == 0) && (CONST[13] == 0) && (CONST[14] == 0) && (CONST[15] == 0)) 
+  else if(((CONST[8] == 1'b1) || (CONST[9] == 1'b1) || (CONST[10] == 1'b1) || (CONST[11] == 1'b1)) && ((CONST[12] == 1'b0) && (CONST[13] == 1'b0) && (CONST[14] == 1'b0) && (CONST[15] == 1'b0))) 
     begin
       assign adder_13_out = adder_10_out;
     end
-  else if((CONST[8] == 0) && (CONST[9] == 0) && (CONST[10] == 0) && (CONST[11] == 0) && (CONST[12] == 1) && (CONST[13] == 1) && (CONST[14] == 1) && (CONST[15] == 1)) 
+  else if(((CONST[8] == 1'b0) && (CONST[9] == 1'b0) && (CONST[10] == 1'b0) && (CONST[11] == 1'b0)) && ((CONST[12] == 1'b1) || (CONST[13] == 1'b1) || (CONST[14] == 1'b1) || (CONST[15] == 1'b1))) 
     begin
       assign adder_13_out = adder_11_out;
     end
   else
     begin
-      assign adder_13_out = 32'b0;
+      //assign adder_13_out = 32'b0;
     end
 
   // Fourth-level of Adder
-  if((CONST[0] == 1) && (CONST[1] == 1) && (CONST[2] == 1) && (CONST[3] == 1) && (CONST[4] == 1) && (CONST[5] == 1) && (CONST[6] == 1) && (CONST[7] == 1) && (CONST[8] == 1) && (CONST[9] == 1) && (CONST[10] == 1) && (CONST[11] == 1) && (CONST[12] == 1) && (CONST[13] == 1) && (CONST[14] == 1) && (CONST[15] == 1)) 
+  if(((CONST[0] == 1'b1) || (CONST[1] == 1'b1) || (CONST[2] == 1'b1) || (CONST[3] == 1'b1) || (CONST[4] == 1'b1) || (CONST[5] == 1'b1) || (CONST[6] == 1'b1) || (CONST[7] == 1'b1)) && ((CONST[8] == 1'b1) || (CONST[9] == 1'b1) || (CONST[10] == 1'b1) || (CONST[11] == 1'b1) || (CONST[12] == 1'b1) || (CONST[13] == 1'b1) || (CONST[14] == 1'b1) || (CONST[15] == 1'b1))) 
     begin
       ksa_top_32b ksa_top_32b_inst14 (
         .c0(1'b0), 
@@ -582,11 +583,11 @@ module generic_mult_16b(
         .o_carry()
       );
     end
-  else if((CONST[0] == 1) && (CONST[1] == 1) && (CONST[2] == 1) && (CONST[3] == 1) && (CONST[4] == 1) && (CONST[5] == 1) && (CONST[6] == 1) && (CONST[7] == 1) && (CONST[8] == 0) && (CONST[9] == 0) && (CONST[10] == 0) && (CONST[11] == 0) && (CONST[12] == 0) && (CONST[13] == 0) && (CONST[14] == 0) && (CONST[15] == 0)) 
+  else if(((CONST[0] == 1'b1) || (CONST[1] == 1'b1) || (CONST[2] == 1'b1) || (CONST[3] == 1'b1) || (CONST[4] == 1'b1) || (CONST[5] == 1'b1) || (CONST[6] == 1'b1) || (CONST[7] == 1'b1)) && ((CONST[8] == 1'b0) && (CONST[9] == 1'b0) && (CONST[10] == 1'b0) || (CONST[11] == 1'b0) && (CONST[12] == 1'b0) && (CONST[13] == 1'b0) && (CONST[14] == 1'b0) && (CONST[15] == 1'b0))) 
     begin
       assign adder_14_out = adder_12_out;
     end
-  else if((CONST[0] == 0) && (CONST[1] == 0) && (CONST[2] == 0) && (CONST[3] == 0) && (CONST[4] == 0) && (CONST[5] == 0) && (CONST[6] == 0) && (CONST[7] == 0) && (CONST[8] == 1) && (CONST[9] == 1) && (CONST[10] == 1) && (CONST[11] == 1) && (CONST[12] == 1) && (CONST[13] == 1) && (CONST[14] == 1) && (CONST[15] == 1)) 
+  else if(((CONST[0] == 1'b0) && (CONST[1] == 1'b0) && (CONST[2] == 1'b0) && (CONST[3] == 1'b0) && (CONST[4] == 1'b0) && (CONST[5] == 1'b0) && (CONST[6] == 1'b0) && (CONST[7] == 1'b0)) && ((CONST[8] == 1'b1) || (CONST[9] == 1'b1) || (CONST[10] == 1'b1) || (CONST[11] == 1'b1) || (CONST[12] == 1'b1) || (CONST[13] == 1'b1) || (CONST[14] == 1'b1) || (CONST[15] == 1'b1)))  
     begin
       assign adder_14_out = adder_13_out;
     end
@@ -611,8 +612,8 @@ module generic_mult_16b(
   ) mux_2_to_1_inst1 (
     .D0(bit_adj_out),
     .D1(siginv_1_out),
-    .S(Data_in[15]),
+    .S(D_in[15]),
     .Y(mux_1_out)
   ); 
-  
 endmodule
+  

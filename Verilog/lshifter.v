@@ -25,7 +25,7 @@ module lshifter(
   
   // Structural Definition
   assign prefix = 0;
-  assign suffix = 0;
+  
   
   generate
    if(LSHIFT_AMOUNT==0)
@@ -35,6 +35,7 @@ module lshifter(
    else
      begin
        assign D_out = {prefix,D_in,suffix};
+       assign suffix = 0;
      end
   endgenerate
   
