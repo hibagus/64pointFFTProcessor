@@ -29,9 +29,13 @@ module lshifter(
   
   generate
    if(LSHIFT_AMOUNT==0)
-     assign D_out = {prefix,D_in};
+     begin
+       assign D_out = {prefix,D_in};
+     end
    else
-     assign D_out = {prefix,D_in,suffix};
+     begin
+       assign D_out = {prefix,D_in,suffix};
+     end
   endgenerate
   
   // Behavioral Definition
