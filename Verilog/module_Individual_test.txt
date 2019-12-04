@@ -1,0 +1,11 @@
+Module Name                         | Status        | Date           |
+=====================================================================|
+mux_2_to_1.v                        | Passed        | 2019-12-02     |
+mux_4_to_1.v                        | Passed        | 2019-12-02     |
+mux_8_to_1.v                        | Passed        | 2019-12-02     |
+dff_sync_high_reset.v               | Passed        | 2019-12-02     |
+dff_hold_sync_high_reset.v          | Passed        | 2019-12-02     |
+dff_inputsel_hold_sync_high_reset.v | Passed        | 2019-12-02     |
+dff_segment_for_input.v             | Passed        | 2019-12-02     |
+dff_segment_for_output.v            | Passed        | 2019-12-02     |
+dff_segment_for_cb.v                | Passed        | 2019-12-02     |

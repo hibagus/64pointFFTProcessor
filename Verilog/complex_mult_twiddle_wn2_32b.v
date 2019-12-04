@@ -1,6 +1,6 @@
 module complex_mult_twiddle_wn2_32b(
   A32,
-  R32,
+  R32
   );
   
    
