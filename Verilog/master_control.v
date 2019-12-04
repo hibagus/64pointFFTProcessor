@@ -3,13 +3,14 @@ module master_control (
   rst,
   mastertrig,
   hold_all_in,
-  hold_buf_3,
   hold_buf_2,
   hold_buf_1,
-  in_ctrl_buf_3,
+  hold_buf_0,
   in_ctrl_buf_2,
   in_ctrl_buf_1,
+  in_ctrl_buf_0,
   pos_hold_ctrl,
+  Shuf_Ctrl_0,
   Shuf_Ctrl_1,
   Shuf_Ctrl_2,
   Shuf_Ctrl_3,
@@ -17,7 +18,7 @@ module master_control (
   Shuf_Ctrl_5,
   Shuf_Ctrl_6,
   Shuf_Ctrl_7,
-  Shuf_Ctrl_8,
+  Type_Sel_0,
   Type_Sel_1,
   Type_Sel_2,
   Type_Sel_3,
@@ -25,7 +26,6 @@ module master_control (
   Type_Sel_5,
   Type_Sel_6,
   Type_Sel_7,
-  Type_Sel_8,
   Bypass_Sel_0,
   Bypass_Sel_1,
   Bypass_Sel_2,
@@ -84,13 +84,14 @@ module master_control (
   input                   rst;
   input                   mastertrig;
   output                  hold_all_in;
-  output                  hold_buf_3;
   output                  hold_buf_2;
   output                  hold_buf_1;
-  output                  in_ctrl_buf_3;
+  output                  hold_buf_0;
   output                  in_ctrl_buf_2;
   output                  in_ctrl_buf_1;
+  output                  in_ctrl_buf_0;
   output                  pos_hold_ctrl;
+  output  [2:0]           Shuf_Ctrl_0;
   output  [2:0]           Shuf_Ctrl_1;
   output  [2:0]           Shuf_Ctrl_2;
   output  [2:0]           Shuf_Ctrl_3;
@@ -98,7 +99,7 @@ module master_control (
   output  [2:0]           Shuf_Ctrl_5;
   output  [2:0]           Shuf_Ctrl_6;
   output  [2:0]           Shuf_Ctrl_7;
-  output  [2:0]           Shuf_Ctrl_8;
+  output  [2:0]           Type_Sel_0;
   output  [2:0]           Type_Sel_1;
   output  [2:0]           Type_Sel_2;
   output  [2:0]           Type_Sel_3;
@@ -106,7 +107,6 @@ module master_control (
   output  [2:0]           Type_Sel_5;
   output  [2:0]           Type_Sel_6;
   output  [2:0]           Type_Sel_7;
-  output  [2:0]           Type_Sel_8;
   output  [2:0]           Bypass_Sel_0;
   output  [2:0]           Bypass_Sel_1;
   output  [2:0]           Bypass_Sel_2;
@@ -165,13 +165,14 @@ module master_control (
   wire                    rst;
   wire                    mastertrig;
   reg                     hold_all_in;
-  reg                     hold_buf_3;
   reg                     hold_buf_2;
   reg                     hold_buf_1;
-  reg                     in_ctrl_buf_3;
+  reg                     hold_buf_0;
   reg                     in_ctrl_buf_2;
   reg                     in_ctrl_buf_1;
+  reg                     in_ctrl_buf_0;
   reg                     pos_hold_ctrl;
+  reg  [2:0]              Shuf_Ctrl_0;
   reg  [2:0]              Shuf_Ctrl_1;
   reg  [2:0]              Shuf_Ctrl_2;
   reg  [2:0]              Shuf_Ctrl_3;
@@ -179,7 +180,7 @@ module master_control (
   reg  [2:0]              Shuf_Ctrl_5;
   reg  [2:0]              Shuf_Ctrl_6;
   reg  [2:0]              Shuf_Ctrl_7;
-  reg  [2:0]              Shuf_Ctrl_8;
+  reg  [2:0]              Type_Sel_0;
   reg  [2:0]              Type_Sel_1;
   reg  [2:0]              Type_Sel_2;
   reg  [2:0]              Type_Sel_3;
@@ -187,7 +188,6 @@ module master_control (
   reg  [2:0]              Type_Sel_5;
   reg  [2:0]              Type_Sel_6;
   reg  [2:0]              Type_Sel_7;
-  reg  [2:0]              Type_Sel_8;
   reg  [2:0]              Bypass_Sel_0;
   reg  [2:0]              Bypass_Sel_1;
   reg  [2:0]              Bypass_Sel_2;
@@ -272,13 +272,14 @@ module master_control (
       if(rst==1'b1)
         begin
           hold_all_in    <=  1'b0;
-          hold_buf_3     <=  1'b1;
           hold_buf_2     <=  1'b1;
           hold_buf_1     <=  1'b1;
-          in_ctrl_buf_3  <=  1'b0;
+          hold_buf_0     <=  1'b1;
           in_ctrl_buf_2  <=  1'b0;
           in_ctrl_buf_1  <=  1'b0;
+          in_ctrl_buf_0  <=  1'b0;
           pos_hold_ctrl  <=  1'b0;
+          Shuf_Ctrl_0    <=  3'b000;
           Shuf_Ctrl_1    <=  3'b000;
           Shuf_Ctrl_2    <=  3'b000;
           Shuf_Ctrl_3    <=  3'b000;
@@ -286,7 +287,7 @@ module master_control (
           Shuf_Ctrl_5    <=  3'b000;
           Shuf_Ctrl_6    <=  3'b000;
           Shuf_Ctrl_7    <=  3'b000;
-          Shuf_Ctrl_8    <=  3'b000;
+          Type_Sel_0     <=  3'b000;
           Type_Sel_1     <=  3'b000;
           Type_Sel_2     <=  3'b000;
           Type_Sel_3     <=  3'b000;
@@ -294,7 +295,6 @@ module master_control (
           Type_Sel_5     <=  3'b000;
           Type_Sel_6     <=  3'b000;
           Type_Sel_7     <=  3'b000;
-          Type_Sel_8     <=  3'b000;
           Bypass_Sel_0   <=  3'b000;
           Bypass_Sel_1   <=  3'b000;
           Bypass_Sel_2   <=  3'b000;
@@ -355,13 +355,14 @@ module master_control (
               state_0:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -369,7 +370,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -377,7 +378,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -442,13 +442,14 @@ module master_control (
               state_1:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -456,7 +457,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -464,7 +465,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -522,21 +522,22 @@ module master_control (
               state_2:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
-                  Shuf_Ctrl_1    <=  3'b001;
-                  Shuf_Ctrl_2    <=  3'b010;
-                  Shuf_Ctrl_3    <=  3'b011;
-                  Shuf_Ctrl_4    <=  3'b100;
-                  Shuf_Ctrl_5    <=  3'b101;
-                  Shuf_Ctrl_6    <=  3'b110;
-                  Shuf_Ctrl_7    <=  3'b111;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Shuf_Ctrl_0    <=  3'b001;
+                  Shuf_Ctrl_1    <=  3'b010;
+                  Shuf_Ctrl_2    <=  3'b011;
+                  Shuf_Ctrl_3    <=  3'b100;
+                  Shuf_Ctrl_4    <=  3'b101;
+                  Shuf_Ctrl_5    <=  3'b110;
+                  Shuf_Ctrl_6    <=  3'b111;
+                  Shuf_Ctrl_7    <=  3'b000;
+                  Type_Sel_0     <=  3'b001;
                   Type_Sel_1     <=  3'b001;
                   Type_Sel_2     <=  3'b001;
                   Type_Sel_3     <=  3'b001;
@@ -544,7 +545,6 @@ module master_control (
                   Type_Sel_5     <=  3'b001;
                   Type_Sel_6     <=  3'b001;
                   Type_Sel_7     <=  3'b001;
-                  Type_Sel_8     <=  3'b001;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -602,29 +602,29 @@ module master_control (
               state_3:
                 begin
                   hold_all_in    <=  1'b1;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
-                  hold_buf_1     <=  1'b0;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_1     <=  1'b1;
+                  hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
-                  in_ctrl_buf_1  <=  1'b1;
+                  in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b1;
                   pos_hold_ctrl  <=  1'b1;
-                  Shuf_Ctrl_1    <=  3'b000;
-                  Shuf_Ctrl_2    <=  3'b001;
-                  Shuf_Ctrl_3    <=  3'b000;
-                  Shuf_Ctrl_4    <=  3'b010;
-                  Shuf_Ctrl_5    <=  3'b000;
-                  Shuf_Ctrl_6    <=  3'b011;
-                  Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b100;
-                  Type_Sel_1     <=  3'b000;
-                  Type_Sel_2     <=  3'b001;
-                  Type_Sel_3     <=  3'b000;
-                  Type_Sel_4     <=  3'b001;
-                  Type_Sel_5     <=  3'b000;
-                  Type_Sel_6     <=  3'b001;
-                  Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b001;
+                  Shuf_Ctrl_0    <=  3'b000;
+                  Shuf_Ctrl_1    <=  3'b001;
+                  Shuf_Ctrl_2    <=  3'b000;
+                  Shuf_Ctrl_3    <=  3'b010;
+                  Shuf_Ctrl_4    <=  3'b000;
+                  Shuf_Ctrl_5    <=  3'b011;
+                  Shuf_Ctrl_6    <=  3'b000;
+                  Shuf_Ctrl_7    <=  3'b100;
+                  Type_Sel_0     <=  3'b000;
+                  Type_Sel_1     <=  3'b001;
+                  Type_Sel_2     <=  3'b000;
+                  Type_Sel_3     <=  3'b001;
+                  Type_Sel_4     <=  3'b000;
+                  Type_Sel_5     <=  3'b001;
+                  Type_Sel_6     <=  3'b000;
+                  Type_Sel_7     <=  3'b001;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -682,29 +682,29 @@ module master_control (
               state_4:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
-                  hold_buf_1     <=  1'b0;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_1     <=  1'b1;
+                  hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
-                  in_ctrl_buf_1  <=  1'b1;
+                  in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b1;
                   pos_hold_ctrl  <=  1'b1;
-                  Shuf_Ctrl_1    <=  3'b000;
-                  Shuf_Ctrl_2    <=  3'b111;
-                  Shuf_Ctrl_3    <=  3'b000;
-                  Shuf_Ctrl_4    <=  3'b110;
-                  Shuf_Ctrl_5    <=  3'b000;
-                  Shuf_Ctrl_6    <=  3'b101;
+                  Shuf_Ctrl_0    <=  3'b000;
+                  Shuf_Ctrl_1    <=  3'b111;
+                  Shuf_Ctrl_2    <=  3'b000;
+                  Shuf_Ctrl_3    <=  3'b110;
+                  Shuf_Ctrl_4    <=  3'b000;
+                  Shuf_Ctrl_5    <=  3'b101;
+                  Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
-                  Type_Sel_1     <=  3'b000;
-                  Type_Sel_2     <=  3'b101;
-                  Type_Sel_3     <=  3'b000;
-                  Type_Sel_4     <=  3'b101;
-                  Type_Sel_5     <=  3'b000;
-                  Type_Sel_6     <=  3'b101;
+                  Type_Sel_0     <=  3'b000;
+                  Type_Sel_1     <=  3'b101;
+                  Type_Sel_2     <=  3'b000;
+                  Type_Sel_3     <=  3'b101;
+                  Type_Sel_4     <=  3'b000;
+                  Type_Sel_5     <=  3'b101;
+                  Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -762,29 +762,29 @@ module master_control (
               state_5:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
-                  hold_buf_1     <=  1'b0;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_1     <=  1'b1;
+                  hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
-                  in_ctrl_buf_1  <=  1'b1;
+                  in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b1;
                   pos_hold_ctrl  <=  1'b1;
-                  Shuf_Ctrl_1    <=  3'b101;
-                  Shuf_Ctrl_2    <=  3'b110;
-                  Shuf_Ctrl_3    <=  3'b001;
-                  Shuf_Ctrl_4    <=  3'b100;
-                  Shuf_Ctrl_5    <=  3'b111;
-                  Shuf_Ctrl_6    <=  3'b010;
-                  Shuf_Ctrl_7    <=  3'b011;
-                  Shuf_Ctrl_8    <=  3'b000;
-                  Type_Sel_1     <=  3'b101;
-                  Type_Sel_2     <=  3'b111;
-                  Type_Sel_3     <=  3'b001;
-                  Type_Sel_4     <=  3'b101;
-                  Type_Sel_5     <=  3'b111;
-                  Type_Sel_6     <=  3'b001;
-                  Type_Sel_7     <=  3'b101;
-                  Type_Sel_8     <=  3'b000;
+                  Shuf_Ctrl_0    <=  3'b101;
+                  Shuf_Ctrl_1    <=  3'b110;
+                  Shuf_Ctrl_2    <=  3'b001;
+                  Shuf_Ctrl_3    <=  3'b100;
+                  Shuf_Ctrl_4    <=  3'b111;
+                  Shuf_Ctrl_5    <=  3'b010;
+                  Shuf_Ctrl_6    <=  3'b011;
+                  Shuf_Ctrl_7    <=  3'b000;
+                  Type_Sel_0     <=  3'b101;
+                  Type_Sel_1     <=  3'b111;
+                  Type_Sel_2     <=  3'b001;
+                  Type_Sel_3     <=  3'b101;
+                  Type_Sel_4     <=  3'b111;
+                  Type_Sel_5     <=  3'b001;
+                  Type_Sel_6     <=  3'b101;
+                  Type_Sel_7     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -842,29 +842,29 @@ module master_control (
               state_6:
                 begin
                   hold_all_in    <=  1'b1;
-                  hold_buf_3     <=  1'b1;
-                  hold_buf_2     <=  1'b0;
-                  hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
-                  in_ctrl_buf_2  <=  1'b1;
-                  in_ctrl_buf_1  <=  1'b0;
+                  hold_buf_2     <=  1'b1;
+                  hold_buf_1     <=  1'b0;
+                  hold_buf_0     <=  1'b1;
+                  in_ctrl_buf_2  <=  1'b0;
+                  in_ctrl_buf_1  <=  1'b1;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b1;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
-                  Shuf_Ctrl_3    <=  3'b000;
-                  Shuf_Ctrl_4    <=  3'b001;
+                  Shuf_Ctrl_3    <=  3'b001;
+                  Shuf_Ctrl_4    <=  3'b000;
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
-                  Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b010;
+                  Shuf_Ctrl_7    <=  3'b010;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
-                  Type_Sel_3     <=  3'b000;
-                  Type_Sel_4     <=  3'b001;
+                  Type_Sel_3     <=  3'b001;
+                  Type_Sel_4     <=  3'b000;
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
-                  Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b001;
+                  Type_Sel_7     <=  3'b001;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -922,29 +922,29 @@ module master_control (
               state_7:
                 begin
                   hold_all_in    <=  1'b1;
-                  hold_buf_3     <=  1'b0;
-                  hold_buf_2     <=  1'b1;
+                  hold_buf_2     <=  1'b0;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b1;
-                  in_ctrl_buf_2  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
+                  in_ctrl_buf_2  <=  1'b1;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b1;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
-                  Shuf_Ctrl_3    <=  3'b000;
-                  Shuf_Ctrl_4    <=  3'b011;
+                  Shuf_Ctrl_3    <=  3'b011;
+                  Shuf_Ctrl_4    <=  3'b000;
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
-                  Type_Sel_3     <=  3'b000;
-                  Type_Sel_4     <=  3'b101;
+                  Type_Sel_3     <=  3'b101;
+                  Type_Sel_4     <=  3'b000;
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1002,29 +1002,29 @@ module master_control (
               state_8:
                 begin
                   hold_all_in    <=  1'b1;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b1;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
-                  Shuf_Ctrl_3    <=  3'b000;
-                  Shuf_Ctrl_4    <=  3'b101;
+                  Shuf_Ctrl_3    <=  3'b101;
+                  Shuf_Ctrl_4    <=  3'b000;
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
-                  Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b110;
+                  Shuf_Ctrl_7    <=  3'b110;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
-                  Type_Sel_3     <=  3'b000;
-                  Type_Sel_4     <=  3'b111;
+                  Type_Sel_3     <=  3'b111;
+                  Type_Sel_4     <=  3'b000;
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
-                  Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b111;
+                  Type_Sel_7     <=  3'b111;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1082,29 +1082,29 @@ module master_control (
               state_9:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b0;
                   hold_buf_2     <=  1'b0;
                   hold_buf_1     <=  1'b0;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b1;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
-                  Shuf_Ctrl_3    <=  3'b000;
-                  Shuf_Ctrl_4    <=  3'b111;
+                  Shuf_Ctrl_3    <=  3'b111;
+                  Shuf_Ctrl_4    <=  3'b000;
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
-                  Type_Sel_3     <=  3'b000;
-                  Type_Sel_4     <=  3'b011;
+                  Type_Sel_3     <=  3'b011;
+                  Type_Sel_4     <=  3'b000;
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1162,29 +1162,29 @@ module master_control (
               state_10:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b0;
                   hold_buf_2     <=  1'b0;
                   hold_buf_1     <=  1'b0;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b1;
-                  Shuf_Ctrl_1    <=  3'b011;
-                  Shuf_Ctrl_2    <=  3'b110;
-                  Shuf_Ctrl_3    <=  3'b111;
-                  Shuf_Ctrl_4    <=  3'b100;
-                  Shuf_Ctrl_5    <=  3'b001;
-                  Shuf_Ctrl_6    <=  3'b010;
-                  Shuf_Ctrl_7    <=  3'b101;
-                  Shuf_Ctrl_8    <=  3'b000;
-                  Type_Sel_1     <=  3'b101;
-                  Type_Sel_2     <=  3'b011;
-                  Type_Sel_3     <=  3'b010;
-                  Type_Sel_4     <=  3'b111;
-                  Type_Sel_5     <=  3'b001;
-                  Type_Sel_6     <=  3'b101;
-                  Type_Sel_7     <=  3'b011;
-                  Type_Sel_8     <=  3'b000;
+                  Shuf_Ctrl_0    <=  3'b011;
+                  Shuf_Ctrl_1    <=  3'b110;
+                  Shuf_Ctrl_2    <=  3'b111;
+                  Shuf_Ctrl_3    <=  3'b100;
+                  Shuf_Ctrl_4    <=  3'b001;
+                  Shuf_Ctrl_5    <=  3'b010;
+                  Shuf_Ctrl_6    <=  3'b101;
+                  Shuf_Ctrl_7    <=  3'b000;
+                  Type_Sel_0     <=  3'b101;
+                  Type_Sel_1     <=  3'b011;
+                  Type_Sel_2     <=  3'b010;
+                  Type_Sel_3     <=  3'b111;
+                  Type_Sel_4     <=  3'b001;
+                  Type_Sel_5     <=  3'b101;
+                  Type_Sel_6     <=  3'b011;
+                  Type_Sel_7     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1242,29 +1242,29 @@ module master_control (
               state_11:
                 begin
                   hold_all_in    <=  1'b1;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b1;
-                  Shuf_Ctrl_1    <=  3'b000;
-                  Shuf_Ctrl_2    <=  3'b011;
-                  Shuf_Ctrl_3    <=  3'b000;
-                  Shuf_Ctrl_4    <=  3'b010;
-                  Shuf_Ctrl_5    <=  3'b000;
-                  Shuf_Ctrl_6    <=  3'b001;
-                  Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b100;
-                  Type_Sel_1     <=  3'b000;
-                  Type_Sel_2     <=  3'b111;
-                  Type_Sel_3     <=  3'b000;
-                  Type_Sel_4     <=  3'b101;
-                  Type_Sel_5     <=  3'b000;
-                  Type_Sel_6     <=  3'b001;
-                  Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b111;
+                  Shuf_Ctrl_0    <=  3'b000;
+                  Shuf_Ctrl_1    <=  3'b011;
+                  Shuf_Ctrl_2    <=  3'b000;
+                  Shuf_Ctrl_3    <=  3'b010;
+                  Shuf_Ctrl_4    <=  3'b000;
+                  Shuf_Ctrl_5    <=  3'b001;
+                  Shuf_Ctrl_6    <=  3'b000;
+                  Shuf_Ctrl_7    <=  3'b100;
+                  Type_Sel_0     <=  3'b000;
+                  Type_Sel_1     <=  3'b111;
+                  Type_Sel_2     <=  3'b000;
+                  Type_Sel_3     <=  3'b101;
+                  Type_Sel_4     <=  3'b000;
+                  Type_Sel_5     <=  3'b001;
+                  Type_Sel_6     <=  3'b000;
+                  Type_Sel_7     <=  3'b111;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1322,29 +1322,29 @@ module master_control (
               state_12:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b0;
                   hold_buf_2     <=  1'b0;
                   hold_buf_1     <=  1'b0;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b1;
-                  Shuf_Ctrl_1    <=  3'b000;
-                  Shuf_Ctrl_2    <=  3'b101;
-                  Shuf_Ctrl_3    <=  3'b000;
-                  Shuf_Ctrl_4    <=  3'b110;
-                  Shuf_Ctrl_5    <=  3'b000;
-                  Shuf_Ctrl_6    <=  3'b111;
+                  Shuf_Ctrl_0    <=  3'b000;
+                  Shuf_Ctrl_1    <=  3'b101;
+                  Shuf_Ctrl_2    <=  3'b000;
+                  Shuf_Ctrl_3    <=  3'b110;
+                  Shuf_Ctrl_4    <=  3'b000;
+                  Shuf_Ctrl_5    <=  3'b111;
+                  Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
-                  Type_Sel_1     <=  3'b000;
-                  Type_Sel_2     <=  3'b011;
-                  Type_Sel_3     <=  3'b000;
-                  Type_Sel_4     <=  3'b010;
-                  Type_Sel_5     <=  3'b000;
-                  Type_Sel_6     <=  3'b110;
+                  Type_Sel_0     <=  3'b000;
+                  Type_Sel_1     <=  3'b011;
+                  Type_Sel_2     <=  3'b000;
+                  Type_Sel_3     <=  3'b010;
+                  Type_Sel_4     <=  3'b000;
+                  Type_Sel_5     <=  3'b110;
+                  Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1402,29 +1402,29 @@ module master_control (
               state_13:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
-                  Shuf_Ctrl_1    <=  3'b111;
-                  Shuf_Ctrl_2    <=  3'b010;
-                  Shuf_Ctrl_3    <=  3'b101;
-                  Shuf_Ctrl_4    <=  3'b100;
-                  Shuf_Ctrl_5    <=  3'b011;
-                  Shuf_Ctrl_6    <=  3'b110;
-                  Shuf_Ctrl_7    <=  3'b001;
-                  Shuf_Ctrl_8    <=  3'b000;
-                  Type_Sel_1     <=  3'b100;
-                  Type_Sel_2     <=  3'b101;
-                  Type_Sel_3     <=  3'b010;
-                  Type_Sel_4     <=  3'b011;
-                  Type_Sel_5     <=  3'b111;
-                  Type_Sel_6     <=  3'b110;
-                  Type_Sel_7     <=  3'b001;
-                  Type_Sel_8     <=  3'b000;
+                  Shuf_Ctrl_0    <=  3'b111;
+                  Shuf_Ctrl_1    <=  3'b010;
+                  Shuf_Ctrl_2    <=  3'b101;
+                  Shuf_Ctrl_3    <=  3'b100;
+                  Shuf_Ctrl_4    <=  3'b011;
+                  Shuf_Ctrl_5    <=  3'b110;
+                  Shuf_Ctrl_6    <=  3'b001;
+                  Shuf_Ctrl_7    <=  3'b000;
+                  Type_Sel_0     <=  3'b100;
+                  Type_Sel_1     <=  3'b101;
+                  Type_Sel_2     <=  3'b010;
+                  Type_Sel_3     <=  3'b011;
+                  Type_Sel_4     <=  3'b111;
+                  Type_Sel_5     <=  3'b110;
+                  Type_Sel_6     <=  3'b001;
+                  Type_Sel_7     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1482,13 +1482,14 @@ module master_control (
               state_14:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -1496,7 +1497,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -1504,7 +1505,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1562,13 +1562,14 @@ module master_control (
               state_15:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -1576,7 +1577,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -1584,7 +1585,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1642,13 +1642,14 @@ module master_control (
               state_16:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -1656,7 +1657,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -1664,7 +1665,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1722,13 +1722,14 @@ module master_control (
               state_17:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -1736,7 +1737,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -1744,7 +1745,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1802,13 +1802,14 @@ module master_control (
               state_18:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -1816,7 +1817,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -1824,7 +1825,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1882,13 +1882,14 @@ module master_control (
               state_19:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -1896,7 +1897,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -1904,7 +1905,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -1962,13 +1962,14 @@ module master_control (
               state_20:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -1976,7 +1977,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -1984,7 +1985,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -2042,13 +2042,14 @@ module master_control (
               state_21:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -2056,7 +2057,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -2064,7 +2065,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
@@ -2122,13 +2122,14 @@ module master_control (
               state_22:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_3     <=  1'b1;
                   hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b1;
-                  in_ctrl_buf_3  <=  1'b0;
+                  hold_buf_0     <=  1'b1;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
+                  in_ctrl_buf_0  <=  1'b0;
                   pos_hold_ctrl  <=  1'b0;
+                  Shuf_Ctrl_0    <=  3'b000;
                   Shuf_Ctrl_1    <=  3'b000;
                   Shuf_Ctrl_2    <=  3'b000;
                   Shuf_Ctrl_3    <=  3'b000;
@@ -2136,7 +2137,7 @@ module master_control (
                   Shuf_Ctrl_5    <=  3'b000;
                   Shuf_Ctrl_6    <=  3'b000;
                   Shuf_Ctrl_7    <=  3'b000;
-                  Shuf_Ctrl_8    <=  3'b000;
+                  Type_Sel_0     <=  3'b000;
                   Type_Sel_1     <=  3'b000;
                   Type_Sel_2     <=  3'b000;
                   Type_Sel_3     <=  3'b000;
@@ -2144,7 +2145,6 @@ module master_control (
                   Type_Sel_5     <=  3'b000;
                   Type_Sel_6     <=  3'b000;
                   Type_Sel_7     <=  3'b000;
-                  Type_Sel_8     <=  3'b000;
                   Bypass_Sel_0   <=  3'b000;
                   Bypass_Sel_1   <=  3'b000;
                   Bypass_Sel_2   <=  3'b000;
