@@ -21,7 +21,7 @@ module complex_mult_twiddle_wn1_32b(
 
   assign real_a32 = A32[31:16];
   assign imag_a32 = A32[15:0];
-  assign R32 = {siginv_0_out, adder_0_out};
+  assign R32 = {adder_0_out,siginv_0_out};
   
   sgninv_16b sgninv_16b_inst0 (
     .A16(halfmult_0_out), 
