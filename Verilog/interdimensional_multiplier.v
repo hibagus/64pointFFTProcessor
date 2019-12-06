@@ -498,43 +498,43 @@ module interdimensional_multiplier(
   );
   
   bypass_32b bypass_32b_inst1 (
-    .A32(SET_0_IN), 
+    .A32(SET_1_IN), 
     .TYPESEL(Bypass_Sel_1), 
     .R32(BLOCK_BYPASS_1_OUT)
   );
   
   bypass_32b bypass_32b_inst2 (
-    .A32(SET_0_IN), 
+    .A32(SET_2_IN), 
     .TYPESEL(Bypass_Sel_2), 
     .R32(BLOCK_BYPASS_2_OUT)
   );
   
   bypass_32b bypass_32b_inst3 (
-    .A32(SET_0_IN), 
+    .A32(SET_3_IN), 
     .TYPESEL(Bypass_Sel_3), 
     .R32(BLOCK_BYPASS_3_OUT)
   );
   
   bypass_32b bypass_32b_inst4 (
-    .A32(SET_0_IN), 
+    .A32(SET_4_IN), 
     .TYPESEL(Bypass_Sel_4), 
     .R32(BLOCK_BYPASS_4_OUT)
   );
   
   bypass_32b bypass_32b_inst5 (
-    .A32(SET_0_IN), 
+    .A32(SET_5_IN), 
     .TYPESEL(Bypass_Sel_5), 
     .R32(BLOCK_BYPASS_5_OUT)
   );
   
   bypass_32b bypass_32b_inst6 (
-    .A32(SET_0_IN), 
+    .A32(SET_6_IN), 
     .TYPESEL(Bypass_Sel_6), 
     .R32(BLOCK_BYPASS_6_OUT)
   );
   
   bypass_32b bypass_32b_inst7 (
-    .A32(SET_0_IN), 
+    .A32(SET_7_IN), 
     .TYPESEL(Bypass_Sel_7), 
     .R32(BLOCK_BYPASS_7_OUT)
   );
