@@ -32,6 +32,7 @@ module output_counter(
       if(rst==1'b1)
         begin
           currentstate <= idle;
+          counter      <= 6'b111111;
         end
       else 
         begin
@@ -42,12 +43,12 @@ module output_counter(
                   begin
                     currentstate <= counting;
                     counter      <= 6'b0;
-                    datavalid    <= 1'b0;
+                    datavalid    <= 1'b1;
                   end
                 else 
                   begin
                     currentstate <= currentstate;
-                    counter      <= 6'b0;
+                    counter      <= counter;
                     datavalid    <= 1'b0;
                   end
               end
