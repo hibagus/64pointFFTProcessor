@@ -47,7 +47,7 @@ module input_counter(
                 else 
                   begin
                     currentstate <= currentstate;
-                    counter      <= 6'b0;
+                    counter      <= counter;
                     mastertrig   <= 1'b0;
                   end
               end
