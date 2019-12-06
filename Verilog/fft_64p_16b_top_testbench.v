@@ -61,8 +61,8 @@ module fft_64p_16b_top_testbench(
         Data_Start <= 1'b1;
         if(state_count == 6'b111111) begin
           state <= 2'b0;
-          Data_Start <= 1'b0;
-          In_Stream <= 32'b0;
+          Data_Start <= 1'b1;
+          In_Stream <= 32'h00290000;
         end
       end
       else if(state == 2'b0) begin
