@@ -31,6 +31,7 @@ module input_counter(
      if(rst==1'b1)
         begin
          currentstate <= idle;
+         counter      <= 6'b111111;
         end
       else 
         begin
@@ -40,19 +41,19 @@ module input_counter(
                 if(datastart==1'b1)
                   begin
                     currentstate <= counting;
-                    counter      <= 6'b0;
+                    counter      <= 6'b000001;
                     mastertrig   <= 1'b0;
                   end
                 else 
                   begin
                     currentstate <= currentstate;
-                    counter      <= 6'b0;
+                    counter      <= counter;
                     mastertrig   <= 1'b0;
                   end
               end
            counting:
              begin
-               if(counter == 6'b110101)
+               if(counter == 6'b110110)
                  begin
                    currentstate <= counting;
                    counter      <= counter + 1'b1;
