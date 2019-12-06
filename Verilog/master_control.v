@@ -344,7 +344,7 @@ module master_control (
           hold_seg_6     <=  1'b1;
           hold_seg_7     <=  1'b1;
           in_ctrl_all_cb <=  1'b1;
-          hold_all_out   <=  1'b0;
+          hold_all_out   <=  1'b1;
           in_ctrl_all_out<=  1'b0;
           counter_en     <=  1'b0;	
           currentstate   <= state_0;          
@@ -427,7 +427,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;		
                   if (mastertrig==1'b1)
@@ -514,7 +514,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_2;
@@ -594,7 +594,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_3;
@@ -674,7 +674,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_4;
@@ -754,7 +754,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_5;
@@ -834,7 +834,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_6;
@@ -914,7 +914,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_7;
@@ -994,7 +994,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_8;
@@ -1074,7 +1074,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_9;
@@ -1154,7 +1154,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_10;
@@ -1234,7 +1234,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_11;
@@ -1314,7 +1314,7 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_12;
@@ -1394,7 +1394,7 @@ module master_control (
                   hold_seg_6     <=  1'b0;
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
+                  hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_13;
@@ -1474,8 +1474,8 @@ module master_control (
                   hold_seg_6     <=  1'b1;
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b1;
-                  hold_all_out   <=  1'b0;
-                  in_ctrl_all_out<=  1'b1;
+                  hold_all_out   <=  1'b1;
+                  in_ctrl_all_out<=  1'b0;
                   counter_en     <=  1'b0;
                   currentstate   <= state_14;
                 end
@@ -2115,7 +2115,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   hold_all_out   <=  1'b0;
-                  in_ctrl_all_out<=  1'b0;
+                  in_ctrl_all_out<=  1'b1;
                   counter_en     <=  1'b0;
                   currentstate   <= state_22;
                 end
