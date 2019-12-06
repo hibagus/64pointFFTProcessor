@@ -107,8 +107,8 @@ module const_mult_ksa_16b_halfsqrt2 (
   
   ksa_top_32b ksa_top_32b_inst3 (
     .c0(1'b0), 
-    .i_a(adder_1_out), 
-    .i_b(adder_2_out), 
+    .i_a(adder_2_out), 
+    .i_b(adder_1_out), 
     .o_s(adder_3_out), 
     .o_carry()
   );
