@@ -1476,7 +1476,7 @@ module master_control (
                   in_ctrl_all_cb <=  1'b1;
                   hold_all_out   <=  1'b1;
                   in_ctrl_all_out<=  1'b0;
-                  counter_en     <=  1'b1;
+                  counter_en     <=  1'b0;
                   currentstate   <= state_14;
                 end
               state_14:
@@ -1556,7 +1556,7 @@ module master_control (
                   in_ctrl_all_cb <=  1'b0;
                   hold_all_out   <=  1'b0;
                   in_ctrl_all_out<=  1'b1;
-                  counter_en     <=  1'b0;
+                  counter_en     <=  1'b1;
                   currentstate   <= state_15;
                 end
               state_15:
