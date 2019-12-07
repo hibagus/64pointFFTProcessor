@@ -16,7 +16,7 @@ assign o_c0       = i_c0;
 assign o_pk       = i_p_save[31:0];
 assign gkj[0]     = i_c0;
 assign gkj[16:1]  = i_gk[15:0];
-assign o_gk[15:0] = i_gk[15:0];
+assign o_gk[14:0] = i_gk[14:0];
 
 grey_cell gc_0(gkj[0], i_pk[0], i_gk[15], o_gk[15]);
 grey_cell gc_1(gkj[1], i_pk[1], i_gk[16], o_gk[16]);
