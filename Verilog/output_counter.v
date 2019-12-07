@@ -25,9 +25,9 @@ module output_counter(
   reg          hold_all_out;  
   
   
-  localparam idle     = 1'b00; 
-  localparam prepare  = 1'b01;
-  localparam counting = 1'b11; 
+  localparam idle     = 2'b00; 
+  localparam prepare  = 2'b01;
+  localparam counting = 2'b11; 
   
   reg [1:0] currentstate;
   reg [5:0] counter;
@@ -69,7 +69,7 @@ module output_counter(
             prepare:
               begin
                 currentstate    <= counting;
-                counter         <= 6'b0;
+                counter         <= counter + 1'b1;
                 datavalid       <= 1'b1;
                 in_ctrl_all_out <= 1'b1;
                 hold_all_out    <= 1'b0;
