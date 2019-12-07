@@ -69,7 +69,7 @@ module output_counter(
             prepare:
               begin
                 currentstate    <= counting;
-                counter         <= counter + 1'b1;
+                counter         <= 6'b0;
                 datavalid       <= 1'b1;
                 in_ctrl_all_out <= 1'b1;
                 hold_all_out    <= 1'b0;
