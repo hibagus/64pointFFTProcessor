@@ -52,7 +52,7 @@ module output_counter(
                 if(dataind==1'b1)
                   begin
                     currentstate    <= prepare;
-                    counter         <= 6'b0;
+                    counter         <= counter;
                     datavalid       <= 1'b0;
                     in_ctrl_all_out <= 1'b1;
                     hold_all_out    <= 1'b0;
@@ -76,7 +76,7 @@ module output_counter(
               end
             counting:
               begin
-                if(counter<= 6'b000111)
+                if(counter< 6'b000111)
                   begin
                     currentstate    <= counting;
                     counter         <= counter + 1'b1;
