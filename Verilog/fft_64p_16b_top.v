@@ -140,8 +140,6 @@ module fft_64p_16b_top(
   wire          master_out_hold_seg_6;
   wire          master_out_hold_seg_7;
   wire          master_out_in_ctrl_all_cb;
-  wire          master_out_hold_all_out;    // Should be removed
-  wire          master_out_in_ctrl_all_out; // Should be removed
   wire          master_out_counter_en;
   
   wire          outputcounter_out_hold_all_out;
@@ -431,8 +429,6 @@ module fft_64p_16b_top(
   .hold_seg_6(master_out_hold_seg_6),
   .hold_seg_7(master_out_hold_seg_7),
   .in_ctrl_all_cb(master_out_in_ctrl_all_cb),
-  .hold_all_out(master_out_hold_all_out),
-  .in_ctrl_all_out(master_out_in_ctrl_all_out),
   .counter_en(master_out_counter_en) 
   );
   
