@@ -1197,7 +1197,7 @@ SIGNAL currentstate	: FSMSTATE;
                         hold_seg_7     <=  '0';
                         in_ctrl_all_cb <=  '1';
                         hold_all_out   <=  '0';
-                        in_ctrl_all_out<=  '1';
+                        in_ctrl_all_out<=  '0';
                         counter_en     <=  '0';
                         currentstate   <= state_14;					
                     WHEN state_14		 =>
@@ -1821,7 +1821,7 @@ SIGNAL currentstate	: FSMSTATE;
                         hold_seg_7     <=  '0';
                         in_ctrl_all_cb <=  '0';
                         hold_all_out   <=  '0';
-                        in_ctrl_all_out<=  '0';
+                        in_ctrl_all_out<=  '1';
                         counter_en     <=  '0';
                         currentstate   <= state_22;
 					WHEN state_22		 =>		
