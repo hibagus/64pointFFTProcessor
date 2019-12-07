@@ -49,7 +49,7 @@ module dff_segment_for_cb (
   wire    [DATA_WIDTH-1:0] Q;
   
   
-  wire   [DATA_WIDTH-1:0] DFF_0_OUT;
+  //wire   [DATA_WIDTH-1:0] DFF_0_OUT;
   wire   [DATA_WIDTH-1:0] DFF_1_OUT;
   wire   [DATA_WIDTH-1:0] DFF_2_OUT;
   wire   [DATA_WIDTH-1:0] DFF_3_OUT;
