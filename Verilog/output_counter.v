@@ -76,7 +76,7 @@ module output_counter(
               end
             counting:
               begin
-                if(counter< 6'b000111)
+                if(counter< 6'b000110)
                   begin
                     currentstate    <= counting;
                     counter         <= counter + 1'b1;
