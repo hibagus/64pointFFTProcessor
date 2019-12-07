@@ -140,10 +140,12 @@ module fft_64p_16b_top(
   wire          master_out_hold_seg_6;
   wire          master_out_hold_seg_7;
   wire          master_out_in_ctrl_all_cb;
-  wire          master_out_hold_all_out;
-  wire          master_out_in_ctrl_all_out;
+  wire          master_out_hold_all_out;    // Should be removed
+  wire          master_out_in_ctrl_all_out; // Should be removed
   wire          master_out_counter_en;
   
+  wire          outputcounter_out_hold_all_out;
+  wire          outputcounter_out_in_ctrl_all_out;
   
   assign Out_Stream = output_circuit_data_out;
   assign Data_Out = output_counter_data_val;
@@ -336,8 +338,8 @@ module fft_64p_16b_top(
   .D6(fft_8p_second_data_6_out),
   .D7(fft_8p_second_data_7_out),
   .clk(clk),
-  .hold_all_seg(master_out_hold_all_out),
-  .in_ctrl_all_seg(master_out_in_ctrl_all_out),
+  .hold_all_seg(outputcounter_out_hold_all_out),
+  .in_ctrl_all_seg(outputcounter_out_in_ctrl_all_out),
   .mode(Mode),
   .rst(rst),
   .Q(output_circuit_data_out)
@@ -347,7 +349,9 @@ module fft_64p_16b_top(
   .clk(clk),
   .rst(rst),
   .dataind(master_out_counter_en),
-  .datavalid(output_counter_data_val)
+  .datavalid(output_counter_data_val),
+  .in_ctrl_all_out(outputcounter_out_in_ctrl_all_out),
+  .hold_all_out(outputcounter_out_hold_all_out)
   );
   
   master_control master_ctrl(
