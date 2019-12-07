@@ -1,0 +1,9 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/home/ecelrc/students/bhanindhito/EE382N_7/project/64pointFFTProcessor/Verilog
+SystemC=FALSE
+UUM=FALSE
+KDB=FALSE
+USE_NOVAS_HOME=FALSE
+TOP=fft_64p_16b_top_testbench 

@@ -1,0 +1,1216 @@
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'CentOS Linux release 7.7.1908 (Core)' is not supported on 
+  'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+                         Chronologic VCS (TM)
+       Version K-2015.09-SP1_Full64 -- Sat Dec  7 11:59:51 2019
+               Copyright (c) 1991-2015 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file 'time'
+Parsing design file 'black_cell.v'
+Parsing design file 'grey_cell.v'
+Parsing design file 'ks_1_32b.v'
+Parsing design file 'ks_2_32b.v'
+Parsing design file 'ks_3_32b.v'
+Parsing design file 'ks_4_32b.v'
+Parsing design file 'ks_5_32b.v'
+Parsing design file 'ks_6_32b.v'
+Parsing design file 'ks_7_32b.v'
+Parsing design file 'ksa_top_32b.v'
+Parsing design file 'pg.v'
+Parsing design file 'ks_1_16b.v'
+Parsing design file 'ks_2_16b.v'
+Parsing design file 'ks_3_16b.v'
+Parsing design file 'ks_4_16b.v'
+Parsing design file 'ks_5_16b.v'
+Parsing design file 'ks_6_16b.v'
+Parsing design file 'ks_7_16b.v'
+Parsing design file 'ksa_top_16b.v'
+Parsing design file 'bit_adj_32b_to_16b.v'
+Parsing design file 'dff_hold_sync_high_reset.v'
+Parsing design file 'input_circuit.v'
+Parsing design file 'notgate.v'
+Parsing design file 'bypass_32b.v'
+Parsing design file 'dff_inputsel_hold_sync_high_reset.v'
+Parsing design file 'input_counter.v'
+Parsing design file 'output_circuit.v'
+Parsing design file 'cb_circuit.v'
+Parsing design file 'dff_segment_for_cb.v'
+Parsing design file 'interdimensional_multiplier.v'
+Parsing design file 'output_counter.v'
+Parsing design file 'complex_adder_ksa_32b.v'
+Parsing design file 'dff_segment_for_input.v'
+Parsing design file 'real_imaginary_interchange.v'
+Parsing design file 'complex_mult_twiddle_wn0_32b.v'
+Parsing design file 'dff_segment_for_output.v'
+Parsing design file 'rshift_6_16b_to_16b.v'
+Parsing design file 'complex_mult_twiddle_wn1_32b.v'
+Parsing design file 'dff_sync_high_reset.v'
+Parsing design file 'scalling_out.v'
+Parsing design file 'complex_mult_twiddle_wn2_32b.v'
+Parsing design file 'lshifter.v'
+Parsing design file 'sgninv_16b.v'
+Parsing design file 'complex_mult_twiddle_wn3_32b.v'
+Parsing design file 'fft_64p_16b_top.v'
+Parsing design file 'complex_subst_ksa_32b.v'
+Parsing design file 'fft_8p_16b_top.v'
+Parsing design file 'master_control.v'
+Parsing design file 'sub_ksa_16b.v'
+Parsing design file 'const_mult_ksa_16b_halfsqrt2.v'
+Parsing design file 'generic_complex_mult_16b.v'
+Parsing design file 'const_mult_ksa_16b_sqrt2.v'
+Parsing design file 'generic_complex_mult_block.v'
+Parsing design file 'mux_2_to_1.v'
+Parsing design file 'generic_mult_16b.v'
+Parsing design file 'mux_8_to_1.v'
+Parsing design file 'fft_64p_16b_top_testbench.v'
+Top Level Modules:
+       fft_64p_16b_top_testbench
+TimeScale is 1 ns / 10 ps
+
+Warning-[TFIPC] Too few instance port connections
+complex_mult_twiddle_wn2_32b.v, 25
+"sgninv_16b sgninv_16b_inst0( .A16 (real_a32),  .R16 (siginvout));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+const_mult_ksa_16b_sqrt2.v, 33
+"sgninv_16b sgninv_16b_inst0( .A16 (Data_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+const_mult_ksa_16b_sqrt2.v, 140
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+const_mult_ksa_16b_halfsqrt2.v, 30
+"sgninv_16b sgninv_16b_inst0( .A16 (Data_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+const_mult_ksa_16b_halfsqrt2.v, 121
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+complex_mult_twiddle_wn1_32b.v, 26
+"sgninv_16b sgninv_16b_inst0( .A16 (halfmult_0_out),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+complex_mult_twiddle_wn1_32b.v, 36
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (real_a32),  .B16 (imag_a32),  .R16 (subt_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+complex_mult_twiddle_wn3_32b.v, 26
+"sgninv_16b sgninv_16b_inst0( .A16 (mult_0_out),  .R16 (sgninv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+complex_mult_twiddle_wn3_32b.v, 36
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (real_a32),  .B16 (imag_a32),  .R16 (subt_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+complex_mult_twiddle_wn3_32b.v, 47
+"sgninv_16b sgninv_16b_inst1( .A16 (halfmult_0_out),  .R16 (sgninv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+complex_mult_twiddle_wn3_32b.v, 52
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (sgninv_0_out),  .B16 (sgninv_1_out),  .R16 (subt_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 122
+"complex_adder_ksa_32b cadder_0( .A32 (xt0),  .B32 (cmult_wn0_0_out),  .R32 (cadder_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 128
+"complex_subst_ksa_32b csubtr_0( .A32 (xt0),  .B32 (cmult_wn0_0_out),  .R32 (csubtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 134
+"complex_adder_ksa_32b cadder_1( .A32 (xt2),  .B32 (cmult_wn0_1_out),  .R32 (cadder_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 140
+"complex_subst_ksa_32b csubtr_1( .A32 (xt2),  .B32 (cmult_wn0_1_out),  .R32 (csubtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 146
+"complex_adder_ksa_32b cadder_2( .A32 (xt1),  .B32 (cmult_wn0_2_out),  .R32 (cadder_2_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 152
+"complex_subst_ksa_32b csubtr_2( .A32 (xt1),  .B32 (cmult_wn0_2_out),  .R32 (csubtr_2_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 158
+"complex_adder_ksa_32b cadder_3( .A32 (xt3),  .B32 (cmult_wn0_3_out),  .R32 (cadder_3_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 164
+"complex_subst_ksa_32b csubtr_3( .A32 (xt3),  .B32 (cmult_wn0_3_out),  .R32 (csubtr_3_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 190
+"complex_adder_ksa_32b cadder_4( .A32 (cadder_0_out),  .B32 (cmult_wn0_4_out),  .R32 (cadder_4_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 196
+"complex_adder_ksa_32b cadder_5( .A32 (csubtr_0_out),  .B32 (cmult_wn2_0_out),  .R32 (cadder_5_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 202
+"complex_subst_ksa_32b csubtr_4( .A32 (cadder_0_out),  .B32 (cmult_wn0_4_out),  .R32 (csubtr_4_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 208
+"complex_subst_ksa_32b csubtr_5( .A32 (csubtr_0_out),  .B32 (cmult_wn2_0_out),  .R32 (csubtr_5_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 214
+"complex_adder_ksa_32b cadder_6( .A32 (cadder_2_out),  .B32 (cmult_wn0_5_out),  .R32 (cadder_6_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 220
+"complex_adder_ksa_32b cadder_7( .A32 (csubtr_2_out),  .B32 (cmult_wn2_1_out),  .R32 (cadder_7_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 226
+"complex_subst_ksa_32b csubtr_6( .A32 (cadder_2_out),  .B32 (cmult_wn0_5_out),  .R32 (csubtr_6_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 232
+"complex_subst_ksa_32b csubtr_7( .A32 (csubtr_2_out),  .B32 (cmult_wn2_1_out),  .R32 (csubtr_7_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 258
+"complex_adder_ksa_32b cadder_8( .A32 (cadder_4_out),  .B32 (cmult_wn0_6_out),  .R32 (cadder_8_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 264
+"complex_adder_ksa_32b cadder_9( .A32 (cadder_5_out),  .B32 (cmult_wn1_0_out),  .R32 (cadder_9_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 270
+"complex_adder_ksa_32b cadder_10( .A32 (csubtr_4_out),  .B32 (cmult_wn2_2_out),  .R32 (cadder_10_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 276
+"complex_adder_ksa_32b cadder_11( .A32 (csubtr_5_out),  .B32 (cmult_wn3_0_out),  .R32 (cadder_11_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 282
+"complex_subst_ksa_32b csubtr_8( .A32 (cadder_4_out),  .B32 (cmult_wn0_6_out),  .R32 (csubtr_8_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 288
+"complex_subst_ksa_32b csubtr_9( .A32 (cadder_5_out),  .B32 (cmult_wn1_0_out),  .R32 (csubtr_9_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 294
+"complex_subst_ksa_32b csubtr_10( .A32 (csubtr_4_out),  .B32 (cmult_wn2_2_out),  .R32 (csubtr_10_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_8p_16b_top.v, 300
+"complex_subst_ksa_32b csubtr_11( .A32 (csubtr_5_out),  .B32 (cmult_wn3_0_out),  .R32 (csubtr_11_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 46
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (REAL_A32),  .B16 (IMAG_A32),  .R16 (subtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 59
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (mult_c_plus_s_out),  .B16 (mult_c_out),  .R16 (subtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 66
+"sgninv_16b sgninv_16b_inst0( .A16 (MUX_0_OUT),  .R16 (SIGINV_0_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 71
+"sgninv_16b sgninv_16b_inst1( .A16 (MUX_1_OUT),  .R16 (SIGINV_1_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 105
+"sgninv_16b sgninv_16b_inst2( .A16 (REAL_MULT_OUT),  .R16 (SIGINV_2_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 110
+"sgninv_16b sgninv_16b_inst3( .A16 (IMAG_MULT_OUT),  .R16 (SIGINV_3_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 46
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (REAL_A32),  .B16 (IMAG_A32),  .R16 (subtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 59
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (mult_c_plus_s_out),  .B16 (mult_c_out),  .R16 (subtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 66
+"sgninv_16b sgninv_16b_inst0( .A16 (MUX_0_OUT),  .R16 (SIGINV_0_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 71
+"sgninv_16b sgninv_16b_inst1( .A16 (MUX_1_OUT),  .R16 (SIGINV_1_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 105
+"sgninv_16b sgninv_16b_inst2( .A16 (REAL_MULT_OUT),  .R16 (SIGINV_2_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 110
+"sgninv_16b sgninv_16b_inst3( .A16 (IMAG_MULT_OUT),  .R16 (SIGINV_3_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 46
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (REAL_A32),  .B16 (IMAG_A32),  .R16 (subtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 59
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (mult_c_plus_s_out),  .B16 (mult_c_out),  .R16 (subtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 66
+"sgninv_16b sgninv_16b_inst0( .A16 (MUX_0_OUT),  .R16 (SIGINV_0_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 71
+"sgninv_16b sgninv_16b_inst1( .A16 (MUX_1_OUT),  .R16 (SIGINV_1_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 105
+"sgninv_16b sgninv_16b_inst2( .A16 (REAL_MULT_OUT),  .R16 (SIGINV_2_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 110
+"sgninv_16b sgninv_16b_inst3( .A16 (IMAG_MULT_OUT),  .R16 (SIGINV_3_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 46
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (REAL_A32),  .B16 (IMAG_A32),  .R16 (subtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 59
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (mult_c_plus_s_out),  .B16 (mult_c_out),  .R16 (subtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 66
+"sgninv_16b sgninv_16b_inst0( .A16 (MUX_0_OUT),  .R16 (SIGINV_0_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 71
+"sgninv_16b sgninv_16b_inst1( .A16 (MUX_1_OUT),  .R16 (SIGINV_1_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 105
+"sgninv_16b sgninv_16b_inst2( .A16 (REAL_MULT_OUT),  .R16 (SIGINV_2_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 110
+"sgninv_16b sgninv_16b_inst3( .A16 (IMAG_MULT_OUT),  .R16 (SIGINV_3_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 46
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (REAL_A32),  .B16 (IMAG_A32),  .R16 (subtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 59
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (mult_c_plus_s_out),  .B16 (mult_c_out),  .R16 (subtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 66
+"sgninv_16b sgninv_16b_inst0( .A16 (MUX_0_OUT),  .R16 (SIGINV_0_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 71
+"sgninv_16b sgninv_16b_inst1( .A16 (MUX_1_OUT),  .R16 (SIGINV_1_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 105
+"sgninv_16b sgninv_16b_inst2( .A16 (REAL_MULT_OUT),  .R16 (SIGINV_2_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 110
+"sgninv_16b sgninv_16b_inst3( .A16 (IMAG_MULT_OUT),  .R16 (SIGINV_3_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 46
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (REAL_A32),  .B16 (IMAG_A32),  .R16 (subtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 59
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (mult_c_plus_s_out),  .B16 (mult_c_out),  .R16 (subtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 66
+"sgninv_16b sgninv_16b_inst0( .A16 (MUX_0_OUT),  .R16 (SIGINV_0_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 71
+"sgninv_16b sgninv_16b_inst1( .A16 (MUX_1_OUT),  .R16 (SIGINV_1_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 105
+"sgninv_16b sgninv_16b_inst2( .A16 (REAL_MULT_OUT),  .R16 (SIGINV_2_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 110
+"sgninv_16b sgninv_16b_inst3( .A16 (IMAG_MULT_OUT),  .R16 (SIGINV_3_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 46
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (REAL_A32),  .B16 (IMAG_A32),  .R16 (subtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 59
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (mult_c_plus_s_out),  .B16 (mult_c_out),  .R16 (subtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 66
+"sgninv_16b sgninv_16b_inst0( .A16 (MUX_0_OUT),  .R16 (SIGINV_0_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 71
+"sgninv_16b sgninv_16b_inst1( .A16 (MUX_1_OUT),  .R16 (SIGINV_1_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 105
+"sgninv_16b sgninv_16b_inst2( .A16 (REAL_MULT_OUT),  .R16 (SIGINV_2_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 110
+"sgninv_16b sgninv_16b_inst3( .A16 (IMAG_MULT_OUT),  .R16 (SIGINV_3_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 57
+"sgninv_16b sgninv_16b_inst0( .A16 (D_in),  .R16 (siginv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_mult_16b.v, 605
+"sgninv_16b sgninv_16b_inst1( .A16 (bit_adj_out),  .R16 (siginv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 46
+"sub_ksa_16b sub_ksa_16b_inst0( .A16 (REAL_A32),  .B16 (IMAG_A32),  .R16 (subtr_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_16b.v, 59
+"sub_ksa_16b sub_ksa_16b_inst1( .A16 (mult_c_plus_s_out),  .B16 (mult_c_out),  .R16 (subtr_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 66
+"sgninv_16b sgninv_16b_inst0( .A16 (MUX_0_OUT),  .R16 (SIGINV_0_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 71
+"sgninv_16b sgninv_16b_inst1( .A16 (MUX_1_OUT),  .R16 (SIGINV_1_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 105
+"sgninv_16b sgninv_16b_inst2( .A16 (REAL_MULT_OUT),  .R16 (SIGINV_2_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+generic_complex_mult_block.v, 110
+"sgninv_16b sgninv_16b_inst3( .A16 (IMAG_MULT_OUT),  .R16 (SIGINV_3_OUT));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+bypass_32b.v, 50
+"sgninv_16b sgninv_16b_inst0( .A16 (mux0out),  .R16 (sgninv_0_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+bypass_32b.v, 55
+"sgninv_16b sgninv_16b_inst1( .A16 (mux1out),  .R16 (sgninv_1_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_64p_16b_top.v, 174
+"input_counter in_count( .clk (clk),  .rst (rst),  .datastart (Data_Start),  .mastertrig (input_counter_mtrig_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[TFIPC] Too few instance port connections
+fft_64p_16b_top.v, 346
+"output_counter out_count( .clk (clk),  .rst (rst),  .dataind (master_out_counter_en),  .datavalid (output_counter_data_val),  .in_ctrl_all_out (outputcounter_out_in_ctrl_all_out),  .hold_all_out (outputcounter_out_hold_all_out));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[PCWM-W] Port connection width mismatch
+fft_64p_16b_top_testbench.v, 114
+"fft_64p_16b_top fft_64p_16b_top_inst0( .In_Stream (In_Stream),  .Mode (0),  .Data_Start (Data_Start),  .clk (clk),  .rst (rst),  .Out_Stream (Out_Stream),  .Data_Out (Data_Out));"
+  The following 32-bit expression is connected to 1-bit port "Mode" of module 
+  "fft_64p_16b_top", instance "fft_64p_16b_top_inst0".
+  Expression: 0
+  	use +lint=PCWM for more details
+
+Starting vcs inline pass...
+21 modules and 0 UDP read.
+recompiling module black_cell because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module ksa_top_32b because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module pg because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module ksa_top_16b because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module bypass_32b because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module input_counter because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module output_circuit because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module cb_circuit because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module dff_segment_for_cb because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module output_counter because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module complex_adder_ksa_32b because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module dff_segment_for_input because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module dff_segment_for_output because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module complex_mult_twiddle_wn2_32b because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module complex_subst_ksa_32b because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module fft_8p_16b_top because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module master_control because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module const_mult_ksa_16b_halfsqrt2 because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module const_mult_ksa_16b_sqrt2 because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module generic_complex_mult_block because:
+	Some child instantiation or references (or ports) have been changed.
+recompiling module fft_64p_16b_top_testbench because:
+	Some child instantiation or references (or ports) have been changed.
+All of 21 modules done
+rm -f _csrc*.so linux64_scvhdl_*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o objs/amcQw_d.o   _9551_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/libzerosoft_rt_stubs.so /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/libvirsim.so /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/liberrorinf.so /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/libsnpsmalloc.so    /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/libvcsnew.so /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/libsimprofile.so /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/packages/synopsys_2015/vcs-mx/linux64/lib/vcs_save_restore_new.o -ldl -lm  -lc -lpthread -ldl 
+../simv up to date
+CPU time: 1.326 seconds to compile + 1.647 seconds to elab + .148 seconds to link

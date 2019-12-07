@@ -1,0 +1,77 @@
+# Preference setting overrides
+gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_type {bool} -value {false}
+gui_create_pref_category -category {dlg_settings}
+gui_create_pref_key -category {dlg_settings} -key {tableWithImmediatePopup} -value_type {bool} -value {true}
+gui_create_pref_category -category {schem_obj_name}
+gui_create_pref_key -category {schem_obj_name} -key {show_cell_and_pin_with_symbol_name} -value_type {bool} -value {false}
+gui_create_pref_key -category {schem_pin_hc} -key {textExtFont} -value_type {string} -value {Helvetica,10,-1,5,50,0,0,0,0,0}
+
+# State setting overrides
+gui_state_default_create -off -ini
+gui_set_state_value -category Globals -key &File_toolbar -value true
+gui_set_state_value -category Globals -key BackTrace_toolbar -value true
+gui_set_state_value -category Globals -key CopyPaste_toolbar -value true
+gui_set_state_value -category Globals -key TraceInstance_toolbar -value true
+gui_set_state_value -category Globals -key recent_sessions -value {{gui_load_session -ignore_errors -file /home/ecelrc/students/bhanindhito/EE382N_7/project/64pointFFTProcessor/Verilog/session.inter.vpd.tcl} {gui_load_session -ignore_errors -file /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/design_old/printoutwaveform2.tcl} {gui_load_session -ignore_errors -file /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/ref/session.inter.vpd.tcl -ignore_errors} {gui_load_session -ignore_errors -file /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/ref/debugging.tcl -ignore_errors} {gui_load_session -ignore_errors -file /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/rtl_ref/debugging.tcl -ignore_errors}}
+gui_set_state_value -category Layout -key child_console_size_x -value 555
+gui_set_state_value -category Layout -key child_console_size_y -value 191
+gui_set_state_value -category Layout -key child_data_coltype -value 199
+gui_set_state_value -category Layout -key child_data_colvalue -value 259
+gui_set_state_value -category Layout -key child_data_colvariable -value 299
+gui_set_state_value -category Layout -key child_data_size_x -value 748
+gui_set_state_value -category Layout -key child_data_size_y -value 630
+gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
+gui_set_state_value -category Layout -key child_hier_colhier -value 355
+gui_set_state_value -category Layout -key child_hier_colpd -value 0
+gui_set_state_value -category Layout -key child_hier_coltype -value 111
+gui_set_state_value -category Layout -key child_hier_size_x -value 475
+gui_set_state_value -category Layout -key child_hier_size_y -value 630
+gui_set_state_value -category Layout -key child_schematic_docknewline -value false
+gui_set_state_value -category Layout -key child_schematic_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_schematic_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_schematic_size_x -value 865
+gui_set_state_value -category Layout -key child_schematic_size_y -value 637
+gui_set_state_value -category Layout -key child_source_docknewline -value false
+gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_source_size_x -value 699
+gui_set_state_value -category Layout -key child_source_size_y -value 625
+gui_set_state_value -category Layout -key child_wave_colname -value 276
+gui_set_state_value -category Layout -key child_wave_colvalue -value 166
+gui_set_state_value -category Layout -key child_wave_docknewline -value false
+gui_set_state_value -category Layout -key child_wave_left -value 446
+gui_set_state_value -category Layout -key child_wave_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_wave_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_wave_right -value 1468
+gui_set_state_value -category Layout -key child_wave_size_x -value 1864
+gui_set_state_value -category Layout -key child_wave_size_y -value 708
+gui_set_state_value -category Layout -key main_pos_x -value 0
+gui_set_state_value -category Layout -key main_pos_y -value 60
+gui_set_state_value -category Layout -key main_size_x -value 1919
+gui_set_state_value -category Layout -key main_size_y -value 977
+gui_set_state_value -category Layout -key stand_source_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_source_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_source_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_source_child_size_x -value 331
+gui_set_state_value -category Layout -key stand_source_child_size_y -value 312
+gui_set_state_value -category Layout -key stand_wave_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_wave_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_wave_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_wave_child_size_x -value 1924
+gui_set_state_value -category Layout -key stand_wave_child_size_y -value 625
+gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 0
+gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 60
+gui_set_state_value -category Layout -key stand_wave_top_size_x -value 1919
+gui_set_state_value -category Layout -key stand_wave_top_size_y -value 977
+gui_create_state_key -category FindDialog -key m_pMatchCase -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pMatchWord -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pUseCombo -value_type string -value {}
+gui_create_state_key -category FindDialog -key m_pWrapAround -value_type bool -value true
+gui_create_state_key -category Widget_History -key {dlgSimSetup|m_setupTab|tab pages|SimTab|m_VPDCombo} -value_type string -value inter.vpd
+gui_create_state_key -category Widget_History -key {dlgSimSetup|m_setupTab|tab pages|SimTab|m_argsCombo} -value_type string -value {{-ucligui }}
+gui_create_state_key -category Widget_History -key {dlgSimSetup|m_setupTab|tab pages|SimTab|m_curDirCombo} -value_type string -value {/home/ecelrc/students/bhanindhito/EE382N_7/project/64pointFFTProcessor/Verilog /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/ref /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/design_old /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/rtl_ref /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/rtl_unchanged}
+gui_create_state_key -category Widget_History -key {dlgSimSetup|m_setupTab|tab pages|SimTab|m_exeCombo} -value_type string -value {/home/ecelrc/students/bhanindhito/EE382N_7/project/64pointFFTProcessor/Verilog/simv ./simv /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/ref/simv /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/rtl_ref/simv /home/ecelrc/students/bhanindhito/EE382N_7/lab3/arm/rtl_unchanged/simv}
+gui_state_default_create -off
+
+# Begin command logging
+gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .

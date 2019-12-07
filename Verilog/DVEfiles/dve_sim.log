@@ -1,0 +1,24 @@
+12:01:31    16 -->                                                             [tcl] ucliGUI::connect -toolargs -ucligui -toolexe ./simv -pid 10584 -toolin /tmp/vcs_20191207180128_10583_bhanindhito..stdin -toolout /tmp/vcs_20191207180128_10583_bhanindhito..stdout  
+12:01:31    17 -->                                                                 [tcl] set ucliGUI::state
+12:01:31    18 -->                                                                     [tcl] gui_update_simulator_buttons
+12:01:32    19 -->                                                                         [tcl] set ucliGUI::state
+12:01:32    20 -->                                                                             [tcl] ucliCore::getToolPID
+12:01:32    21 -->                                                                                 [tcl] synopsys::env hasTB
+12:01:32    22 -->                                                                                     [tcl] trigger_hier_stack_context_switch 0
+12:01:32    23 -->                                                                                         [tcl] synUtils::setDVEInitPhase 1
+12:01:32    24 -->                                                                                             [tcl] gui_get_env SIMSETUP::SIMVPD
+12:01:32    25 --> ...  [tcl] synopsys::dump -type VPD -file /home/ecelrc/students/bhanindhito/EE382N_7/project/64pointFFTProcessor/Verilog/inter.vpd -locking
+12:01:32    26 --> ...      [tcl] synopsys::dump -autoflush on -fid VPD0
+12:01:32    27 --> ...          [tcl] set ::dve_fid VPD0
+12:01:32    28 --> ...              [tcl] synUtils::setDVEInitPhase 0
+12:01:32    29 --> ...                  [tcl] ucliCore::getToolPID
+12:01:32    30 --> ...                      [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpZ8r0Az
+12:01:32    31 --> ...                          [tcl] synUtils::sendTool -active {_icl_start_rpc -version "K-2015.09-SP1_Full64" -sync_file /tmp/vcs_dve_rpc.bhanindhito.10584}
+12:01:32    32 --> ...                              [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.bhanindhito.10584}
+12:01:33    33 --> ...                                  [tcl] dveMisc::vbusExpand fft_64p_16b_top_testbench
+12:01:33    34 --> ...                                      [tcl] config endofsim noexit
+12:01:33    35 --> ...                                          [tcl] config onfail enable all
+12:01:33    36 --> ...                                              [tcl] config syscaddplainmembers
+12:01:33    37 --> ...                                                  [tcl] config syscaddsourcenames
+12:01:33    38 --> ...                                                      [tcl] config syscaddstructtypes
+12:01:33    39 --> ...                                                          [tcl] synopsys::listing -disable
