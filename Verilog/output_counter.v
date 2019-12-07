@@ -26,7 +26,7 @@ module output_counter(
   
   
   localparam idle     = 1'b00; 
-  localparam prepare  = 1'b01
+  localparam prepare  = 1'b01;
   localparam counting = 1'b11; 
   
   reg [1:0] currentstate;
