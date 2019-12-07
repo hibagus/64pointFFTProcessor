@@ -1082,7 +1082,7 @@ module master_control (
               state_9:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_2     <=  1'b0;
+                  hold_buf_2     <=  1'b1;
                   hold_buf_1     <=  1'b0;
                   hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
@@ -1162,8 +1162,8 @@ module master_control (
               state_10:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_2     <=  1'b0;
-                  hold_buf_1     <=  1'b0;
+                  hold_buf_2     <=  1'b1;
+                  hold_buf_1     <=  1'b1;
                   hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
@@ -1322,8 +1322,8 @@ module master_control (
               state_12:
                 begin
                   hold_all_in    <=  1'b0;
-                  hold_buf_2     <=  1'b0;
-                  hold_buf_1     <=  1'b0;
+                  hold_buf_2     <=  1'b1;
+                  hold_buf_1     <=  1'b1;
                   hold_buf_0     <=  1'b0;
                   in_ctrl_buf_2  <=  1'b0;
                   in_ctrl_buf_1  <=  1'b0;
