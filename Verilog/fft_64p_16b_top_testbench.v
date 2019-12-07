@@ -13,89 +13,157 @@ module fft_64p_16b_top_testbench(
   output         Data_Start;
   output         clk;
   output         rst;
-  input        Data_Out;
-  input [31:0] Out_Stream;
+  output         Data_Out;
+  output  [31:0] Out_Stream;
 
-  reg   [31:0] In_Stream;
-  wire          Mode;
-  reg          Data_Start;
-  wire          clk;
-  reg          rst;
-  wire          Data_Out;
-  wire   [31:0] Out_Stream;
-
-
-  reg [1:0] rst_counter;
-  reg [5:0] state_count;
-  reg [1:0] state;
-  reg clock;
-
-  always @(posedge clock)  
+  reg     [31:0] In_Stream;
+  wire           Mode;
+  reg            Data_Start;
+  reg            clk;
+  reg            rst;
+  wire           Data_Out;
+  wire    [31:0] Out_Stream;
+  
+  reg            stateread;
+  reg            statewrite;
+  reg     [5:0]  romindex;
+  reg     [5:0]  ramindex;
+  reg     [31:0] rom [0:63];
+  reg     [31:0] ram [0:63];
+  
+  always @(posedge clk)  
   begin
-    if(rst) begin
-      In_Stream <= 32'b0; 
-      state <= 2'b1;
-      Data_Start <= 1'b0;
-      rst_counter <= 2'b0;
-      state_count <= 6'b0;
-    end
-    else begin
-      if(state == 2'b1) begin
-       Data_Start <= 1'b0;
-       rst_counter <= rst_counter +1;
-        In_Stream <= 32'b0;
-       if(rst_counter == 3) begin
-         state <= 2'b10;
-       end
+    if(rst) 
+      begin
+        In_Stream    <= 32'b0; 
+        Data_Start   <= 1'b0;
+        romindex     <= 6'b0;
+        stateread    <= 1'b0;
       end
-      else if(state == 2'b10) begin
-        if(state_count == 6'b0) begin
-         In_Stream <= 32'h00290000;
-        end
-	else begin
-         //In_Stream <= 32'h0;
-         In_Stream <= 32'h00290000;
-        end
-        
-        state_count <= state_count +1;
-        Data_Start <= 1'b1;
-        if(state_count == 6'b111111) begin
-          state <= 2'b0;
-          Data_Start <= 1'b1;
-          In_Stream <= 32'h00290000;
-        end
+    else 
+      begin
+        if(stateread==1'b0)
+          begin
+            if(romindex==6'b111111)
+              begin
+                In_Stream    <= rom[romindex];
+                romindex     <= romindex + 1'b1;
+                Data_Start   <= 1'b1;
+                stateread    <= 1'b1;
+              end
+            else
+              begin
+                In_Stream    <= rom[romindex];
+                romindex     <= romindex + 1'b1;
+                Data_Start   <= 1'b1;
+                stateread    <= 1'b0;
+              end
+          end
+        else
+          begin
+            In_Stream    <= 32'b0;
+            romindex     <= romindex;
+            Data_Start   <= 1'b0;
+          end 
       end
-      else if(state == 2'b0) begin
-          Data_Start <= 1'b0;
-          In_Stream <= 32'b0;
-          state <= state;
-      end
-    
-    end
   end
+  
+  always @(posedge clk)  
+  begin
+    if(rst) 
+      begin
+        ramindex     <= 6'b0;
+        statewrite   <= 1'b0;
+      end
+    else 
+      begin
+        if(statewrite==1'b0)
+          begin
+            if(Data_Out==1'b1)
+              begin
+                ram[ramindex]<= Out_Stream;
+                ramindex     <= ramindex + 1'b1;
+                statewrite   <= 1'b1;
+              end
+            else
+              begin
+                ram[ramindex]<= ram[ramindex];
+                ramindex     <= 6'b000000;
+                statewrite   <= 1'b0;
+              end
+          end
+        else
+          begin
+            if(ramindex==6'b111111)
+              begin
+                ram[ramindex]<= Out_Stream;
+                ramindex     <= ramindex + 1'b1;
+                statewrite   <= 1'b0;
+              end
+            else
+              begin
+                ram[ramindex]<= Out_Stream;
+                ramindex     <= ramindex + 1'b1;
+                statewrite   <= 1'b1;
+              end
+          end 
+      end
+  end
+  
 
- fft_64p_16b_top(
+ fft_64p_16b_top fft_64p_16b_top_inst0 (
   .In_Stream(In_Stream),
   .Mode(0),
   .Data_Start(Data_Start),
-  .clk(clock),
+  .clk(clk),
   .rst(rst),
   .Out_Stream(Out_Stream),
-  .Data_Out(Data_Out));
+  .Data_Out(Data_Out)
+  );
 
- 
+  // =======================================================//	
+  // Clock Initialization                                   //
+  // =======================================================//
+  
+  initial
+    begin
+      clk = 1'b0;
+	end
+  
+    always
+      #20 clk = ~clk;
 
-       always
-        #20 clock = ~clock;
+  // =======================================================//	
+  // Clear Initialization and Assertion                     //
+  // =======================================================//
+  // clear signal assertion
+  
+  initial
+    begin
+      rst = 1'b1;
+      @(posedge clk); #1;
+      @(posedge clk); #1;
+      rst = 1'b0; 
+    end
+      
 
-        initial
-        #7000 $finish;
-
-       initial begin
-                clock = 1'b0;
-                rst = 1'b1;
-           #80 rst = 1'b0;
-       end 
-
- 
+  // =======================================================//	
+  // Simulation Stop Time                                   //
+  // =======================================================//
+  initial
+  #7000 $finish;
+  
+  
+  // =======================================================//	
+  // Input Data Stream Reading                              //
+  // =======================================================//
+  initial begin
+    $readmemh("timeseries.hex", rom);
+  end
+  
+  // =======================================================//	
+  // Output Data Stream Writing                             //
+  // =======================================================//
+  initial
+  #6900 $writememh("freqseries.hex", ram);
 endmodule
