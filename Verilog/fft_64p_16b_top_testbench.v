@@ -4,6 +4,7 @@ module fft_64p_16b_top_testbench(
   Data_Start,
   clk,
   rst,
+  next_data,
   Out_Stream,
   Data_Out
   );
@@ -13,6 +14,7 @@ module fft_64p_16b_top_testbench(
   output         Data_Start;
   output         clk;
   output         rst;
+  output         next_data;
   output         Data_Out;
   output  [31:0] Out_Stream;
 
@@ -21,6 +23,7 @@ module fft_64p_16b_top_testbench(
   reg            Data_Start;
   reg            clk;
   reg            rst;
+  wire           next_data;
   wire           Data_Out;
   wire    [31:0] Out_Stream;
   
@@ -117,6 +120,7 @@ module fft_64p_16b_top_testbench(
   .Data_Start(Data_Start),
   .clk(clk),
   .rst(rst),
+  .next_data(next_data),
   .Out_Stream(Out_Stream),
   .Data_Out(Data_Out)
   );

@@ -75,7 +75,8 @@ module master_control (
   hold_seg_6,
   hold_seg_7,
   in_ctrl_all_cb,
-  counter_en
+  counter_en,
+  next_data
   );
   
   input                   clk;
@@ -155,6 +156,7 @@ module master_control (
   output                  hold_seg_7;
   output                  in_ctrl_all_cb;
   output                  counter_en;
+  output                  next_data;
 
   
   wire                    clk;
@@ -234,6 +236,7 @@ module master_control (
   reg                     hold_seg_7;
   reg                     in_ctrl_all_cb;
   reg                     counter_en;
+  reg                     next_data;
   
   localparam state_0  = 5'b00000;
   localparam state_1  = 5'b00001;
@@ -338,8 +341,9 @@ module master_control (
           hold_seg_6     <=  1'b1;
           hold_seg_7     <=  1'b1;
           in_ctrl_all_cb <=  1'b1;
-          counter_en     <=  1'b0;	
-          currentstate   <= state_0;          
+          counter_en     <=  1'b0;
+          next_data      <= 1'b1;
+          currentstate   <= state_0;
         end
       else
         begin
@@ -420,6 +424,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   if (mastertrig==1'b1)
                     begin
                       currentstate <= state_1;
@@ -505,6 +510,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_2;
                 end
               state_2:
@@ -583,6 +589,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_3;
                 end
               state_3:
@@ -661,6 +668,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_4;
                 end
               state_4:
@@ -739,6 +747,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_5;
                 end
               state_5:
@@ -817,6 +826,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_6;
                 end
               state_6:
@@ -895,6 +905,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_7;
                 end
               state_7:
@@ -973,6 +984,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_8;
                 end
               state_8:
@@ -1051,6 +1063,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_9;
                 end
               state_9:
@@ -1129,6 +1142,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_10;
                 end
               state_10:
@@ -1207,6 +1221,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_11;
                 end
               state_11:
@@ -1285,6 +1300,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_12;
                 end
               state_12:
@@ -1363,6 +1379,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b0;
                   currentstate   <= state_13;
                 end
               state_13:
@@ -1441,6 +1458,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b1;
+                  next_data      <=  1'b1;
                   currentstate   <= state_14;
                 end
               state_14:
@@ -1519,6 +1537,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_15;
                 end
               state_15:
@@ -1597,6 +1616,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_16;
                 end
               state_16:
@@ -1675,6 +1695,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_17;
                 end
               state_17:
@@ -1753,6 +1774,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_18;
                 end
               state_18:
@@ -1831,6 +1853,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_19;
                 end
               state_19:
@@ -1909,6 +1932,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_20;
                 end
               state_20:
@@ -1987,6 +2011,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_21;
                 end
               state_21:
@@ -2065,6 +2090,7 @@ module master_control (
                   hold_seg_7     <=  1'b0;
                   in_ctrl_all_cb <=  1'b0;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_22;
                 end
               state_22:
@@ -2143,6 +2169,7 @@ module master_control (
                   hold_seg_7     <=  1'b1;
                   in_ctrl_all_cb <=  1'b1;
                   counter_en     <=  1'b0;
+                  next_data      <=  1'b1;
                   currentstate   <= state_0;
                 end
           endcase

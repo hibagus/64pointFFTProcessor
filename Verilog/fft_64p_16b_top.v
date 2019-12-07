@@ -4,6 +4,7 @@ module fft_64p_16b_top(
   Data_Start,
   clk,
   rst,
+  next_data,
   Out_Stream,
   Data_Out
   );
@@ -33,6 +34,7 @@ module fft_64p_16b_top(
   wire   [31:0] input_circuit_data_6_out;
   wire   [31:0] input_circuit_data_7_out;
   wire          input_counter_mtrig_out;
+  wire          input_counter_counter_idle;
   wire   [31:0] fft_8p_first_data_0_out;
   wire   [31:0] fft_8p_first_data_1_out;
   wire   [31:0] fft_8p_first_data_2_out;
@@ -140,13 +142,14 @@ module fft_64p_16b_top(
   wire          master_out_hold_seg_6;
   wire          master_out_hold_seg_7;
   wire          master_out_in_ctrl_all_cb;
+  wire          master_out_next_data;
   wire          master_out_counter_en;
-  
   wire          outputcounter_out_hold_all_out;
   wire          outputcounter_out_in_ctrl_all_out;
   
   assign Out_Stream = output_circuit_data_out;
-  assign Data_Out = output_counter_data_val;
+  assign Data_Out   = output_counter_data_val;
+  assign next_data  = master_out_next_data & input_counter_counter_idle;
   
   input_circuit input_unit(
   .D(In_Stream),
@@ -175,6 +178,7 @@ module fft_64p_16b_top(
   .clk(clk), 
   .rst(rst), 
   .datastart(Data_Start), 
+  .counter_idle(input_counter_counter_idle),
   .mastertrig(input_counter_mtrig_out)
   );
   
@@ -429,6 +433,7 @@ module fft_64p_16b_top(
   .hold_seg_6(master_out_hold_seg_6),
   .hold_seg_7(master_out_hold_seg_7),
   .in_ctrl_all_cb(master_out_in_ctrl_all_cb),
+  .next_data(master_out_next_data),
   .counter_en(master_out_counter_en) 
   );
   

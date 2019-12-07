@@ -3,6 +3,7 @@ module input_counter(
   rst,
   datastart,
   counter_o,
+  counter_idle,
   mastertrig
   );
   
@@ -10,12 +11,14 @@ module input_counter(
   input        rst;
   input        datastart;
   output [5:0] counter_o;
+  output       counter_idle;
   output       mastertrig;
   
   wire         clk;
   wire         rst;
   wire         datastart;
   wire   [5:0] counter_o;
+  reg          counter_idle;
   reg          mastertrig;
   
   localparam idle     = 1'b0; 
@@ -32,6 +35,7 @@ module input_counter(
         begin
          currentstate <= idle;
          counter      <= 6'b111111;
+         counter_idle <= 1'b1;
         end
       else 
         begin
@@ -43,12 +47,14 @@ module input_counter(
                     currentstate <= counting;
                     counter      <= 6'b0;
                     mastertrig   <= 1'b0;
+                    counter_idle <= 1'b0;
                   end
                 else 
                   begin
                     currentstate <= currentstate;
                     counter      <= counter;
                     mastertrig   <= 1'b0;
+                    counter_idle <= 1'b1;
                   end
               end
            counting:
@@ -58,18 +64,21 @@ module input_counter(
                    currentstate <= counting;
                    counter      <= counter + 1'b1;
                    mastertrig   <= 1;
+                   counter_idle <= 1'b0;
                  end
                else if(counter == 6'b111110)
                  begin
                    currentstate <= idle;
                    counter      <= counter + 1'b1;
                    mastertrig   <= 0;
+                   counter_idle <= 1'b1;
                  end
                else 
                  begin
                    currentstate <= counting;
                    counter      <= counter + 1'b1;
                    mastertrig   <= 0;
+                   counter_idle <= 1'b0;
                  end
              end
           endcase
