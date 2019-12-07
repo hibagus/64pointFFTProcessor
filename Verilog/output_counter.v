@@ -3,7 +3,9 @@ module output_counter(
   rst,
   dataind,
   counter_o,
-  datavalid
+  datavalid,
+  in_ctrl_all_out,
+  hold_all_out
   );
   
   input        clk;
@@ -11,18 +13,23 @@ module output_counter(
   input        dataind;
   output [5:0] counter_o;
   output       datavalid;
+  output       in_ctrl_all_out;
+  output       hold_all_out;
   
   wire         clk;
   wire         rst;
   wire         dataind;
   wire   [5:0] counter_o;
   reg          datavalid;
+  reg          in_ctrl_all_out;
+  reg          hold_all_out;  
   
   
-  localparam idle     = 1'b0; 
-  localparam counting = 1'b1; 
+  localparam idle     = 1'b00; 
+  localparam prepare  = 1'b01
+  localparam counting = 1'b11; 
   
-  reg currentstate;
+  reg [1:0] currentstate;
   reg [5:0] counter;
   
   assign counter_o = counter;
@@ -31,8 +38,11 @@ module output_counter(
     begin
       if(rst==1'b1)
         begin
-          currentstate <= idle;
-          counter      <= 6'b111111;
+          currentstate    <= idle;
+          counter         <= 6'b111111;
+          datavalid       <= 1'b0;
+          in_ctrl_all_out <= 1'b0;
+          hold_all_out    <= 1'b1;
         end
       else 
         begin
@@ -41,31 +51,59 @@ module output_counter(
               begin
                 if(dataind==1'b1)
                   begin
-                    currentstate <= counting;
-                    counter      <= 6'b0;
-                    datavalid    <= 1'b1;
+                    currentstate    <= prepare;
+                    counter         <= 6'b0;
+                    datavalid       <= 1'b0;
+                    in_ctrl_all_out <= 1'b1;
+                    hold_all_out    <= 1'b0;
                   end
                 else 
                   begin
-                    currentstate <= currentstate;
-                    counter      <= counter;
-                    datavalid    <= 1'b0;
+                    currentstate    <= currentstate;
+                    counter         <= counter;
+                    datavalid       <= 1'b0;
+                    in_ctrl_all_out <= 1'b0;
+                    hold_all_out    <= 1'b1;
                   end
+              end
+            prepare:
+              begin
+                currentstate    <= counting;
+                counter         <= 6'b0;
+                datavalid       <= 1'b1;
+                in_ctrl_all_out <= 1'b1;
+                hold_all_out    <= 1'b0;
               end
             counting:
               begin
-                if(counter == 6'b111110)
+                if(counter<= 6'b000111)
                   begin
-                    currentstate <= idle;
-                    counter      <= counter + 1'b1;
-                    datavalid    <= 1;
+                    currentstate    <= counting;
+                    counter         <= counter + 1'b1;
+                    datavalid       <= 1'b1;
+                    in_ctrl_all_out <= 1'b1;
+                    hold_all_out    <= 1'b0;
                   end
-                else 
+                else
                   begin
-                    currentstate <= counting;
-                    counter <= counter + 1'b1;
-                    datavalid <= 1;
+                    if(counter == 6'b111110)
+                      begin
+                        currentstate    <= idle;
+                        counter         <= counter + 1'b1;
+                        datavalid       <= 1;
+                        in_ctrl_all_out <= 1'b0;
+                        hold_all_out    <= 1'b0;
+                      end
+                    else 
+                      begin
+                        currentstate    <= counting;
+                        counter         <= counter + 1'b1;
+                        datavalid       <= 1;
+                        in_ctrl_all_out <= 1'b0;
+                        hold_all_out    <= 1'b0;
+                      end
                   end
+                
               end
           endcase
         end
