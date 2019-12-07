@@ -14,6 +14,7 @@ module fft_64p_16b_top(
   input         Data_Start;
   input         clk;
   input         rst;
+  output        next_data;
   output        Data_Out;
   output [31:0] Out_Stream;
 
@@ -22,6 +23,7 @@ module fft_64p_16b_top(
   wire          Data_Start;
   wire          clk;
   wire          rst;
+  wire          next_data;
   wire          Data_Out;
   wire   [31:0] Out_Stream;
   
