@@ -233,7 +233,8 @@ module fft_64p_16b_top_testbench(
   // =======================================================//	
   // Output Data Stream Writing                             //
   // =======================================================//
-  initial
+  initial begin
   #13900 $writememh("freqseries.hex", ram);
          $writememh("timeseriesstar.hex", ram_Star);
+  end
 endmodule
