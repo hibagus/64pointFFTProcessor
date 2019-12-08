@@ -28,12 +28,12 @@ module lshifter(
   
   
   generate
-   if(LSHIFT_AMOUNT==0) : generate_no_lshift
-     begin
+   if(LSHIFT_AMOUNT==0) 
+     begin : generate_no_lshift
        assign D_out = {prefix,D_in};
      end
-   else : generate_lshift
-     begin
+   else 
+     begin : generate_lshift
        assign D_out = {prefix,D_in,suffix};
        assign suffix = 0;
      end
