@@ -1,12 +1,12 @@
 `default_nettype none
 
 module ks_1_16b(
-  input i_c0,
+  input  wire i_c0,
   input  wire [15:0]i_a,
   input  wire [15:0]i_b,
   output wire [15:0]o_pk_1,
   output wire [15:0]o_gk_1,
-  output o_c0_1
+  output wire o_c0_1
 );
 
 assign o_c0_1 = i_c0;
