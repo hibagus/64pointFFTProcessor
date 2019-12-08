@@ -13,7 +13,7 @@ module bit_adj_32b_to_16b (
   wire   [15:0] rounding_temp;  
 
   assign truncate_temp  = Data_in[27:12];
-  assign rounding_temp  = {15'b0, Data_in[11] & Data_in[10]};
+  assign rounding_temp  = {15'b0, Data_in[11] | Data_in[10] | Data_in[9] | Data_in[8] | Data_in[7]};
   
   ksa_top_16b ksa_top_16b_inst0(
     .c0(1'b0),
