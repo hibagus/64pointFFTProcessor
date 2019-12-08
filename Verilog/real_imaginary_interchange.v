@@ -8,6 +8,10 @@ module real_imaginary_interchange(
   input           Swap;
   output  [31:0]  R32;
   
+  wire    [31:0]  A32;
+  wire            Swap;
+  wire    [31:0]  R32;
+  
   wire    [15:0]  real_a32;
   wire    [15:0]  imag_a32;
   wire    [15:0]  real_r32;
