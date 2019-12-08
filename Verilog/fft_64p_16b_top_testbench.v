@@ -6,7 +6,10 @@ module fft_64p_16b_top_testbench(
   rst,
   next_data,
   Out_Stream,
-  Data_Out
+  Data_Out,
+  next_data_Star,
+  Out_Stream_Star,
+  Data_Out_Star
   );
   
   output  [31:0] In_Stream;
@@ -17,7 +20,11 @@ module fft_64p_16b_top_testbench(
   output         next_data;
   output         Data_Out;
   output  [31:0] Out_Stream;
-
+  output         next_data_Star;
+  output         Data_Out_Star;
+  output  [31:0] Out_Stream_Star;
+  
+  
   reg     [31:0] In_Stream;
   wire           Mode;
   reg            Data_Start;
@@ -26,13 +33,19 @@ module fft_64p_16b_top_testbench(
   wire           next_data;
   wire           Data_Out;
   wire    [31:0] Out_Stream;
+  wire           next_data_Star;
+  wire           Data_Out_Star;
+  wire    [31:0] Out_Stream_Star;
   
   reg            stateread;
   reg            statewrite;
+  reg            statewrite_Star;
   reg     [5:0]  romindex;
   reg     [5:0]  ramindex;
-  reg     [31:0] rom [0:63];
-  reg     [31:0] ram [0:63];
+  reg     [5:0]  ramindex_Star;
+  reg     [31:0] rom      [0:63];
+  reg     [31:0] ram      [0:63];
+  reg     [31:0] ram_Star [0:63];
   
   always @(posedge clk)  
   begin
@@ -113,16 +126,68 @@ module fft_64p_16b_top_testbench(
       end
   end
   
+  always @(posedge clk)  
+  begin
+    if(rst) 
+      begin
+        ramindex_Star     <= 6'b0;
+        statewrite_Star   <= 1'b0;
+      end
+    else 
+      begin
+        if(statewrite_Star==1'b0)
+          begin
+            if(Data_Out_Star==1'b1)
+              begin
+                ram_Star[ramindex_Star]<= Out_Stream_Star;
+                ramindex_Star          <= ramindex_Star + 1'b1;
+                statewrite_Star        <= 1'b1;
+              end
+            else
+              begin
+                ram_Star[ramindex_Star]<= ram_Star[ramindex_Star];
+                ramindex_Star          <= 6'b000000;
+                statewrite_Star        <= 1'b0;
+              end
+          end
+        else
+          begin
+            if(ramindex_Star==6'b111111)
+              begin
+                ram_Star[ramindex_Star]<= Out_Stream_Star;
+                ramindex_Star          <= ramindex_Star + 1'b1;
+                statewrite_Star        <= 1'b0;
+              end
+            else
+              begin
+                ram_Star[ramindex_Star]<= Out_Stream_Star;
+                ramindex_Star          <= ramindex_Star + 1'b1;
+                statewrite_Star        <= 1'b1;
+              end
+          end 
+      end
+  end
 
  fft_64p_16b_top fft_64p_16b_top_inst0 (
   .In_Stream(In_Stream),
-  .Mode(0),
+  .Mode(1'b0),
   .Data_Start(Data_Start),
   .clk(clk),
   .rst(rst),
   .next_data(next_data),
   .Out_Stream(Out_Stream),
   .Data_Out(Data_Out)
+  );
+  
+  fft_64p_16b_top fft_64p_16b_top_inst1 (
+  .In_Stream(Out_Stream),
+  .Mode(1'b1),
+  .Data_Start(Data_Out),
+  .clk(clk),
+  .rst(rst),
+  .next_data(next_data_Star),
+  .Out_Stream(Out_Stream_Star),
+  .Data_Out(Data_Out_Star)
   );
 
   // =======================================================//	
@@ -132,7 +197,7 @@ module fft_64p_16b_top_testbench(
   initial
     begin
       clk = 1'b0;
-	end
+    end
   
     always
       #20 clk = ~clk;
@@ -155,7 +220,7 @@ module fft_64p_16b_top_testbench(
   // Simulation Stop Time                                   //
   // =======================================================//
   initial
-  #7000 $finish;
+  #14000 $finish;
   
   
   // =======================================================//	
@@ -169,5 +234,6 @@ module fft_64p_16b_top_testbench(
   // Output Data Stream Writing                             //
   // =======================================================//
   initial
-  #6900 $writememh("freqseries.hex", ram);
+  #13900 $writememh("freqseries.hex", ram);
+         $writememh("timeseriesstar.hex", ram_Star);
 endmodule
