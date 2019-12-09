@@ -53,6 +53,14 @@ module fft_64p_16b_top(
   wire   [31:0] interdim_mult_data_5_out;
   wire   [31:0] interdim_mult_data_6_out;
   wire   [31:0] interdim_mult_data_7_out;
+  wire   [31:0] intermediate_circ_data_0_out;
+  wire   [31:0] intermediate_circ_data_1_out;
+  wire   [31:0] intermediate_circ_data_2_out;
+  wire   [31:0] intermediate_circ_data_3_out;
+  wire   [31:0] intermediate_circ_data_4_out;
+  wire   [31:0] intermediate_circ_data_5_out;
+  wire   [31:0] intermediate_circ_data_6_out;
+  wire   [31:0] intermediate_circ_data_7_out;
   wire   [31:0] cb_circuit_data_0_out;
   wire   [31:0] cb_circuit_data_1_out;
   wire   [31:0] cb_circuit_data_2_out;
@@ -202,10 +210,8 @@ module fft_64p_16b_top(
   .xf6(fft_8p_first_data_6_out), 
   .xf7(fft_8p_first_data_7_out)
   );
-  
-  interdimensional_multiplier interdim_mult(
-  .clk(clk), 
-  .rst(rst), 
+
+  intermediate_circuit intermediate_circ(
   .SET_0_IN(fft_8p_first_data_0_out), 
   .SET_1_IN(fft_8p_first_data_1_out), 
   .SET_2_IN(fft_8p_first_data_2_out), 
@@ -214,6 +220,27 @@ module fft_64p_16b_top(
   .SET_5_IN(fft_8p_first_data_5_out), 
   .SET_6_IN(fft_8p_first_data_6_out), 
   .SET_7_IN(fft_8p_first_data_7_out), 
+  .SET_0_OUT(intermediate_circ_data_0_out),
+  .SET_1_OUT(intermediate_circ_data_1_out),
+  .SET_2_OUT(intermediate_circ_data_2_out),
+  .SET_3_OUT(intermediate_circ_data_3_out),
+  .SET_4_OUT(intermediate_circ_data_4_out),
+  .SET_5_OUT(intermediate_circ_data_5_out),
+  .SET_6_OUT(intermediate_circ_data_6_out),
+  .SET_7_OUT(intermediate_circ_data_7_out)
+  );
+  
+  interdimensional_multiplier interdim_mult(
+  .clk(clk), 
+  .rst(rst), 
+  .SET_0_IN(intermediate_circ_data_0_out), 
+  .SET_1_IN(intermediate_circ_data_1_out), 
+  .SET_2_IN(intermediate_circ_data_2_out), 
+  .SET_3_IN(intermediate_circ_data_3_out), 
+  .SET_4_IN(intermediate_circ_data_4_out), 
+  .SET_5_IN(intermediate_circ_data_5_out), 
+  .SET_6_IN(intermediate_circ_data_6_out), 
+  .SET_7_IN(intermediate_circ_data_7_out), 
   .Shuf_Ctrl_0(master_out_Shuf_Ctrl_0), 
   .Shuf_Ctrl_1(master_out_Shuf_Ctrl_1), 
   .Shuf_Ctrl_2(master_out_Shuf_Ctrl_2), 

@@ -59,7 +59,7 @@ module input_counter(
               end
            counting:
              begin
-               if(counter == 6'b110101)
+               if(counter == 6'b110110)
                  begin
                    currentstate <= counting;
                    counter      <= counter + 1'b1;
