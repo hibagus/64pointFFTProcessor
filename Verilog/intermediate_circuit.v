@@ -22,6 +22,7 @@ module intermediate_circuit(
 
   input         clk;
   input         rst;
+  input         hold;
   input [31:0]  SET_0_IN;
   input [31:0]  SET_1_IN;
   input [31:0]  SET_2_IN;
@@ -41,6 +42,7 @@ module intermediate_circuit(
   
   wire          clk;
   wire          rst;
+  wire          hold;
   wire   [31:0] SET_0_IN;
   wire   [31:0] SET_1_IN;
   wire   [31:0] SET_2_IN;
