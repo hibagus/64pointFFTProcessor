@@ -184,7 +184,7 @@ module fft_64p_16b_top(
   .mastertrig(input_counter_mtrig_out)
   );
   
-  fft_8p_16b_top fft_8b_top(
+  fft_8p_16b_top fft_8p_firststage(
   .xt0(input_circuit_data_0_out),
   .xt1(input_circuit_data_1_out),
   .xt2(input_circuit_data_2_out), 
