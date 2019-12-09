@@ -1,6 +1,7 @@
 module intermediate_circuit(
   clk,
   rst,
+  hold,
   SET_0_IN,
   SET_1_IN,
   SET_2_IN,
@@ -58,74 +59,82 @@ module intermediate_circuit(
   wire   [31:0] SET_7_OUT;
   
   
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(32)
-  ) dff_sync_high_reset_inst0 (
+  ) dff_hold_sync_high_reset_inst0 (
     .clk(clk),
     .rst(rst),
+    .hold(hold),
     .D(SET_0_IN),
     .Q(SET_0_OUT)
   );
 
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(32)
-  ) dff_sync_high_reset_inst1 (
+  ) dff_hold_sync_high_reset_inst1 (
     .clk(clk),
     .rst(rst),
+    .hold(hold),
     .D(SET_1_IN),
     .Q(SET_1_OUT)
   );
   
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(32)
-  ) dff_sync_high_reset_inst2 (
+  ) dff_hold_sync_high_reset_inst2 (
     .clk(clk),
     .rst(rst),
+    .hold(hold),
     .D(SET_2_IN),
     .Q(SET_2_OUT)
   );
   
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(32)
-  ) dff_sync_high_reset_inst3 (
+  ) dff_hold_sync_high_reset_inst3 (
     .clk(clk),
     .rst(rst),
+    .hold(hold),
     .D(SET_3_IN),
     .Q(SET_3_OUT)
   );
   
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(32)
-  ) dff_sync_high_reset_inst4 (
+  ) dff_hold_sync_high_reset_inst4 (
     .clk(clk),
     .rst(rst),
+    .hold(hold),
     .D(SET_4_IN),
     .Q(SET_4_OUT)
   );
   
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(32)
-  ) dff_sync_high_reset_inst5 (
+  ) dff_hold_sync_high_reset_inst5 (
     .clk(clk),
     .rst(rst),
+    .hold(hold),
     .D(SET_5_IN),
     .Q(SET_5_OUT)
   );
   
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(32)
-  ) dff_sync_high_reset_inst6 (
+  ) dff_hold_sync_high_reset_inst6 (
     .clk(clk),
     .rst(rst),
+    .hold(hold),
     .D(SET_6_IN),
     .Q(SET_6_OUT)
   );
   
-  dff_sync_high_reset # (
+  dff_hold_sync_high_reset # (
     .DATA_WIDTH(32)
-  ) dff_sync_high_reset_inst7 (
+  ) dff_hold_sync_high_reset_inst7 (
     .clk(clk),
     .rst(rst),
+    .hold(hold),
     .D(SET_7_IN),
     .Q(SET_7_OUT)
   );

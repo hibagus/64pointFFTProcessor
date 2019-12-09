@@ -214,6 +214,7 @@ module fft_64p_16b_top(
   intermediate_circuit intermediate_circ(
   .clk(clk), 
   .rst(rst), 
+  .hold(master_out_hold_all_in),
   .SET_0_IN(fft_8p_first_data_0_out), 
   .SET_1_IN(fft_8p_first_data_1_out), 
   .SET_2_IN(fft_8p_first_data_2_out), 
