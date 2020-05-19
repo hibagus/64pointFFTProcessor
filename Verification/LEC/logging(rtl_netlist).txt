@@ -1,0 +1,918 @@
+                          CONFORMAL (R)
+                   Version 15.10-s260 (02-Oct-2015) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2015. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: set_undefined_cell Black_box -Both
+0
+// Command: read_library -Both -Replace  -sensitive -Statetable -Liberty /misc/scratch/bagus/verification/gscl45nm.lib -nooptimize
+// Parsing file /misc/scratch/bagus/verification/gscl45nm.lib ...
+// Note: Read Liberty library successfully
+0
+// Command: source /home/ecelrc/students/tjemilehin/verif_labs/Project/rtl.list
+bit_adj_32b_to_16b.v black_cell.v bypass_32b.v cb_circuit.v complex_adder_ksa_32b.v complex_mult_twiddle_wn0_32b.v complex_mult_twiddle_wn1_32b.v complex_mult_twiddle_wn2_32b.v complex_mult_twiddle_wn3_32b.v complex_subst_ksa_32b.v const_mult_ksa_16b_halfsqrt2.v const_mult_ksa_16b_sqrt2.v dff_hold_sync_high_reset.v dff_inputsel_hold_sync_high_reset.v dff_segment_for_cb.v dff_segment_for_input.v dff_segment_for_output.v dff_sync_high_reset.v fft_64p_16b_top.v fft_8p_16b_top.v generic_complex_mult_16b.v generic_complex_mult_block.v generic_mult_16b.v grey_cell.v input_circuit.v input_counter.v interdimensional_multiplier.v intermediate_circuit.v ks_1_16b.v ks_1_32b.v ks_2_16b.v ks_2_32b.v ks_3_16b.v ks_3_32b.v ks_4_16b.v ks_4_32b.v ks_5_16b.v ks_5_32b.v ks_6_16b.v ks_6_32b.v ks_7_16b.v ks_7_32b.v ksa_top_16b.v ksa_top_32b.v lshifter.v master_control.v mux_2_to_1.v mux_8_to_1.v notgate.v output_circuit.v output_counter.v pg.v real_imaginary_interchange.v rshift_6_16b_to_16b.v scalling_out.v sgninv_16b.v sub_ksa_16b.v
+// Command: add_search_path /misc/scratch/bagus/verification/Verilog-RTL -Design -Golden -Recursive
+0
+// Command: read_design $RTL_LIST -Verilog -Golden -sensitive -nokeep_unreach -nosupply
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/bit_adj_32b_to_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/black_cell.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/bypass_32b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 6 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/bypass_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'TYPESEL' not allowed due to directive (`default_nettype none) on line 7 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/bypass_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 8 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/bypass_32b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 31 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 32 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_all_seg' not allowed due to directive (`default_nettype none) on line 33 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_0' not allowed due to directive (`default_nettype none) on line 34 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_1' not allowed due to directive (`default_nettype none) on line 35 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_2' not allowed due to directive (`default_nettype none) on line 36 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_3' not allowed due to directive (`default_nettype none) on line 37 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_4' not allowed due to directive (`default_nettype none) on line 38 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_5' not allowed due to directive (`default_nettype none) on line 39 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_6' not allowed due to directive (`default_nettype none) on line 40 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_7' not allowed due to directive (`default_nettype none) on line 41 at column 10 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D0' not allowed due to directive (`default_nettype none) on line 42 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D1' not allowed due to directive (`default_nettype none) on line 43 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D2' not allowed due to directive (`default_nettype none) on line 44 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D3' not allowed due to directive (`default_nettype none) on line 45 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D4' not allowed due to directive (`default_nettype none) on line 46 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D5' not allowed due to directive (`default_nettype none) on line 47 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D6' not allowed due to directive (`default_nettype none) on line 48 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D7' not allowed due to directive (`default_nettype none) on line 49 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q0' not allowed due to directive (`default_nettype none) on line 50 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q1' not allowed due to directive (`default_nettype none) on line 51 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q2' not allowed due to directive (`default_nettype none) on line 52 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q3' not allowed due to directive (`default_nettype none) on line 53 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q4' not allowed due to directive (`default_nettype none) on line 54 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q5' not allowed due to directive (`default_nettype none) on line 55 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q6' not allowed due to directive (`default_nettype none) on line 56 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q7' not allowed due to directive (`default_nettype none) on line 57 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/cb_circuit.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/complex_adder_ksa_32b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 9 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_adder_ksa_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'B32' not allowed due to directive (`default_nettype none) on line 10 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_adder_ksa_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 11 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_adder_ksa_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'COUT_32' not allowed due to directive (`default_nettype none) on line 12 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_adder_ksa_32b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn0_32b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 6 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn0_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 7 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn0_32b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn1_32b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 7 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn1_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 8 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn1_32b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn2_32b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 6 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn2_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 7 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn2_32b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn3_32b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 6 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn3_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 7 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_mult_twiddle_wn3_32b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/complex_subst_ksa_32b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 8 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_subst_ksa_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'B32' not allowed due to directive (`default_nettype none) on line 9 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_subst_ksa_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 10 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_subst_ksa_32b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'C_OUT32' not allowed due to directive (`default_nettype none) on line 11 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/complex_subst_ksa_32b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/const_mult_ksa_16b_halfsqrt2.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Data_in' not allowed due to directive (`default_nettype none) on line 6 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/const_mult_ksa_16b_halfsqrt2.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Data_out' not allowed due to directive (`default_nettype none) on line 7 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/const_mult_ksa_16b_halfsqrt2.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/const_mult_ksa_16b_sqrt2.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Data_in' not allowed due to directive (`default_nettype none) on line 6 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/const_mult_ksa_16b_sqrt2.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Data_out' not allowed due to directive (`default_nettype none) on line 7 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/const_mult_ksa_16b_sqrt2.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/dff_hold_sync_high_reset.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 10 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 11 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold' not allowed due to directive (`default_nettype none) on line 12 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D' not allowed due to directive (`default_nettype none) on line 13 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q' not allowed due to directive (`default_nettype none) on line 14 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_hold_sync_high_reset.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/dff_inputsel_hold_sync_high_reset.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 12 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_inputsel_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 13 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_inputsel_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold' not allowed due to directive (`default_nettype none) on line 14 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_inputsel_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'sel' not allowed due to directive (`default_nettype none) on line 15 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_inputsel_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D0' not allowed due to directive (`default_nettype none) on line 16 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_inputsel_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D1' not allowed due to directive (`default_nettype none) on line 17 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_inputsel_hold_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q' not allowed due to directive (`default_nettype none) on line 18 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_inputsel_hold_sync_high_reset.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 19 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 20 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold' not allowed due to directive (`default_nettype none) on line 21 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'sel' not allowed due to directive (`default_nettype none) on line 22 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D0' not allowed due to directive (`default_nettype none) on line 23 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D1' not allowed due to directive (`default_nettype none) on line 24 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D2' not allowed due to directive (`default_nettype none) on line 25 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D3' not allowed due to directive (`default_nettype none) on line 26 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D4' not allowed due to directive (`default_nettype none) on line 27 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D5' not allowed due to directive (`default_nettype none) on line 28 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D6' not allowed due to directive (`default_nettype none) on line 29 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D7' not allowed due to directive (`default_nettype none) on line 30 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D8' not allowed due to directive (`default_nettype none) on line 31 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q' not allowed due to directive (`default_nettype none) on line 33 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_cb.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_input.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 10 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_input.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 11 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_input.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold' not allowed due to directive (`default_nettype none) on line 12 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_input.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D' not allowed due to directive (`default_nettype none) on line 13 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_input.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q' not allowed due to directive (`default_nettype none) on line 14 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_input.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_output.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 12 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_output.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 13 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_output.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold' not allowed due to directive (`default_nettype none) on line 14 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_output.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'sel' not allowed due to directive (`default_nettype none) on line 15 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_output.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D7' not allowed due to directive (`default_nettype none) on line 16 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_output.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D1' not allowed due to directive (`default_nettype none) on line 17 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_output.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q' not allowed due to directive (`default_nettype none) on line 18 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_segment_for_output.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/dff_sync_high_reset.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 9 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 10 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D' not allowed due to directive (`default_nettype none) on line 11 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_sync_high_reset.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q' not allowed due to directive (`default_nettype none) on line 12 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/dff_sync_high_reset.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'In_Stream' not allowed due to directive (`default_nettype none) on line 12 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Mode' not allowed due to directive (`default_nettype none) on line 13 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Data_Start' not allowed due to directive (`default_nettype none) on line 14 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 15 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 16 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'next_data' not allowed due to directive (`default_nettype none) on line 17 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Data_Out' not allowed due to directive (`default_nettype none) on line 18 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Out_Stream' not allowed due to directive (`default_nettype none) on line 19 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_64p_16b_top.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xt0' not allowed due to directive (`default_nettype none) on line 20 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xt1' not allowed due to directive (`default_nettype none) on line 21 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xt2' not allowed due to directive (`default_nettype none) on line 22 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xt3' not allowed due to directive (`default_nettype none) on line 23 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xt4' not allowed due to directive (`default_nettype none) on line 24 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xt5' not allowed due to directive (`default_nettype none) on line 25 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xt6' not allowed due to directive (`default_nettype none) on line 26 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xt7' not allowed due to directive (`default_nettype none) on line 27 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xf0' not allowed due to directive (`default_nettype none) on line 28 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xf1' not allowed due to directive (`default_nettype none) on line 29 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xf2' not allowed due to directive (`default_nettype none) on line 30 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xf3' not allowed due to directive (`default_nettype none) on line 31 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xf4' not allowed due to directive (`default_nettype none) on line 32 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xf5' not allowed due to directive (`default_nettype none) on line 33 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xf6' not allowed due to directive (`default_nettype none) on line 34 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'xf7' not allowed due to directive (`default_nettype none) on line 35 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/fft_8p_16b_top.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_16b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'REAL_A32' not allowed due to directive (`default_nettype none) on line 12 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'IMAG_A32' not allowed due to directive (`default_nettype none) on line 13 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'REAL_R32' not allowed due to directive (`default_nettype none) on line 14 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'IMAG_R32' not allowed due to directive (`default_nettype none) on line 15 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_16b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_block.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 11 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_block.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'TYPESEL' not allowed due to directive (`default_nettype none) on line 12 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_block.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 13 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_complex_mult_block.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/generic_mult_16b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D_in' not allowed due to directive (`default_nettype none) on line 9 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_mult_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D_out' not allowed due to directive (`default_nettype none) on line 10 at column 21 in file '/misc/scratch/bagus/verification/Verilog-RTL/generic_mult_16b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/grey_cell.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 24 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 25 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'mode' not allowed due to directive (`default_nettype none) on line 26 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_all_seg' not allowed due to directive (`default_nettype none) on line 27 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_buf_0' not allowed due to directive (`default_nettype none) on line 28 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_buf_1' not allowed due to directive (`default_nettype none) on line 29 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_buf_2' not allowed due to directive (`default_nettype none) on line 30 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_buf_0' not allowed due to directive (`default_nettype none) on line 31 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_buf_1' not allowed due to directive (`default_nettype none) on line 32 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_buf_2' not allowed due to directive (`default_nettype none) on line 33 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'pos_hold_ctrl' not allowed due to directive (`default_nettype none) on line 34 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D' not allowed due to directive (`default_nettype none) on line 35 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q0' not allowed due to directive (`default_nettype none) on line 36 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q1' not allowed due to directive (`default_nettype none) on line 37 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q2' not allowed due to directive (`default_nettype none) on line 38 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q3' not allowed due to directive (`default_nettype none) on line 39 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q4' not allowed due to directive (`default_nettype none) on line 40 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q5' not allowed due to directive (`default_nettype none) on line 41 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q6' not allowed due to directive (`default_nettype none) on line 42 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q7' not allowed due to directive (`default_nettype none) on line 43 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_circuit.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/input_counter.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 10 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 11 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'datastart' not allowed due to directive (`default_nettype none) on line 12 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'counter_o' not allowed due to directive (`default_nettype none) on line 13 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'counter_idle' not allowed due to directive (`default_nettype none) on line 14 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'mastertrig' not allowed due to directive (`default_nettype none) on line 15 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/input_counter.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 78 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 79 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_0_IN' not allowed due to directive (`default_nettype none) on line 80 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_1_IN' not allowed due to directive (`default_nettype none) on line 81 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_2_IN' not allowed due to directive (`default_nettype none) on line 82 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_3_IN' not allowed due to directive (`default_nettype none) on line 83 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_4_IN' not allowed due to directive (`default_nettype none) on line 84 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_5_IN' not allowed due to directive (`default_nettype none) on line 85 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_6_IN' not allowed due to directive (`default_nettype none) on line 86 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_7_IN' not allowed due to directive (`default_nettype none) on line 87 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_0' not allowed due to directive (`default_nettype none) on line 88 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_1' not allowed due to directive (`default_nettype none) on line 89 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_2' not allowed due to directive (`default_nettype none) on line 90 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_3' not allowed due to directive (`default_nettype none) on line 91 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_4' not allowed due to directive (`default_nettype none) on line 92 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_5' not allowed due to directive (`default_nettype none) on line 93 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_6' not allowed due to directive (`default_nettype none) on line 94 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_7' not allowed due to directive (`default_nettype none) on line 95 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_0' not allowed due to directive (`default_nettype none) on line 96 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_1' not allowed due to directive (`default_nettype none) on line 97 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_2' not allowed due to directive (`default_nettype none) on line 98 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_3' not allowed due to directive (`default_nettype none) on line 99 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_4' not allowed due to directive (`default_nettype none) on line 100 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_5' not allowed due to directive (`default_nettype none) on line 101 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_6' not allowed due to directive (`default_nettype none) on line 102 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_7' not allowed due to directive (`default_nettype none) on line 103 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_0' not allowed due to directive (`default_nettype none) on line 104 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_1' not allowed due to directive (`default_nettype none) on line 105 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_2' not allowed due to directive (`default_nettype none) on line 106 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_3' not allowed due to directive (`default_nettype none) on line 107 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_4' not allowed due to directive (`default_nettype none) on line 108 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_5' not allowed due to directive (`default_nettype none) on line 109 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_6' not allowed due to directive (`default_nettype none) on line 110 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_7' not allowed due to directive (`default_nettype none) on line 111 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_0' not allowed due to directive (`default_nettype none) on line 112 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_1' not allowed due to directive (`default_nettype none) on line 113 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_2' not allowed due to directive (`default_nettype none) on line 114 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_3' not allowed due to directive (`default_nettype none) on line 115 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_4' not allowed due to directive (`default_nettype none) on line 116 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_5' not allowed due to directive (`default_nettype none) on line 117 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_6' not allowed due to directive (`default_nettype none) on line 118 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_7' not allowed due to directive (`default_nettype none) on line 119 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_0' not allowed due to directive (`default_nettype none) on line 120 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_1' not allowed due to directive (`default_nettype none) on line 121 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_2' not allowed due to directive (`default_nettype none) on line 122 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_3' not allowed due to directive (`default_nettype none) on line 123 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_4' not allowed due to directive (`default_nettype none) on line 124 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_5' not allowed due to directive (`default_nettype none) on line 125 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_6' not allowed due to directive (`default_nettype none) on line 126 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_7' not allowed due to directive (`default_nettype none) on line 127 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_0' not allowed due to directive (`default_nettype none) on line 128 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_1' not allowed due to directive (`default_nettype none) on line 129 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_2' not allowed due to directive (`default_nettype none) on line 130 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_3' not allowed due to directive (`default_nettype none) on line 131 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_4' not allowed due to directive (`default_nettype none) on line 132 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_5' not allowed due to directive (`default_nettype none) on line 133 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_6' not allowed due to directive (`default_nettype none) on line 134 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_7' not allowed due to directive (`default_nettype none) on line 135 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_0' not allowed due to directive (`default_nettype none) on line 136 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_1' not allowed due to directive (`default_nettype none) on line 137 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_2' not allowed due to directive (`default_nettype none) on line 138 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_3' not allowed due to directive (`default_nettype none) on line 139 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_4' not allowed due to directive (`default_nettype none) on line 140 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_5' not allowed due to directive (`default_nettype none) on line 141 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_6' not allowed due to directive (`default_nettype none) on line 142 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_7' not allowed due to directive (`default_nettype none) on line 143 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_0_OUT' not allowed due to directive (`default_nettype none) on line 144 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_1_OUT' not allowed due to directive (`default_nettype none) on line 145 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_2_OUT' not allowed due to directive (`default_nettype none) on line 146 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_3_OUT' not allowed due to directive (`default_nettype none) on line 147 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_4_OUT' not allowed due to directive (`default_nettype none) on line 148 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_5_OUT' not allowed due to directive (`default_nettype none) on line 149 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_6_OUT' not allowed due to directive (`default_nettype none) on line 150 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_7_OUT' not allowed due to directive (`default_nettype none) on line 151 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/interdimensional_multiplier.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 23 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 24 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold' not allowed due to directive (`default_nettype none) on line 25 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_0_IN' not allowed due to directive (`default_nettype none) on line 26 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_1_IN' not allowed due to directive (`default_nettype none) on line 27 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_2_IN' not allowed due to directive (`default_nettype none) on line 28 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_3_IN' not allowed due to directive (`default_nettype none) on line 29 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_4_IN' not allowed due to directive (`default_nettype none) on line 30 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_5_IN' not allowed due to directive (`default_nettype none) on line 31 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_6_IN' not allowed due to directive (`default_nettype none) on line 32 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_7_IN' not allowed due to directive (`default_nettype none) on line 33 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_0_OUT' not allowed due to directive (`default_nettype none) on line 34 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_1_OUT' not allowed due to directive (`default_nettype none) on line 35 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_2_OUT' not allowed due to directive (`default_nettype none) on line 36 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_3_OUT' not allowed due to directive (`default_nettype none) on line 37 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_4_OUT' not allowed due to directive (`default_nettype none) on line 38 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_5_OUT' not allowed due to directive (`default_nettype none) on line 39 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_6_OUT' not allowed due to directive (`default_nettype none) on line 40 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'SET_7_OUT' not allowed due to directive (`default_nettype none) on line 41 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/intermediate_circuit.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_1_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_1_32b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_2_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_2_32b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_3_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_3_32b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_4_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_4_32b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_5_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_5_32b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_6_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_6_32b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_7_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ks_7_32b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ksa_top_16b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/ksa_top_32b.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/lshifter.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D_in' not allowed due to directive (`default_nettype none) on line 11 at column 42 in file '/misc/scratch/bagus/verification/Verilog-RTL/lshifter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D_out' not allowed due to directive (`default_nettype none) on line 14 at column 42 in file '/misc/scratch/bagus/verification/Verilog-RTL/lshifter.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/master_control.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 82 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 83 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'mastertrig' not allowed due to directive (`default_nettype none) on line 84 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_all_in' not allowed due to directive (`default_nettype none) on line 85 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_buf_2' not allowed due to directive (`default_nettype none) on line 86 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_buf_1' not allowed due to directive (`default_nettype none) on line 87 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_buf_0' not allowed due to directive (`default_nettype none) on line 88 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_buf_2' not allowed due to directive (`default_nettype none) on line 89 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_buf_1' not allowed due to directive (`default_nettype none) on line 90 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_buf_0' not allowed due to directive (`default_nettype none) on line 91 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'pos_hold_ctrl' not allowed due to directive (`default_nettype none) on line 92 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_0' not allowed due to directive (`default_nettype none) on line 93 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_1' not allowed due to directive (`default_nettype none) on line 94 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_2' not allowed due to directive (`default_nettype none) on line 95 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_3' not allowed due to directive (`default_nettype none) on line 96 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_4' not allowed due to directive (`default_nettype none) on line 97 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_5' not allowed due to directive (`default_nettype none) on line 98 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_6' not allowed due to directive (`default_nettype none) on line 99 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Shuf_Ctrl_7' not allowed due to directive (`default_nettype none) on line 100 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_0' not allowed due to directive (`default_nettype none) on line 101 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_1' not allowed due to directive (`default_nettype none) on line 102 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_2' not allowed due to directive (`default_nettype none) on line 103 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_3' not allowed due to directive (`default_nettype none) on line 104 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_4' not allowed due to directive (`default_nettype none) on line 105 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_5' not allowed due to directive (`default_nettype none) on line 106 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_6' not allowed due to directive (`default_nettype none) on line 107 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Type_Sel_7' not allowed due to directive (`default_nettype none) on line 108 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_0' not allowed due to directive (`default_nettype none) on line 109 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_1' not allowed due to directive (`default_nettype none) on line 110 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_2' not allowed due to directive (`default_nettype none) on line 111 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_3' not allowed due to directive (`default_nettype none) on line 112 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_4' not allowed due to directive (`default_nettype none) on line 113 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_5' not allowed due to directive (`default_nettype none) on line 114 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_6' not allowed due to directive (`default_nettype none) on line 115 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_Sel_7' not allowed due to directive (`default_nettype none) on line 116 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_0' not allowed due to directive (`default_nettype none) on line 117 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_1' not allowed due to directive (`default_nettype none) on line 118 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_2' not allowed due to directive (`default_nettype none) on line 119 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_3' not allowed due to directive (`default_nettype none) on line 120 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_4' not allowed due to directive (`default_nettype none) on line 121 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_5' not allowed due to directive (`default_nettype none) on line 122 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_6' not allowed due to directive (`default_nettype none) on line 123 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DeShuf_Ctrl_7' not allowed due to directive (`default_nettype none) on line 124 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_0' not allowed due to directive (`default_nettype none) on line 125 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_1' not allowed due to directive (`default_nettype none) on line 126 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_2' not allowed due to directive (`default_nettype none) on line 127 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_3' not allowed due to directive (`default_nettype none) on line 128 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_4' not allowed due to directive (`default_nettype none) on line 129 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_5' not allowed due to directive (`default_nettype none) on line 130 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_6' not allowed due to directive (`default_nettype none) on line 131 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Bypass_EN_7' not allowed due to directive (`default_nettype none) on line 132 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_0' not allowed due to directive (`default_nettype none) on line 133 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_1' not allowed due to directive (`default_nettype none) on line 134 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_2' not allowed due to directive (`default_nettype none) on line 135 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_3' not allowed due to directive (`default_nettype none) on line 136 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_4' not allowed due to directive (`default_nettype none) on line 137 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_5' not allowed due to directive (`default_nettype none) on line 138 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_6' not allowed due to directive (`default_nettype none) on line 139 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Hold_Ctrl_7' not allowed due to directive (`default_nettype none) on line 140 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_0' not allowed due to directive (`default_nettype none) on line 141 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_1' not allowed due to directive (`default_nettype none) on line 142 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_2' not allowed due to directive (`default_nettype none) on line 143 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_3' not allowed due to directive (`default_nettype none) on line 144 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_4' not allowed due to directive (`default_nettype none) on line 145 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_5' not allowed due to directive (`default_nettype none) on line 146 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_6' not allowed due to directive (`default_nettype none) on line 147 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'DFF_Ctrl_7' not allowed due to directive (`default_nettype none) on line 148 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_0' not allowed due to directive (`default_nettype none) on line 149 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_1' not allowed due to directive (`default_nettype none) on line 150 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_2' not allowed due to directive (`default_nettype none) on line 151 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_3' not allowed due to directive (`default_nettype none) on line 152 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_4' not allowed due to directive (`default_nettype none) on line 153 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_5' not allowed due to directive (`default_nettype none) on line 154 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_6' not allowed due to directive (`default_nettype none) on line 155 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_seg_7' not allowed due to directive (`default_nettype none) on line 156 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_all_cb' not allowed due to directive (`default_nettype none) on line 157 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'counter_en' not allowed due to directive (`default_nettype none) on line 158 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'next_data' not allowed due to directive (`default_nettype none) on line 159 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/master_control.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/mux_2_to_1.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D0' not allowed due to directive (`default_nettype none) on line 10 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_2_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D1' not allowed due to directive (`default_nettype none) on line 11 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_2_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'S' not allowed due to directive (`default_nettype none) on line 12 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_2_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Y' not allowed due to directive (`default_nettype none) on line 13 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_2_to_1.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D0' not allowed due to directive (`default_nettype none) on line 16 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D1' not allowed due to directive (`default_nettype none) on line 17 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D2' not allowed due to directive (`default_nettype none) on line 18 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D3' not allowed due to directive (`default_nettype none) on line 19 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D4' not allowed due to directive (`default_nettype none) on line 20 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D5' not allowed due to directive (`default_nettype none) on line 21 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D6' not allowed due to directive (`default_nettype none) on line 22 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D7' not allowed due to directive (`default_nettype none) on line 23 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'S' not allowed due to directive (`default_nettype none) on line 24 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Y' not allowed due to directive (`default_nettype none) on line 25 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/mux_8_to_1.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/notgate.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A' not allowed due to directive (`default_nettype none) on line 8 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/notgate.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Y' not allowed due to directive (`default_nettype none) on line 9 at column 27 in file '/misc/scratch/bagus/verification/Verilog-RTL/notgate.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 18 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 19 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'mode' not allowed due to directive (`default_nettype none) on line 20 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_all_seg' not allowed due to directive (`default_nettype none) on line 21 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_all_seg' not allowed due to directive (`default_nettype none) on line 22 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D0' not allowed due to directive (`default_nettype none) on line 23 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D1' not allowed due to directive (`default_nettype none) on line 24 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D2' not allowed due to directive (`default_nettype none) on line 25 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D3' not allowed due to directive (`default_nettype none) on line 26 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D4' not allowed due to directive (`default_nettype none) on line 27 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D5' not allowed due to directive (`default_nettype none) on line 28 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D6' not allowed due to directive (`default_nettype none) on line 29 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'D7' not allowed due to directive (`default_nettype none) on line 30 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Q' not allowed due to directive (`default_nettype none) on line 31 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_circuit.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/output_counter.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'clk' not allowed due to directive (`default_nettype none) on line 11 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'rst' not allowed due to directive (`default_nettype none) on line 12 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'dataind' not allowed due to directive (`default_nettype none) on line 13 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'counter_o' not allowed due to directive (`default_nettype none) on line 14 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'datavalid' not allowed due to directive (`default_nettype none) on line 15 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'in_ctrl_all_out' not allowed due to directive (`default_nettype none) on line 16 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_counter.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'hold_all_out' not allowed due to directive (`default_nettype none) on line 17 at column 16 in file '/misc/scratch/bagus/verification/Verilog-RTL/output_counter.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/pg.v ...
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/real_imaginary_interchange.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 7 at column 19 in file '/misc/scratch/bagus/verification/Verilog-RTL/real_imaginary_interchange.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Swap' not allowed due to directive (`default_nettype none) on line 8 at column 19 in file '/misc/scratch/bagus/verification/Verilog-RTL/real_imaginary_interchange.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 9 at column 19 in file '/misc/scratch/bagus/verification/Verilog-RTL/real_imaginary_interchange.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/rshift_6_16b_to_16b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Data_In' not allowed due to directive (`default_nettype none) on line 6 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/rshift_6_16b_to_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Data_Out' not allowed due to directive (`default_nettype none) on line 7 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/rshift_6_16b_to_16b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/scalling_out.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A32' not allowed due to directive (`default_nettype none) on line 7 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/scalling_out.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'Swap' not allowed due to directive (`default_nettype none) on line 8 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/scalling_out.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R32' not allowed due to directive (`default_nettype none) on line 9 at column 18 in file '/misc/scratch/bagus/verification/Verilog-RTL/scalling_out.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/sgninv_16b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A16' not allowed due to directive (`default_nettype none) on line 6 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/sgninv_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R16' not allowed due to directive (`default_nettype none) on line 7 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/sgninv_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'COUT' not allowed due to directive (`default_nettype none) on line 8 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/sgninv_16b.v'
+// Parsing file /misc/scratch/bagus/verification/Verilog-RTL/sub_ksa_16b.v ...
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'A16' not allowed due to directive (`default_nettype none) on line 8 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/sub_ksa_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'B16' not allowed due to directive (`default_nettype none) on line 9 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/sub_ksa_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'COUT_16' not allowed due to directive (`default_nettype none) on line 10 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/sub_ksa_16b.v'
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type.
+// Warning: Implicit net 'R16' not allowed due to directive (`default_nettype none) on line 11 at column 17 in file '/misc/scratch/bagus/verification/Verilog-RTL/sub_ksa_16b.v'
+// Golden root module is set to 'fft_64p_16b_top'
+// Warning: (RTL1.1) Variable/signal is assigned by more than one concurrent statement (occurrence:1)
+// Warning: (RTL1.4) Assignment with LHS bit width is greater than RHS bit width (occurrence:1)
+// Warning: (RTL1.5b) Potential loss of RHS msb or carry-out bit (occurrence:6)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:16)
+// Warning: (VLG4.3a) Implicit declared net in port declaration was converted to wire type. (occurrence:376)
+// Warning: (DIR6.2) Supported compiler directive is detected (occurrence:17)
+// Note: (HRC3.5b) Open output port connection is detected (occurrence:278)
+// Warning: (HRC3.7) Boundary port direction might not be correct (occurrence:1)
+// Warning: (HRC3.8) Port positional association occurs in an instantiation (occurrence:265)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:21)
+// Warning: (HRC3.16) A wire is declared, but not used in the module (occurrence:3)
+// Warning: (HRC4) Multiple root modules/entities found (occurrence:1)
+// Note: Read VERILOG design successfully
+0
+// Command: read_design /misc/scratch/bagus/verification/fft_64p_16b_top.gatelevel.v -Verilog -Revised -sensitive -continuousassignment Bidirectional -nokeep_unreach -nosupply
+// Parsing file /misc/scratch/bagus/verification/fft_64p_16b_top.gatelevel.v ...
+// Revised root module is set to 'fft_64p_16b_top'
+// Warning: (RTL14) Signal has input but it has no output (occurrence:3062)
+// Warning: (VLG7) Nets are renamed after removing backslash (occurrence:10245)
+// Note: (HRC3.5b) Open output port connection is detected (occurrence:400)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:492)
+// Warning: (HRC3.16) A wire is declared, but not used in the module (occurrence:8)
+// Note: Read VERILOG design successfully
+0
+// Command: set_flatten_model -seq_constant -seq_constant_x_to 0
+0
+// Command: set_flatten_model -gated_clock
+0
+// Command: set_analyze_option -auto
+0
+// Command: set_system_mode lec
+// Processing Golden ...
+// Modeling Golden ...
+// Processing Revised ...
+// Modeling Revised ...
+// Balanced modeling (auto) mapped 12876 out of 12906 DFF/DLATs
+// (F18) Converted 30 DFF/DLAT(s) to ZERO/ONE
+// Warning: Golden and Revised have different numbers of key points:
+// Golden  key points = 6538
+// Revised key points = 6508
+// Mapping key points ...
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            36     34     6406      6476    
+--------------------------------------------------------------------------------
+Revised           36     34     6406      6476    
+================================================================================
+Unmapped points:
+================================================================================
+Golden:
+--------------------------------------------------------------------------------
+Unmapped points   DFF       Total   
+--------------------------------------------------------------------------------
+Unreachable       62        62      
+================================================================================
+Revised:
+--------------------------------------------------------------------------------
+Unmapped points   DFF       Total   
+--------------------------------------------------------------------------------
+Unreachable       32        32      
+================================================================================
+// Running automatic setup...
+// Automatic setup finished.
+0
+// Command: add_compared_points -all
+// 6440 compared points added to compare list
+0
+// Command: compare
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           34     6406      6440    
+================================================================================
+0
+// Command: puts "Num of compare points = [get_compare_points -count]"
+Num of compare points = 6440
+// Command: puts "Num of diff points    = [get_compare_points -NONequivalent -count]"
+Num of diff points    = 0
+// Command: puts "Num of abort points   = [get_compare_points -abort -count]"
+Num of abort points   = 0
+// Command: puts "Num of unknown points = [get_compare_points -unknown -count]"
+Num of unknown points = 0
