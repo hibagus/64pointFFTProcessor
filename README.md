@@ -15,8 +15,8 @@ This is the RTL implementation, physical implementation, and verification of 64-
 
 ### Related Courses
 This repository contains the project files that were used for project related to the courses listed below.  
-* ET4067 VLSI for Digital Communication System (Fall 2014), Institut Teknologi Bandung, Indonesia (Lecturer: Achmad Fuad Mas'ud)
-```
+#### ET4067 VLSI for Digital Communication System (Fall 2014), Institut Teknologi Bandung, Indonesia (Lecturer: Achmad Fuad Mas'ud)
+
 The initial RTL implementation of the circuit was done in VHDL as a part of the course project of ET4067 taught by Achmad Fuad Mas'ud. As an addition, simulation-based verification was done using Altera Quartus II 9.1sp2 and ModelSim-Altera 6.5b. The verification was done manually against the Matlab code provided in this repository. The carry-lookahead adder is used throughout the design. There are two known bugs in this design: the adder itself (the synthesizer couldn't synthesize correct adder, instead it synthesizes ripple-carry-adder) and the master control states. These bugs were fixed on the later project.
 
 The deliverables of this project are listed below.
@@ -24,11 +24,11 @@ The deliverables of this project are listed below.
 * Matlab script as the testbench (Matlab R2014a)
 * Simulation-based verification (Altera Quartus II 9.1sp2 and ModelSim-Altera 6.5b)
 * Project Report in Indonesian
-```
-* EE382M VLSI-I (Fall 2019), The University of Texas at Austin, United States (Lecturer: Jacob Abraham)
-```
+
+#### EE382M VLSI-I (Fall 2019), The University of Texas at Austin, United States (Lecturer: Jacob Abraham)
+
 The RTL implementation was done in Verilog. The adder was changed into kogge-stone adder (https://github.com/jeremytregunna/ksa) to improve the performance of the custom chips. The previous bugs were also fixed and new feature to overlap FFT/IFFT computation was also introduced in the form of next_data signal. Verification 
-```
+
 
 As an addition, this code can also simulate one-level branch predictor using the branch history table as a comparison to the two-level one. All of the code are implemented in C++11 and are written on Ubuntu on Windows Subsystem Linux with GCC 5.4.0.
 
