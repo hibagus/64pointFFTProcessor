@@ -1,14 +1,10 @@
 # Design and Implementation of 64-point Fast Fourier Transform (FFT/IFFT) Chip for OFDM-based 802.11a WLAN
 ET4067 VLSI for Digital Communication System (VHDL RTL Implementation)
-
 EE382M VLSI-I (Verilog RTL Implementation + Physical Implementation + Timing Signoff)
-
 EE382M Verification of Digital System (Formal Verification + Logical Equivalence Checking + Universal Verification Method)
 
 (C) 2014 Bagus Hanindhito 
-
 (C) 2019 Bagus Hanindhito, Reshma Rajarama Nayak, Shvetha Senthil Kumar
-
 (C) 2020 Bagus Hanindhito, Ashen Ekanayake, Tosin Jemilehin
 
 
