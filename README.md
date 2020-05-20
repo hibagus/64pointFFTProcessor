@@ -11,7 +11,7 @@ EE382M Verification of Digital System (Formal Verification + Logical Equivalence
 ### Brief Overview
 This is the RTL implementation, physical implementation, and verification of 64-point FFT/IFFT processor based on the design proposed in the papers listed below. The circuit uses Fixed-Point Q4.12 data format consists of 16-bit real data and 16-bit imaginary data.   
 [1] K. Maharatna, E. Grass and U. Jagdhold, "A 64-point Fourier transform chip for high-speed wireless LAN application using OFDM," in IEEE Journal of Solid-State Circuits, vol. 39, no. 3, pp. 484-493, March 2004, doi: 10.1109/JSSC.2003.822776.  
-The projects also use the following resources.
+The projects also use the following resources.  
 [2] (https://github.com/jeremytregunna/ksa)  
 [3] (https://www.eda.ncsu.edu/wiki/FreePDK45:Contents)  
 
